@@ -1,0 +1,3 @@
+# 5 October 2026 : prompt de segmentation tricolore
+
+À partir de cette image exacte, crée une planche de segmentation qui conserve strictement le cadrage, les contours et les positions : tronc rouge pur, branches et rameaux bleu pur, feuilles vert pur, fond noir. Aucun dégradé, aucune ombre, aucun déplacement ni élément inventé. Présente la référence, le masque tricolore et les trois masques séparés, puis isole et numérote les composants avec leurs points d’attache pour la reconstruction dans Houdini. Les parties cachées restent indiquées comme inconnues. (5 October 2026)
