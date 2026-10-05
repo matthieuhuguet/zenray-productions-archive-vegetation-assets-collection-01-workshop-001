@@ -1,0 +1,10 @@
+{
+  "trunk_points": 4608,
+  "trunk_faces": 4562,
+  "vop_nodes": 7,
+  "max_relief": 0.02313372538162981,
+  "cook_seconds": 0.056597499999043066,
+  "replay_faces": 45962,
+  "hda": "/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/otls/ZenRay_Eucalyptus_v004.hda",
+  "errors": []
+}
