@@ -1,0 +1,13 @@
+{
+  "date": "5 October 2026",
+  "camera": {
+    "yaw": 0.2918665105172409,
+    "pitch": -0.24749828291302212,
+    "scale": 448.237324441448,
+    "cx": 543.731168932789,
+    "cy": 1958.282529816376,
+    "wood_radius_scale": 1.9274700537845066
+  },
+  "wood_proxy_iou": 0.5193067271390658,
+  "limit": "axis-and-radius proxy, camera fit against estimated mask; does not prove actual final geometry overlap"
+}
