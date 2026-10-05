@@ -1,0 +1,44 @@
+{
+  "date": "5 October 2026",
+  "components": [
+    "zenray_native_trunk::1.0",
+    "zenray_native_branch::1.0",
+    "zenray_native_leaf_card::1.0"
+  ],
+  "branches": [
+    {
+      "name": "Branch_left",
+      "parent": "Trunk_Master",
+      "attach_u": 0.482651719382042,
+      "depth_status": "fitted"
+    },
+    {
+      "name": "Branch_far_left",
+      "parent": "Trunk_Master",
+      "attach_u": 0.4342066409923249,
+      "depth_status": "fitted"
+    },
+    {
+      "name": "Branch_center",
+      "parent": "Trunk_Master",
+      "attach_u": 0.5798154908184399,
+      "depth_status": "fitted"
+    },
+    {
+      "name": "Branch_right",
+      "parent": "Trunk_Master",
+      "attach_u": 0.5992487446070571,
+      "depth_status": "fitted"
+    },
+    {
+      "name": "Branch_low_right",
+      "parent": "Trunk_Master",
+      "attach_u": 0.39731491890877135,
+      "depth_status": "interpreted"
+    }
+  ],
+  "output_points": 6720,
+  "output_primitives": 6648,
+  "errors": [],
+  "native_authoring_only": true
+}

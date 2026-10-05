@@ -1,0 +1,14 @@
+{
+  "captures": [
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/01_Trunk/front-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/01_Trunk/side-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/01_Trunk/quarter-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/01_Trunk/top-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/02_Branches/front-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/02_Branches/side-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/02_Branches/quarter-viewport.png",
+    "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001/02_Branches/top-viewport.png"
+  ],
+  "real_viewport": true,
+  "restored_objects": true
+}

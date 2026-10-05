@@ -1,0 +1,34 @@
+# 5 October 2026: real four-camera OpenGL captures, restoring the live Houdini viewport and other objects.
+import hou,json,math
+from pathlib import Path
+WORK=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01');DATA=WORK/'measurements/tree/native-v001'
+net=hou.node('/obj/Eucalyptus');fit=json.loads((DATA/'NativeCameraFit-v001.json').read_text());viewer=hou.ui.paneTabOfType(hou.paneTabType.SceneViewer);vp=viewer.curViewport();s=vp.settings();oldpath=viewer.pwd();oldpin=viewer.isPin();oldcam=vp.camera();oldout=net.displayNode();states={o.path():o.isDisplayFlagSet() for o in hou.node('/obj').children() if hasattr(o,'isDisplayFlagSet')}
+old={key:getattr(s,key)() for key in ['lighting','displayTextures','showingMaterials','showingGeometryColor','displayBackgroundImage','displayEnvironmentBackgroundImage','displayOrthoGrid']};target=hou.ui.curDesktop().name()+'.'+viewer.name()+'.world.'+vp.name();oldoptions=hou.hscript('viewdisplay '+target)[0];guides={key:s.guideEnabled(getattr(hou.viewportGuide,key)) for key in ['XZPlane','XYPlane','YZPlane']};planes={'construction':viewer.constructionPlane().isVisible(),'reference':viewer.referencePlane().isVisible()};types=[hou.displaySetType.CurrentModel,hou.displaySetType.DisplayModel,hou.displaySetType.SceneObject];dss={t:{'linked':s.displaySet(t).isToolbarLinked(),'shading':s.displaySet(t).shadedMode(),'profiles':s.displaySet(t).isShowingPrimProfiles(),'ghost':s.displaySet(t).isUsingGhostedLook(),'faded':s.displaySet(t).isUsingFadedLook()} for t in types};oldwire=s.wireOverPackedGeo();cam=None;paths=[]
+phases=globals().get('capture_phases',[('01_Trunk',net.node('Trunk_Master')),('02_Branches',net.node('OUT_Trunk_Branches'))])
+try:
+ viewer.setPin(False);viewer.setPwd(net);hou.hscript('viewdispopts -s off '+target);hou.hscript('viewdisplay -g off -i off -T off -R off -H off '+target)
+ for key in guides:s.enableGuide(getattr(hou.viewportGuide,key),False)
+ viewer.constructionPlane().setIsVisible(False);viewer.referencePlane().setIsVisible(False);s.setWireOverPackedGeo(False)
+ for t in types:
+  ds=s.displaySet(t);ds.setToolbarLinked(False);ds.setShadedMode(hou.glShadingType.Smooth);ds.showPrimProfiles(False);ds.useGhostedLook(False);ds.useFadedLook(False)
+ for path in states:hou.node(path).setDisplayFlag(path==net.path())
+ s.setDisplayTextures(False);s.showMaterials(False);s.showGeometryColor(True);s.setDisplayBackgroundImage(False);s.setDisplayEnvironmentBackgroundImage(False);s.setDisplayOrthoGrid(False)
+ cam=hou.node('/obj').createNode('cam','Native_Measurement_Camera');cam.parm('projection').set(1);cam.parm('resx').set(1448);cam.parm('resy').set(1086)
+ for phase,out in phases:
+  d=DATA/phase;d.mkdir(parents=True,exist_ok=True);out.setDisplayFlag(True);out.cook(force=True)
+  for view,c in fit['cameras'].items():
+   yaw,pitch,scale,cx,cy=c;right=hou.Vector3(math.cos(yaw),0,-math.sin(yaw));up=hou.Vector3(-math.sin(yaw)*math.sin(pitch),math.cos(pitch),-math.cos(yaw)*math.sin(pitch));direction=hou.Vector3(math.sin(yaw)*math.cos(pitch),math.sin(pitch),math.cos(yaw)*math.cos(pitch));center=right*((362-cx)/scale)+up*((cy-271.5)/scale);center=center*net.worldTransform();eye=center+direction*100;cam.parmTuple('t').set(eye);cam.parmTuple('r').set(hou.hmath.buildRotateLookAt(eye,center,up).extractRotates());cam.parm('orthowidth').set(724/scale);vp.setCamera(cam)
+   fb=viewer.flipbookSettings().stash();path=str(d/(view+'-viewport.png'));fb.output(path);fb.outputToMPlay(False);fb.useResolution(True);fb.resolution((1448,1086));fb.cropOutMaskOverlay(True);fb.frameRange((hou.frame(),hou.frame()));viewer.flipbook(vp,fb);paths.append(path)
+finally:
+ if oldout:oldout.setDisplayFlag(True)
+ vp.setCamera(oldcam)
+ if cam:cam.destroy()
+ for key,value in guides.items():s.enableGuide(getattr(hou.viewportGuide,key),value)
+ s.setWireOverPackedGeo(oldwire);viewer.constructionPlane().setIsVisible(planes['construction']);viewer.referencePlane().setIsVisible(planes['reference'])
+ for t,v in dss.items():
+  ds=s.displaySet(t);ds.setToolbarLinked(v['linked']);ds.setShadedMode(v['shading']);ds.showPrimProfiles(v['profiles']);ds.useGhostedLook(v['ghost']);ds.useFadedLook(v['faded'])
+ for path,flag in states.items():
+  if hou.node(path):hou.node(path).setDisplayFlag(flag)
+ s.setLighting(old['lighting']);s.setDisplayTextures(old['displayTextures']);s.showMaterials(old['showingMaterials']);s.showGeometryColor(old['showingGeometryColor']);s.setDisplayBackgroundImage(old['displayBackgroundImage']);s.setDisplayEnvironmentBackgroundImage(old['displayEnvironmentBackgroundImage']);s.setDisplayOrthoGrid(old['displayOrthoGrid']);viewer.setPwd(oldpath);viewer.setPin(oldpin);hou.hscript(oldoptions)
+result={'captures':paths,'real_viewport':True,'restored_objects':all(hou.node(p).isDisplayFlagSet()==v for p,v in states.items() if hou.node(p))}
+(DATA/'CaptureSteps-v001.json').write_text(json.dumps(result,indent=2))

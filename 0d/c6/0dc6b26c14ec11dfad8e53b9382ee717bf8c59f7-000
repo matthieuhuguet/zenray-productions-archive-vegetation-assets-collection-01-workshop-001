@@ -20,6 +20,11 @@ def fp(k,label,value,lo=0,hi=1):return hou.FloatParmTemplate(k,label,1,default_v
 def ip(k,label,value,lo=1,hi=128):return hou.IntParmTemplate(k,label,1,default_value=(value,),min=lo,max=hi)
 def sp(k,label,value):return hou.StringParmTemplate(k,label,1,default_value=(value,))
 def coords(points):return ' '.join(','.join(f'{x:.7f}' for x in p) for p in points)
+def asset(n,name,path,label,inputs=0):
+ g=n.parmTemplateGroup();values={p.name():p.eval() for p in n.parms() if p.name() in ['guide','radius','resolution','sides','attach_u','tip_ratio','length','width_ratio','cross_angle','taper']};a=n.createDigitalAsset(name=name,hda_file_name=path,description=label,min_num_inputs=inputs,max_num_inputs=inputs);d=a.type().definition();d.setParmTemplateGroup(g);a.setParmTemplateGroup(g)
+ for k,v in values.items():a.parm(k).set(v)
+ d.updateFromNode(a);return a
+
 def output(parent,name,src,index=0):return node(parent,'output',name,[src],outputidx=index)
 def group(parent,name,src):return node(parent,'groupcreate','Group_'+name,[src],groupname=name,grouptype=0,basegroup='*')
 def color(parent,name,src,rgb):return node(parent,'color',name,[src],colorr=rgb[0],colorg=rgb[1],colorb=rgb[2])
@@ -35,7 +40,7 @@ p=fit['trunk_points'];dist=[0.]
 for a,b in zip(p,p[1:]):dist.append(dist[-1]+math.dist(a,b))
 ramp=hou.Ramp([hou.rampBasis.MonotoneCubic]*len(p),[d/dist[-1] for d in dist],[v/max(fit['trunk_radius']) for v in fit['trunk_radius']]);tr.parm('taper').set(ramp);s.parm('scaleramp').set(ramp)
 wood=color(tr,'Clay_Trunk',group(tr,'trunk',s),(.64,.62,.53));output(tr,'OUT_Trunk',wood);output(tr,'OUT_Trunk_Spine',r,1);tr.layoutChildren()
-tr=tr.createDigitalAsset(name='zenray_native_trunk::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_Trunk.hda'),description='ZenRay Native Trunk',min_num_inputs=0,max_num_inputs=0);tr.setDisplayFlag(False)
+tr=asset(tr,'zenray_native_trunk::1.0',str(PROD/'otls/ZenRay_Native_Trunk.hda'),'ZenRay Native Trunk');tr.setDisplayFlag(False)
 # 5 October 2026: branch input 0 is the parent's spine; Carve produces the attachment, Xform carries the local editable guide.
 br=net.createNode('subnet','Branch_Template')
 controls(br,[fp('attach_u','Parent attachment',.65),sp('guide','Local measured guide','0,0,0 .2,.3,0 .5,.5,.1'),fp('radius','Base radius',.12,.001,.4),fp('tip_ratio','Tip ratio',.1,.001,1),fp('resolution','Curve spacing',.06,.01,.2),ip('sides','Tube sides',12,4,32)])
@@ -48,7 +53,7 @@ r=node(br,'resample','Smooth_Branch_Curve',[place],treatpolysas=2,docurveuattr=1
 s=node(br,'sweep::2.0','Branch_Sweep',[r],surfaceshape=1,applyscale=1,endcaptype=1,computeuvs=1,reversecrosssections=1)
 s.parm('radius').setExpression('ch("../radius")');s.parm('cols').setExpression('ch("../sides")');s.parm('scaleramp').set(hou.Ramp([hou.rampBasis.MonotoneCubic]*3,[0,.55,1],[1,.62,.1]));s.parm('scaleramp3value').setExpression('ch("../tip_ratio")')
 wood=color(br,'Clay_Branch',group(br,'branch',s),(.52,.51,.43));output(br,'OUT_Branch',wood);output(br,'OUT_Branch_Spine',r,1);br.layoutChildren()
-br=br.createDigitalAsset(name='zenray_native_branch::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_Branch.hda'),description='ZenRay Native Branch',min_num_inputs=1,max_num_inputs=1);br.setDisplayFlag(False)
+br=asset(br,'zenray_native_branch::1.0',str(PROD/'otls/ZenRay_Native_Branch.hda'),'ZenRay Native Branch',1);br.setDisplayFlag(False)
 # 5 October 2026: two flat native Grid quads, crossing at 90 degrees around their long axis.
 lf=net.createNode('subnet','Leaf_Card_Template')
 controls(lf,[fp('length','Card length',.11,.025,.3),fp('width_ratio','Width ratio',.18,.05,.5),fp('cross_angle','Cross angle',90,0,180)])
@@ -57,7 +62,7 @@ g.parm('sizex').setExpression('ch("../length")*ch("../width_ratio")');g.parm('si
 uv=node(lf,'texture','Leaf_UV',[g],type=0) if hou.sopNodeTypeCategory().nodeTypes().get('texture') else node(lf,'uvproject','Leaf_UV',[g])
 cr=node(lf,'copyxform','Crossed_Pair',[uv],ncy=2,ry=90);cr.parm('ry').setExpression('ch("../cross_angle")')
 normal=node(lf,'normal','Leaf_Normals',[cr]);colored=color(lf,'Leaf_Display_Color',group(lf,'leaf',normal),(.22,.32,.10));output(lf,'OUT_Leaf_Cards',colored);lf.layoutChildren()
-lf=lf.createDigitalAsset(name='zenray_native_leaf_card::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_LeafCard.hda'),description='ZenRay Native Leaf Card',min_num_inputs=0,max_num_inputs=0);lf.setDisplayFlag(False)
+lf=asset(lf,'zenray_native_leaf_card::1.0',str(PROD/'otls/ZenRay_Native_LeafCard.hda'),'ZenRay Native Leaf Card');lf.setDisplayFlag(False)
 # 5 October 2026: assemble parent/child branch instances, never duplicate definitions.
 branch_nodes=[];branch_curves={};models=[]
 for b in guides['branches']:
