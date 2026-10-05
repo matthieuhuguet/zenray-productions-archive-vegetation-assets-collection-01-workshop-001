@@ -1,0 +1,101 @@
+# 5 October 2026 : geometry library of the Lily (Lilium) asset, embedded verbatim in every Python SOP of /obj/Lily_Flower so that the hip does not depend on an external file. Every size comes from the spare parameters of the parent geo node (HDA rule). Units: metres, Y up, texel density 4.0 UV per metre on tube like parts.
+# FR : bibliotheque de geometrie du lys, copiee dans chaque Python SOP.
+import hou, math, random
+V3 = hou.Vector3
+def PRM(n): return hou.pwd().parent().parm(n).eval()
+def rot(v, ax, a):
+    ax = ax.normalized(); c, s = math.cos(a), math.sin(a)
+    return v * c + ax.cross(v) * s + ax * (ax.dot(v) * (1 - c))
+def frame_perp(d):
+    ref = V3(0, 1, 0) if abs(d.normalized().dot(V3(0, 1, 0))) < 0.95 else V3(1, 0, 0)
+    e1 = d.cross(ref).normalized(); e2 = d.cross(e1).normalized(); return e1, e2
+def prim_attrs(geo):
+    for n, t in (('mat', ''), ('part', '')):
+        if geo.findPrimAttrib(n) is None: geo.addAttrib(hou.attribType.Prim, n, t)
+    if geo.findPointAttrib('uv') is None: geo.addAttrib(hou.attribType.Point, 'uv', (0.0, 0.0, 0.0))
+    if geo.findPrimAttrib('Cd') is None: geo.addAttrib(hou.attribType.Prim, 'Cd', (1.0, 1.0, 1.0))
+def grid(geo, rows, mat, part, col):
+    """rows: list of rows, each a list of (position V3, uv (u, v)); builds quads between neighbouring rows."""
+    prim_attrs(geo); ids = []
+    for row in rows:
+        r = []
+        for (p, uv) in row:
+            pt = geo.createPoint(); pt.setPosition(p); pt.setAttribValue('uv', (uv[0], uv[1], 0.0)); r.append(pt)
+        ids.append(r)
+    for i in range(len(ids) - 1):
+        for j in range(len(ids[i]) - 1):
+            pr = geo.createPolygon()
+            for pt in (ids[i][j], ids[i][j + 1], ids[i + 1][j + 1], ids[i + 1][j]): pr.addVertex(pt)
+            pr.setAttribValue('mat', mat); pr.setAttribValue('part', part); pr.setAttribValue('Cd', col)
+def tube(geo, pts, radii, sides, mat, part, col, closed_tip=False):
+    """tube along a polyline with parallel transport frames; uv u around, v = length * 4.0 (4 UV per metre)."""
+    n = len(pts); tans = []
+    for i in range(n):
+        a = pts[max(0, i - 1)]; b = pts[min(n - 1, i + 1)]; tans.append((b - a).normalized())
+    e1, e2 = frame_perp(tans[0]); rows = []; L = 0.0
+    for i in range(n):
+        if i > 0:
+            L += (pts[i] - pts[i - 1]).length(); t0, t1 = tans[i - 1], tans[i]
+            ax = t0.cross(t1)
+            if ax.length() > 1e-8:
+                ang = math.acos(max(-1.0, min(1.0, t0.dot(t1)))); e1 = rot(e1, ax, ang); e2 = rot(e2, ax, ang)
+        row = []
+        for k in range(sides + 1):
+            a = 2 * math.pi * k / sides; row.append((pts[i] + (e1 * math.cos(a) + e2 * math.sin(a)) * radii[i], (k / float(sides), L * 4.0)))
+        rows.append(row)
+    grid(geo, rows, mat, part, col)
+def bez(p0, p1, p2, p3, n):
+    out = []
+    for i in range(n):
+        t = i / float(n - 1); u = 1 - t
+        out.append(p0 * (u ** 3) + p1 * (3 * u * u * t) + p2 * (3 * u * t * t) + p3 * (t ** 3))
+    return out
+
+# 5 October 2026 : components of the Eucalyptus: trunk, main branches, hanging twigs, leaf cards. One deterministic generator (tree_data) feeds every component so that twigs and cards always agree. Appended after the generic helpers of LilyLib.py. FR : composants de l'eucalyptus.
+BARK = (0.62, 0.58, 0.5); TWIG = (0.4, 0.35, 0.25); LEAF = (0.35, 0.5, 0.32)
+def tree_data():
+    rnd = random.Random(int(PRM('seed'))); H = PRM('trunk_height'); lean = PRM('trunk_lean'); R0 = PRM('trunk_radius'); out = {'trunk': None, 'branches': [], 'twigs': []}
+    tp = bez(V3(0, 0, 0), V3(0, H * 0.35, 0), V3(lean * 0.6, H * 0.7, lean * 0.1), V3(lean, H, lean * 0.25), 22)
+    out['trunk'] = (tp, [R0 * (1.0 + 0.55 * math.exp(-i * 0.8)) * (1.0 - 0.62 * i / 21.0) for i in range(22)])
+    def grow(P, d, L, r0, level, K):
+        pts = [P]; radii = [r0]; cur = P; dd = d
+        for k in range(1, K):
+            f = k / float(K - 1)
+            if level == 0: dd = (dd + V3(0, 0.10 * (0.5 - f), 0) + V3(rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1)) * 0.10).normalized()
+            else: dd = (dd + V3(0, -PRM('twig_droop') * 0.22 * f, 0) + V3(rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1)) * 0.14).normalized()
+            cur = cur + dd * (L / (K - 1)); pts.append(cur); radii.append(max(0.003, r0 * (1.0 - 0.7 * f)))
+        return pts, radii, dd
+    nb = int(PRM('branch_count')); crown = PRM('crown_radius')
+    for i in range(nb):
+        f = 0.5 + 0.5 * i / float(max(1, nb - 1)); idx = min(20, int(f * 21)); P = tp[idx]; az = rnd.uniform(0, 2 * math.pi) + i * 2.4; out_d = V3(math.cos(az), 0, math.sin(az))
+        d = (out_d * rnd.uniform(0.5, 0.9) + V3(0, rnd.uniform(0.5, 1.0), 0)).normalized(); L = crown * rnd.uniform(0.7, 1.1) * (1.15 - 0.5 * f)
+        pts, radii, dd = grow(P, d, L, out['trunk'][1][idx] * 0.42, 0, 12); out['branches'].append((pts, radii, 0))
+        for j in range(int(PRM('sub_branches'))):
+            q = rnd.uniform(0.35, 1.0); k = min(10, int(q * 11)); P2 = pts[k]; tang = (pts[k + 1] - pts[k]).normalized(); az2 = rnd.uniform(0, 2 * math.pi); e1, e2 = frame_perp(tang)
+            d2 = (tang * 0.7 + (e1 * math.cos(az2) + e2 * math.sin(az2)) * 0.6 + V3(0, 0.1, 0)).normalized(); p2, r2, dd2 = grow(P2, d2, L * 0.6, radii[k] * 0.55, 1, 9); out['branches'].append((p2, r2, 1))
+            for t in range(int(PRM('twigs_per_branch'))):
+                q2 = rnd.uniform(0.3, 1.0); k2 = min(7, int(q2 * 8)); P3 = p2[k2]; tg = (p2[k2 + 1] - p2[k2]).normalized(); az3 = rnd.uniform(0, 2 * math.pi); a1, a2 = frame_perp(tg)
+                d3 = (tg * 0.5 + (a1 * math.cos(az3) + a2 * math.sin(az3)) * 0.5 + V3(0, -0.6, 0)).normalized(); p3, r3, dd3 = grow(P3, d3, L * 0.45, r2[k2] * 0.5, 2, 7); out['twigs'].append((p3, r3, 2))
+    return out
+def trunk(geo):
+    pts, radii = tree_data()['trunk']; tube(geo, pts, radii, 14, 'bark', 'trunk', BARK)
+def branches(geo):
+    for i, (pts, radii, lv) in enumerate(tree_data()['branches']): tube(geo, pts, radii, 8 if lv == 0 else 6, 'bark', 'branch%d' % i, BARK)
+def twigs(geo):
+    for i, (pts, radii, lv) in enumerate(tree_data()['twigs']): tube(geo, pts, radii, 4, 'twig', 'twig%d' % i, TWIG)
+def leaf_cards(geo):
+    rnd=random.Random(int(PRM('seed'))+9); length=PRM('card_size'); count=int(PRM('leaves_per_twig'))
+    for index,(points,radii,level) in enumerate(tree_data()['twigs']):
+        for leaf_index in range(count):
+            fraction=.2+.8*leaf_index/max(1,count-1); position=fraction*(len(points)-1); segment=min(len(points)-2,int(position)); mix=position-segment
+            center=points[segment]*(1-mix)+points[segment+1]*mix
+            tangent=(points[segment+1]-points[segment]).normalized(); first,second=frame_perp(tangent)
+            angle=leaf_index*2.399+rnd.uniform(-.3,.3); outward=first*math.cos(angle)+second*math.sin(angle)
+            direction=(outward*.65+V3(0,-.75,0)+tangent*.2).normalized(); side=direction.cross(tangent).normalized()
+            leaf_length=length*rnd.uniform(.7,1.); width=leaf_length*PRM('leaf_width_ratio'); rows=[]
+            for step in range(7):
+                v=step/6.; profile=math.sin(math.pi*v)**.85
+                axis=center+direction*(leaf_length*v)+outward*(leaf_length*PRM('leaf_curl')*math.sin(math.pi*v))
+                rows.append([(axis+side*(width*.5*u*profile),((u+1)*.5,v)) for u in (-1.,0.,1.)])
+            grid(geo,rows,'leaf','leaf%d_%d'%(index,leaf_index),LEAF)
+geo=hou.pwd().geometry();geo.clear();leaf_cards(geo)

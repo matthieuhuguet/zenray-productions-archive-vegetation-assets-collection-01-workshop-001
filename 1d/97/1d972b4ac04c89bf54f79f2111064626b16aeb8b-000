@@ -71,3 +71,9 @@ Une planche quatre vues par asset, une height par surface, jamais de multi-sheet
 
 - `Orthographic model sheet of this exact reference asset, 4 views on a single clean sheet: front view, side view, top view, and 3/4 perspective view, neutral grey background, crisp edges, technical asset turnaround for 3D modeling.`
 - `From this reference image / asset, generate the seamless 16-bit greyscale height map texture, 1:1, 4096x4096, no lighting, no color, no shadows.`
+
+## Tree component sheet and modeling start (5 October 2026)
+
+- Reference sheet and reusable prompts: TreeComponentPrompts.md; generated overview: refs/tree-sheets/EucalyptusComponents-v001.png. (5 October 2026)
+- Geometry families: Trunk, Branch, Twig, Leaf; reference images guide measurements, hidden topology remains interpreted. Height references remain required before tree texturing. (5 October 2026)
+- Measured fit and before/after overlays: measurements/tree; previous graph preserved as snapshot v001 before_mask_fit in the scene folder. (5 October 2026)

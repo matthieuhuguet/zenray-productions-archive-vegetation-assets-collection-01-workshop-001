@@ -1,0 +1,95 @@
+{
+  "before": {
+    "front": {
+      "envelope_iou": 0.36744458029876137,
+      "strict_iou": 0.3194795807734008,
+      "tolerant_overlap": 0.6233908518214187
+    },
+    "side": {
+      "envelope_iou": 0.5428347801337697,
+      "strict_iou": 0.4724421919543871,
+      "tolerant_overlap": 0.8042379262127568
+    }
+  },
+  "before_parameters": {
+    "trunk_height": 4.5,
+    "trunk_lean": 0.8,
+    "crown_radius": 3.0,
+    "branch_count": 6,
+    "sub_branches": 3,
+    "twigs_per_branch": 4,
+    "card_size": 0.5
+  },
+  "after": {
+    "front": {
+      "envelope_iou": 0.6391965098998035,
+      "strict_iou": 0.5358170687038878,
+      "tolerant_overlap": 0.8405846478825253
+    },
+    "side": {
+      "envelope_iou": 0.5998782714546561,
+      "strict_iou": 0.5201410197819416,
+      "tolerant_overlap": 0.8268338773406632
+    }
+  },
+  "search": [
+    {
+      "parameter": "crown_radius",
+      "value": 2.0999999999999996,
+      "score": 0.5466034779945144
+    },
+    {
+      "parameter": "crown_radius",
+      "value": 3.9000000000000004,
+      "score": 0.5562849967300914
+    },
+    {
+      "parameter": "trunk_height",
+      "value": 3.15,
+      "score": 0.5918859389753881
+    },
+    {
+      "parameter": "trunk_height",
+      "value": 5.8500000000000005,
+      "score": 0.5179599766208007
+    },
+    {
+      "parameter": "trunk_lean",
+      "value": 0.945,
+      "score": 0.5605648255714921
+    },
+    {
+      "parameter": "trunk_lean",
+      "value": 1.7550000000000001,
+      "score": 0.6187763183137194
+    },
+    {
+      "parameter": "card_size",
+      "value": 0.33599999999999997,
+      "score": 0.6071895134538483
+    },
+    {
+      "parameter": "card_size",
+      "value": 0.624,
+      "score": 0.6137030252863944
+    }
+  ],
+  "parameters": {
+    "trunk_height": 3.15,
+    "trunk_radius": 0.24,
+    "trunk_lean": 1.7550000000000001,
+    "crown_radius": 3.0,
+    "branch_count": 9,
+    "sub_branches": 4,
+    "twigs_per_branch": 5,
+    "seed": 11,
+    "twig_droop": 1.0,
+    "card_size": 0.48,
+    "leaves_per_twig": 16,
+    "leaf_width_ratio": 0.17,
+    "leaf_curl": 0.14
+  },
+  "primitives": 41694,
+  "points": 70350,
+  "errors": {}
+}
