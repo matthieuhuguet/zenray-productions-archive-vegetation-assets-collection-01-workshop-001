@@ -1,0 +1,13 @@
+# 5 October 2026 14:17 Europe/Paris: retain same framing and publish strict masks plus readable comparison.
+from pathlib import Path
+import json,numpy as np
+from PIL import Image,ImageDraw,ImageFont,ImageFilter
+W=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01');D=W/'measurements/tree/four-view';font=ImageFont.truetype('/Users/zenray/Library/Fonts/InterVariable.ttf',24);canvas=Image.new('RGB',(1200,2040),(35,35,35));draw=ImageDraw.Draw(canvas);report={}
+for row,name in enumerate(['front','side','quarter','top']):
+ ref=Image.open(D/(name+'-reference.png')).convert('RGB');model=Image.open(D/(name+'-model.png')).convert('RGB');a=np.array(model).astype(int);b=np.array(ref).astype(int);mr=np.ptp(b,axis=2)>14;mm=np.ptp(a,axis=2)>14
+ common=(mm&mr).sum();union=(mm|mr).sum();strict=float(common/max(1,union));report[name]={'strict_iou':strict,'model_pixels':int(mm.sum()),'reference_pixels':int(mr.sum())}
+ overlay=np.zeros(a.shape,dtype='uint8');overlay[mm&mr]=(220,220,220);overlay[mm&~mr]=(225,75,75);overlay[mr&~mm]=(75,210,110)
+ Image.fromarray(mm.astype('uint8')*255).save(D/(name+'-model-mask.png'))
+ for col,img in enumerate([ref,model,Image.fromarray(overlay)]):
+  img.thumbnail((390,465));canvas.paste(img,(col*400+(400-img.width)//2,row*510+40));draw.text((col*400+12,row*510+7),[name.upper()+' REFERENCE','MODEL','OVERLAP '+str(round(strict*100))+'%'][col],font=font,fill=(235,235,235))
+canvas.save(D/'comparison-v006.png');(D/'scores-v006.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))

@@ -1,0 +1,22 @@
+{
+  "front": {
+    "strict_iou": 0.473187769272598,
+    "model_pixels": 53987,
+    "reference_pixels": 86891
+  },
+  "side": {
+    "strict_iou": 0.5227092569214057,
+    "model_pixels": 42408,
+    "reference_pixels": 61322
+  },
+  "quarter": {
+    "strict_iou": 0.4684641164216056,
+    "model_pixels": 56664,
+    "reference_pixels": 89247
+  },
+  "top": {
+    "strict_iou": 0.40024572450334034,
+    "model_pixels": 44494,
+    "reference_pixels": 83151
+  }
+}
