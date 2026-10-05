@@ -1,0 +1,69 @@
+# 5 October 2026: HOM orchestrates native SOPs; all shapes remain editable Curve, Sweep and Grid parameters.
+import hou,json,math
+from pathlib import Path
+WORK=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01')
+DATA=WORK/'measurements/tree/native-v001'
+PROD=Path('/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01')
+net=hou.node('/obj/Eucalyptus')
+for n in list(net.children()):n.destroy()
+fit=json.loads((DATA/'NativeCameraFit-v001.json').read_text());guides=json.loads((DATA/'NativeBranchGuides-v001.json').read_text())
+def node(parent,kind,name,inputs=(),**parms):
+ n=parent.createNode(kind,name,exact_type_name=kind=='curve')
+ for i,x in enumerate(inputs):n.setInput(i,x[0] if isinstance(x,tuple) else x,x[1] if isinstance(x,tuple) else 0)
+ for k,v in parms.items():n.parm(k).set(v)
+ return n
+def controls(n,params):
+ g=n.parmTemplateGroup();f=hou.FolderParmTemplate('controls','Controls')
+ for p in params:f.addParmTemplate(p)
+ g.append(f);n.setParmTemplateGroup(g)
+def fp(k,label,value,lo=0,hi=1):return hou.FloatParmTemplate(k,label,1,default_value=(value,),min=lo,max=hi)
+def ip(k,label,value,lo=1,hi=128):return hou.IntParmTemplate(k,label,1,default_value=(value,),min=lo,max=hi)
+def sp(k,label,value):return hou.StringParmTemplate(k,label,1,default_value=(value,))
+def coords(points):return ' '.join(','.join(f'{x:.7f}' for x in p) for p in points)
+def output(parent,name,src,index=0):return node(parent,'output',name,[src],outputidx=index)
+def group(parent,name,src):return node(parent,'groupcreate','Group_'+name,[src],groupname=name,grouptype=0,basegroup='*')
+def color(parent,name,src,rgb):return node(parent,'color',name,[src],colorr=rgb[0],colorg=rgb[1],colorb=rgb[2])
+# 5 October 2026: a trunk master contains an editable measured guide and a native radius ramp.
+tr=net.createNode('subnet','Trunk_Master')
+controls(tr,[sp('guide','Measured guide',coords(fit['trunk_points'])),fp('radius','Radius',max(fit['trunk_radius']),.01,.6),fp('resolution','Curve spacing',.035,.01,.15),ip('sides','Tube sides',24,8,48),hou.RampParmTemplate('taper','Radius profile',hou.rampParmType.Float)])
+c=node(tr,'curve','Measured_Trunk_Guide',type=0);c.parm('coords').setExpression('chs("../guide")',language=hou.exprLanguage.Hscript)
+r=node(tr,'resample','Smooth_Trunk_Curve',[c],length=.035,treatpolysas=2,docurveuattr=1)
+r.parm('length').setExpression('ch("../resolution")')
+s=node(tr,'sweep::2.0','Trunk_Sweep',[r],surfaceshape=1,endcaptype=1,applyscale=1,computeuvs=1,normalizev=0,reversecrosssections=1)
+s.parm('radius').setExpression('ch("../radius")');s.parm('cols').setExpression('ch("../sides")')
+p=fit['trunk_points'];dist=[0.]
+for a,b in zip(p,p[1:]):dist.append(dist[-1]+math.dist(a,b))
+ramp=hou.Ramp([hou.rampBasis.MonotoneCubic]*len(p),[d/dist[-1] for d in dist],[v/max(fit['trunk_radius']) for v in fit['trunk_radius']]);tr.parm('taper').set(ramp);s.parm('scaleramp').set(ramp)
+wood=color(tr,'Clay_Trunk',group(tr,'trunk',s),(.64,.62,.53));output(tr,'OUT_Trunk',wood);output(tr,'OUT_Trunk_Spine',r,1);tr.layoutChildren()
+tr=tr.createDigitalAsset(name='zenray_native_trunk::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_Trunk.hda'),description='ZenRay Native Trunk',min_num_inputs=0,max_num_inputs=0);tr.setDisplayFlag(False)
+# 5 October 2026: branch input 0 is the parent's spine; Carve produces the attachment, Xform carries the local editable guide.
+br=net.createNode('subnet','Branch_Template')
+controls(br,[fp('attach_u','Parent attachment',.65),sp('guide','Local measured guide','0,0,0 .2,.3,0 .5,.5,.1'),fp('radius','Base radius',.12,.001,.4),fp('tip_ratio','Tip ratio',.1,.001,1),fp('resolution','Curve spacing',.06,.01,.2),ip('sides','Tube sides',12,4,32)])
+attach=node(br,'carve','Parent_Attachment',[(br.indirectInputs()[0],0)],arclen=1,domainu1=.65,extractop=1)
+attach.parm('domainu1').setExpression('ch("../attach_u")')
+c=node(br,'curve','Editable_Branch_Guide',type=0);c.parm('coords').setExpression('chs("../guide")',language=hou.exprLanguage.Hscript)
+place=node(br,'xform','Attach_To_Parent',[c])
+for axis,i in zip('xyz',range(3)):place.parm('t'+axis).setExpression(f'point("../Parent_Attachment",0,"P",{i})')
+r=node(br,'resample','Smooth_Branch_Curve',[place],treatpolysas=2,docurveuattr=1);r.parm('length').setExpression('ch("../resolution")')
+s=node(br,'sweep::2.0','Branch_Sweep',[r],surfaceshape=1,applyscale=1,endcaptype=1,computeuvs=1,reversecrosssections=1)
+s.parm('radius').setExpression('ch("../radius")');s.parm('cols').setExpression('ch("../sides")');s.parm('scaleramp').set(hou.Ramp([hou.rampBasis.MonotoneCubic]*3,[0,.55,1],[1,.62,.1]));s.parm('scaleramp3value').setExpression('ch("../tip_ratio")')
+wood=color(br,'Clay_Branch',group(br,'branch',s),(.52,.51,.43));output(br,'OUT_Branch',wood);output(br,'OUT_Branch_Spine',r,1);br.layoutChildren()
+br=br.createDigitalAsset(name='zenray_native_branch::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_Branch.hda'),description='ZenRay Native Branch',min_num_inputs=1,max_num_inputs=1);br.setDisplayFlag(False)
+# 5 October 2026: two flat native Grid quads, crossing at 90 degrees around their long axis.
+lf=net.createNode('subnet','Leaf_Card_Template')
+controls(lf,[fp('length','Card length',.11,.025,.3),fp('width_ratio','Width ratio',.18,.05,.5),fp('cross_angle','Cross angle',90,0,180)])
+g=node(lf,'grid','Flat_Leaf_Card',rows=2,cols=2,orient=0)
+g.parm('sizex').setExpression('ch("../length")*ch("../width_ratio")');g.parm('sizey').setExpression('ch("../length")');g.parm('ty').setExpression('ch("../length")*.5')
+uv=node(lf,'texture','Leaf_UV',[g],type=0) if hou.sopNodeTypeCategory().nodeTypes().get('texture') else node(lf,'uvproject','Leaf_UV',[g])
+cr=node(lf,'copyxform','Crossed_Pair',[uv],ncy=2,ry=90);cr.parm('ry').setExpression('ch("../cross_angle")')
+normal=node(lf,'normal','Leaf_Normals',[cr]);colored=color(lf,'Leaf_Display_Color',group(lf,'leaf',normal),(.22,.32,.10));output(lf,'OUT_Leaf_Cards',colored);lf.layoutChildren()
+lf=lf.createDigitalAsset(name='zenray_native_leaf_card::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_LeafCard.hda'),description='ZenRay Native Leaf Card',min_num_inputs=0,max_num_inputs=0);lf.setDisplayFlag(False)
+# 5 October 2026: assemble parent/child branch instances, never duplicate definitions.
+branch_nodes=[];branch_curves={};models=[]
+for b in guides['branches']:
+ ins=net.createNode('zenray_native_branch::1.0','Branch_'+b['name']);ins.setInput(0,tr,1);ins.parm('attach_u').set(b['attach_u']);root=b['points'][0];local=[[p[i]-root[i] for i in range(3)] for p in b['points']];ins.parm('guide').set(coords(local));ins.parm('radius').set(max(b['radii']));ins.parm('tip_ratio').set(b['radii'][-1]/max(b['radii']));ins.setDisplayFlag(False);branch_nodes.append(ins);branch_curves[b['name']]=ins;models.append({'name':ins.name(),'parent':tr.name(),'attach_u':b['attach_u'],'depth_status':b['depth_status']})
+br.destroy()
+wood=node(net,'merge','M_Main_Wood',[tr]+branch_nodes);normal=node(net,'normal','N_Main_Wood',[wood]);out=node(net,'null','OUT_Trunk_Branches',[normal]);out.setDisplayFlag(True);out.setRenderFlag(True)
+net.layoutChildren();out.cook(force=True);hou.hipFile.save()
+report={'date':'5 October 2026','components':[tr.type().name(),branch_nodes[0].type().name(),lf.type().name()],'branches':models,'output_points':len(out.geometry().points()),'output_primitives':len(out.geometry().prims()),'errors':out.errors(),'native_authoring_only':True}
+(DATA/'NativeComponents-v001.json').write_text(json.dumps(report,indent=2));result=report

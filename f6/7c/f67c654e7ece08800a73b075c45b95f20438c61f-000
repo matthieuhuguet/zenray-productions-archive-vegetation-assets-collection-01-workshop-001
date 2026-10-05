@@ -1,0 +1,18 @@
+# 5 October 2026: test branch correspondences instead of assuming that screen-left is the same component in each view.
+import json,itertools,numpy as np
+from pathlib import Path
+R=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001');m=json.loads((R/'FourViewsMeasurements-v001.json').read_text());c=json.loads((R/'NativeCameraFit-v001.json').read_text())['cameras']
+def matrix(v):
+ yaw,pitch,s,cx,cy=v;return s*np.array([[np.cos(yaw),0,-np.sin(yaw)],[np.sin(yaw)*np.sin(pitch),-np.cos(pitch),np.cos(yaw)*np.sin(pitch)]])
+def sample(p):
+ p=np.array(p);t=np.r_[0,np.cumsum(np.linalg.norm(np.diff(p[:,:2],axis=0),axis=1))];t/=t[-1];T=np.linspace(0,1,6);return np.c_[np.interp(T,t,p[:,0]),np.interp(T,t,p[:,1])]
+roles=['left','far_left','center','right'];scores=[]
+for sp in itertools.permutations(roles):
+ for qp in itertools.permutations(roles):
+  total=0;matches=[]
+  for f,s,q in zip(roles,sp,qp):
+   obs=[sample(m['views'][view]['paths'][role]) for view,role in [('front',f),('side',s),('quarter',q)]]
+   A=np.concatenate([matrix(c[v]) for v in ['front','side','quarter']]);B=np.concatenate([(p-np.array(c[v][3:])).T for v,p in zip(['front','side','quarter'],obs)]);P=np.linalg.lstsq(A,B,rcond=None)[0].T
+   err=sum(np.sum((P@matrix(c[v]).T+np.array(c[v][3:])-o)**2) for v,o in zip(['front','side','quarter'],obs));total+=err;matches.append({'front':f,'side':s,'quarter':q,'rms':float(np.sqrt(err/18)),'points':P.tolist()})
+  scores.append((total,matches))
+best=min(scores,key=lambda x:x[0]);(R/'BranchCorrespondences-v001.json').write_text(json.dumps({'date':'5 October 2026','matches':best[1],'warning':'Best among tested interpretations; ambiguous identity remains visible, not factual topology.'},indent=2));print(json.dumps([{k:v for k,v in x.items() if k!='points'} for x in best[1]],indent=2))
