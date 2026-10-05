@@ -1,0 +1,57 @@
+# 5 October 2026 13:29 Europe/Paris: measure generated orthographic guides; never feed reference pixels into geometry.
+import json
+from pathlib import Path
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+ROOT = Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01')
+CONFIG = {'sheet': str(ROOT / 'refs/tree-sheets/EucalyptusComponents-v001.png'), 'crops': {'front': [0, 45, 416, 487], 'side': [420, 45, 778, 487]}, 'size': 192, 'chroma': 14, 'close': 5, 'tolerance': 2}
+
+def close(mask):
+    image = Image.fromarray(mask.astype('uint8') * 255)
+    return np.asarray(image.filter(ImageFilter.MaxFilter(CONFIG['close'])).filter(ImageFilter.MinFilter(CONFIG['close']))) > 0
+
+def references():
+    sheet = Image.open(CONFIG['sheet']).convert('RGB'); result = {}
+    for name, box in CONFIG['crops'].items():
+        pixels = np.asarray(sheet.crop(box)).astype('int16')
+        mask = (pixels.max(2) - pixels.min(2)) > CONFIG['chroma']
+        # 5 October 2026: chromatic bark and foliage distinguish the asset from the neutral background.
+        ys, xs = np.nonzero(mask); assert len(xs) > 1000
+        base = int(ys.max()); axis = float(np.median(xs[ys >= base - 8]))
+        scale = (CONFIG['size'] - 14) / float(base - ys.min())
+        output = Image.new('L', (CONFIG['size'], CONFIG['size']), 0)
+        source = Image.fromarray(mask.astype('uint8') * 255)
+        source = source.resize((round(source.width * scale), round(source.height * scale)), Image.Resampling.NEAREST)
+        output.paste(source, (round(CONFIG['size'] * .38 - axis * scale), round(CONFIG['size'] - 7 - base * scale)))
+        result[name] = np.asarray(output) > 0
+        output.save(ROOT / ('measurements/tree/reference-' + name + '.png'))
+    return result
+
+def project(geometry, view, size=None):
+    size = size or CONFIG['size']; positions = np.array([tuple(p.position()) for p in geometry.points()]); height = np.ptp(positions[:,1]); scale = (size - 14) / height
+    image = Image.new('L', (size, size), 0); draw = ImageDraw.Draw(image)
+    coord = 0 if view == 'front' else 2
+    for primitive in geometry.prims():
+        points = positions[[v.point().number() for v in primitive.vertices()]]
+        draw.polygon([(size * .38 + p[coord] * scale, size - 7 - (p[1] - positions[:,1].min()) * scale) for p in points], fill=255)
+    return np.asarray(image) > 0
+
+def scores(model, reference):
+    a,b = close(model),close(reference); union=(a|b).sum()
+    da = np.asarray(Image.fromarray(model.astype('uint8')*255).filter(ImageFilter.MaxFilter(1+2*CONFIG['tolerance'])))>0
+    db = np.asarray(Image.fromarray(reference.astype('uint8')*255).filter(ImageFilter.MaxFilter(1+2*CONFIG['tolerance'])))>0
+    return {'envelope_iou': float((a&b).sum()/max(1,union)), 'strict_iou': float((model&reference).sum()/max(1,(model|reference).sum())), 'tolerant_overlap':float(((model&db).sum()+(reference&da).sum())/max(1,model.sum()+reference.sum()))}
+
+def compare(geometry, reference, label):
+    report = {}; canvas = Image.new('RGB', (CONFIG['size']*2,CONFIG['size']))
+    for index, name in enumerate(reference):
+        model=project(geometry,name); ref=reference[name]; report[name]=scores(model,ref)
+        overlay=np.zeros(model.shape+(3,),dtype='uint8');overlay[model&ref]=(255,255,255);overlay[model&~ref]=(240,70,70);overlay[ref&~model]=(70,220,100)
+        canvas.paste(Image.fromarray(overlay),(CONFIG['size']*index,0))
+    canvas.resize((1152,576),Image.Resampling.NEAREST).save(ROOT/('measurements/tree/'+label+'.png'))
+    return report
+
+if __name__=='__main__':
+    refs=references(); report={'config':CONFIG,'pixel_area':{name:int(mask.sum()) for name,mask in refs.items()},'reference_kind':'AI interpretation; hidden topology unverified','absolute_scale':'unknown; views normalized by total tree height'}
+    (ROOT/'measurements/tree/reference-measures.json').write_text(json.dumps(report,indent=2))
+    print(json.dumps(report))

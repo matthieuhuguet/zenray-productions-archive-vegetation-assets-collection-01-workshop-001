@@ -1,0 +1,29 @@
+{
+  "config": {
+    "sheet": "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/refs/tree-sheets/EucalyptusComponents-v001.png",
+    "crops": {
+      "front": [
+        0,
+        45,
+        416,
+        487
+      ],
+      "side": [
+        420,
+        45,
+        778,
+        487
+      ]
+    },
+    "size": 192,
+    "chroma": 14,
+    "close": 5,
+    "tolerance": 2
+  },
+  "pixel_area": {
+    "front": 13671,
+    "side": 10326
+  },
+  "reference_kind": "AI interpretation; hidden topology unverified",
+  "absolute_scale": "unknown; views normalized by total tree height"
+}
