@@ -1,22 +1,22 @@
 {
   "front": {
-    "strict_iou": 0.473187769272598,
-    "model_pixels": 53987,
+    "strict_iou": 0.21919678536542048,
+    "model_pixels": 22944,
     "reference_pixels": 86891
   },
   "side": {
-    "strict_iou": 0.5227092569214057,
-    "model_pixels": 42408,
+    "strict_iou": 0.2741421021002512,
+    "model_pixels": 21366,
     "reference_pixels": 61322
   },
   "quarter": {
-    "strict_iou": 0.4684641164216056,
-    "model_pixels": 56664,
+    "strict_iou": 0.21478915044954613,
+    "model_pixels": 23302,
     "reference_pixels": 89247
   },
   "top": {
-    "strict_iou": 0.40024572450334034,
-    "model_pixels": 44494,
+    "strict_iou": 0.3280138239479569,
+    "model_pixels": 34434,
     "reference_pixels": 83151
   }
 }
