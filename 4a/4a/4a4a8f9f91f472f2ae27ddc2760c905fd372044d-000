@@ -1,0 +1,14 @@
+{
+  "date": "5 October 2026",
+  "version": "v007",
+  "camera": {
+    "yaw": 0.29,
+    "pitch": -0.247,
+    "scale": 400.0,
+    "cx": 560.0,
+    "cy": 1700.0
+  },
+  "wood_iou": 0.40576363265157117,
+  "limit": "union masks per family, does not represent leaf/wood visibility occlusion; measured against estimated segmentation",
+  "faces": 732336
+}
