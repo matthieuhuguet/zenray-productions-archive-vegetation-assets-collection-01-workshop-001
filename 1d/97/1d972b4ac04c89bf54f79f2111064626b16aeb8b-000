@@ -1,0 +1,73 @@
+# Vegatations Assets ZenRay Collection 01 : plan, composants, matériaux (5 October 2026)
+
+Références : trois travaux d'Erwan Gaudichon (ArtStation), 23 images 4K dans `refs/raw/`, planches dans `refs/sheets/` (5 October 2026).
+
+| # | Asset | Source | Images | Logiciels de l'auteur (5 October 2026) |
+|---|---|---|---|---|
+| 1 | Flower (Lily) | https://www.artstation.com/artwork/VyE3V4 | 4 | Blender, ZBrush, Painter, Marmoset, UE5, 3 556 tris, textures 4K |
+| 2 | Pampas grass | https://www.artstation.com/artwork/5WVB5w | 8 | Blender, SpeedTree, Painter, Designer, UE5, Nanite sauf l'herbe |
+| 3 | Eucalyptus | https://www.artstation.com/artwork/a0gxvk | 11 | Blender, SpeedTree, Painter, Designer, UE5, Nanite et cartes alpha |
+
+Ordre de modélisation demandé : 1 flower, 2 pampa grass, 3 eucalyptus (5 October 2026). Une scène Houdini (`VegetationCollection01.hiplc`), trois objets `/obj`, trois réseaux Copernicus (non construits avant l'identification des matériaux, 5 October 2026).
+
+## Étapes, dans l'ordre (5 October 2026)
+
+1. Projet Assets V2, TMP, Houdini source, feedback : fait.
+2. Références téléchargées et planches : fait.
+3. Composants et matériaux identifiés par asset (ce fichier) : fait.
+4. Modélisation par composants, un asset à la fois, propre : stem, leaves, flower parts, UV à 4.0 UV/m, groupes par matériau, LOD.
+5. Contrôle OpenGL de chaque composant (captures), comparaison aux références.
+6. Atlas UV et fiches de matériaux (cartes de height de référence à fournir, voir plus bas).
+7. Graphes Copernicus (hors de cette phase, à construire seulement après validation des matériaux).
+8. Rendu Karma XPU de comparaison, puis export Unreal.
+
+## 1. Lily : composants (5 October 2026)
+
+| Composant | Description mesurée sur les références | Modélisation |
+|---|---|---|
+| Stem | tige verte, légèrement courbe, mince, plus épaisse au pied | sweep le long d'une courbe, 8 côtés |
+| Leaves | 40 à 50 feuilles étroites, lancéolées, courbées vers le bas, en spirale serrée | ruban à 6 segments, courbure et torsion, phyllotaxie 137,5 degrés |
+| Pedicels | pétioles jaune-vert qui portent chaque fleur, coudés | sweep court, 6 côtés |
+| Buds | boutons allongés, vert puis rose | fuseau fermé |
+| Tepals ×6 | 3 externes, 3 internes, blancs, bande centrale rose-magenta, bords ondulés et recourbés | grille déformée, courbure et ondulation |
+| Stamens ×6 | filaments verts, anthères orange chargées de pollen | tube fin plus capsule |
+| Pistil | style vert épais, stigmate brun foncé à trois lobes | tube plus lobes |
+
+## 2. Pampas : composants (5 October 2026)
+
+| Composant | Description | Modélisation |
+|---|---|---|
+| Blades | lames longues, fines, retombantes, base verte, pointe sèche beige | rubans cubiques, 3 niveaux de longueur |
+| Culms | hampes dressées, vertes à beiges | tubes minces, hauteur variable |
+| Plumes | panicules beiges pelucheuses, forme en flamme | cartes de brins sur épi, plus volume |
+| Dead brush | feuilles sèches à la base | rubans courts beiges |
+| Clump base | motte compacte | rassemble les groupes |
+
+## 3. Eucalyptus : composants (5 October 2026)
+
+| Composant | Description | Modélisation |
+|---|---|---|
+| Trunk | tronc penché, écorce claire en lambeaux | tube déformé, niveaux de détail |
+| Branches | ramification irrégulière, branches fines pendantes | récursive, courbes |
+| Twigs | rameaux fins pendants | courbes fines |
+| Leaf cards | feuilles lancéolées pendantes bleu-vert, cartes alpha groupées | carte avec 6 à 12 feuilles |
+| Ground set (option) | herbe sèche, buissons, sol rouge | hors périmètre premier passage |
+
+## Matériaux : trim sheets (décision du 5 October 2026)
+
+Planches d'identification (3600 px, Inter, grille alignée, crops natifs) : `refs/materials/1-flower-lily-materials.jpg`, `refs/materials/2-pampas-grass-pond-materials.jpg`, `refs/materials/3-eucalyptus-materials.jpg`. Générées par `ZenRayHoudini/VegetationCollection01/Scripts/MaterialSheets.py` (5 October 2026).
+
+| Asset | Mode | Détail (5 October 2026) |
+|---|---|---|
+| Lily | UN matériau, trim sheet, décidé | 7 zones Z1 à Z7 en 4 bandes A tepal inside + bud blanc, B tepal outside + bud rayé, C étamines, D vert organique (pedicel, stem, leaf). Une height de référence par zone, assemblée en une référence de trim 4096. |
+| Pampas | proposition à valider | un trim lames, hampes, brin sec, plus une carte alpha de plumeau |
+| Eucalyptus | proposition à valider | écorce en matériau propre, plus un trim brindilles et feuilles |
+
+Le trim n'est pas créé : seules les zones sont précisées (5 October 2026).
+
+## Prompts pour les planches manquantes (5 October 2026)
+
+Une planche quatre vues par asset, une height par surface, jamais de multi-sheet :
+
+- `Orthographic model sheet of this exact reference asset, 4 views on a single clean sheet: front view, side view, top view, and 3/4 perspective view, neutral grey background, crisp edges, technical asset turnaround for 3D modeling.`
+- `From this reference image / asset, generate the seamless 16-bit greyscale height map texture, 1:1, 4096x4096, no lighting, no color, no shadows.`
