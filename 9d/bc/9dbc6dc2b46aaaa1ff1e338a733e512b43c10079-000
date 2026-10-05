@@ -1,0 +1,31 @@
+# 5 October 2026: joint fit of three standing views, editable pixel landmarks and explicit depth uncertainty.
+import json
+from pathlib import Path
+import numpy as np
+from scipy.optimize import least_squares
+ROOT=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001')
+m=json.loads((ROOT/'FourViewsMeasurements-v001.json').read_text());names=['front','side','quarter']
+f=np.asarray(m['views']['front']['paths']['trunk'],float);points=np.zeros((len(f),3));points[:,0]=(f[:,0]-f[0,0])/55.125;points[:,1]=(f[0,1]-f[:,1])/55.125
+points[:,2]=[0,-.05,.05,.18,.35,.25,.40,.25,.42]
+cameras={'front':[0,.10,55.125,301,474],'side':[2.8,.10,57.125,430,480],'quarter':[-.55,.10,45.5,246,396]}
+def project(p,v):
+ yaw,pitch,scale,cx,cy=v;right=p[:,0]*np.cos(yaw)-p[:,2]*np.sin(yaw);depth=p[:,0]*np.sin(yaw)+p[:,2]*np.cos(yaw);up=p[:,1]*np.cos(pitch)-depth*np.sin(pitch)
+ return np.c_[cx+right*scale,cy-up*scale]
+v0=np.r_[points[1:].ravel(),cameras['side'],cameras['quarter'],cameras['front'][1]]
+def unpack(v):
+ p=np.r_[np.zeros((1,3)),v[:24].reshape(-1,3)];c={'front':[0,v[-1],55.125,301,474],'side':v[24:29],'quarter':v[29:34]};return p,c
+def residual(v):
+ p,c=unpack(v);out=[]
+ for name in names:
+  out.extend((project(p,c[name])-np.asarray(m['views'][name]['paths']['trunk'])[:,:2]).ravel())
+ out.extend((np.diff(p,n=2,axis=0)*4).ravel());out.extend(p[:,2]*1.5)
+ out.extend((v[24:34]-v0[24:34])*np.array([2,8,.15,.05,.05,2,8,.15,.05,.05]));return np.array(out)
+lo=np.r_[np.tile([-3,-.5,-3],8),[1.6,-.3,40,410,460],[-1.4,-.3,30,226,376],-.3]
+hi=np.r_[np.tile([4,8,3],8),[3.5,.5,75,450,500],[1.4,.5,65,266,416],.5]
+fit=least_squares(residual,v0,bounds=(lo,hi),max_nfev=100,ftol=1e-8,xtol=1e-8)
+p,c=unpack(fit.x);reports={}
+for name in names:
+ obs=np.asarray(m['views'][name]['paths']['trunk'])[:,:2];proj=project(p,c[name]);error=np.linalg.norm(proj-obs,axis=1);reports[name]={'rms_px':float(np.sqrt(np.mean(error**2))),'max_px':float(error.max()),'predicted':proj.tolist(),'observed':obs.tolist()}
+c['top']=[.40,1.0,52,300,412]
+result={'date':'5 October 2026','cameras':{k:list(v) for k,v in c.items()},'trunk_points':p.tolist(),'trunk_radius':[x/110.25 for x in f[:,2]],'landmark_fit':reports,'limits':['Camera and correspondence fit on manually interpreted landmarks, not recovered source camera parameters.','Top view axis is partly occluded; canopy fit is separate.','Scale is relative, 8 units total target height.'],'optimization_evaluations':fit.nfev}
+(ROOT/'NativeCameraFit-v001.json').write_text(json.dumps(result,indent=2));print(json.dumps({'fits':{k:{q:v[q] for q in ['rms_px','max_px']} for k,v in reports.items()},'cameras':result['cameras'],'evals':fit.nfev},indent=2))

@@ -1,0 +1,28 @@
+# 5 October 2026: triangulate editable branch guides from measured pixels, with residuals retained.
+import json,numpy as np
+from pathlib import Path
+R=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/measurements/tree/native-v001')
+m=json.loads((R/'FourViewsMeasurements-v001.json').read_text());fit=json.loads((R/'NativeCameraFit-v001.json').read_text());c=fit['cameras'];trunk=np.asarray(fit['trunk_points'])
+def arclength(p):
+ t=np.r_[0,np.cumsum(np.linalg.norm(np.diff(p,axis=0),axis=1))];return t/t[-1]
+def projection_matrix(v):
+ yaw,pitch,scale,cx,cy=v;return scale*np.array([[np.cos(yaw),0,-np.sin(yaw)],[np.sin(yaw)*np.sin(pitch),-np.cos(pitch),np.cos(yaw)*np.sin(pitch)]])
+branches=[]
+for name in ['left','far_left','center','right','low_right']:
+ observations={view:np.asarray(m['views'][view]['paths'][name],float) for view in ['front','side','quarter'] if name in m['views'][view]['paths']}
+ N=max(len(p) for p in observations.values());T=np.linspace(0,1,N);A=[];B=[]
+ for view,p in observations.items():
+  A.append(projection_matrix(c[view]));t=arclength(p[:,:2]);pixel=np.c_[np.interp(T,t,p[:,0]),np.interp(T,t,p[:,1])];B.append((pixel-np.asarray(c[view][3:])).T)
+ A=np.concatenate(A);B=np.concatenate(B);xyz=np.linalg.lstsq(A,B,rcond=None)[0].T
+ # 5 October 2026: single-view guide gets an explicitly interpreted rear depth, not fake triangulation.
+ if len(observations)==1:xyz[:,2]=np.linspace(.15,.70,N)
+ ds=[]
+ for i,(a,b) in enumerate(zip(trunk,trunk[1:])):
+  u=np.clip(np.dot(xyz[0]-a,b-a)/np.dot(b-a,b-a),0,1);pt=a+u*(b-a);ds.append((np.linalg.norm(pt-xyz[0]),i,u,pt))
+ _,seg,u,root=min(ds,key=lambda x:x[0]);cum=arclength(trunk);attach=float(cum[seg]+u*(cum[seg+1]-cum[seg]));xyz[0]=root
+ radius=np.interp(T,arclength(observations['front'][:,:2]),observations['front'][:,2])/110.25
+ residual={}
+ for view,p in observations.items():
+  pix=np.c_[np.interp(T,arclength(p[:,:2]),p[:,0]),np.interp(T,arclength(p[:,:2]),p[:,1])];pred=xyz@projection_matrix(c[view]).T+np.asarray(c[view][3:]);residual[view]=float(np.sqrt(np.mean(np.sum((pred-pix)**2,axis=1))))
+ branches.append({'name':name,'parent':'trunk','attach_u':attach,'points':xyz.tolist(),'radii':radius.tolist(),'landmark_rms_px':residual,'depth_status':'fitted' if len(observations)>1 else 'interpreted'})
+(R/'NativeBranchGuides-v001.json').write_text(json.dumps({'date':'5 October 2026','branches':branches},indent=2));print(json.dumps({b['name']:b['landmark_rms_px'] for b in branches},indent=2))
