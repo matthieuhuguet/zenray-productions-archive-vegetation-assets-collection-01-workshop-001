@@ -1,0 +1,52 @@
+{
+  "source": "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/refs/raw/3-eucalyptus/02_erwan-gaudichon-eucalyptus-02.jpg",
+  "regions": [
+    {
+      "id": "M1",
+      "name": "Ecorce claire et lisse",
+      "role": "smooth_bark",
+      "box": [
+        1370,
+        690,
+        1550,
+        1030
+      ]
+    },
+    {
+      "id": "M2",
+      "name": "Ecorce ancienne, fibres brunes",
+      "role": "fibrous_bark",
+      "box": [
+        1170,
+        1400,
+        1310,
+        1720
+      ]
+    },
+    {
+      "id": "M3",
+      "name": "Pelage et raccord des ecorces",
+      "role": "bark_transition_mask",
+      "box": [
+        1190,
+        980,
+        1410,
+        1280
+      ]
+    },
+    {
+      "id": "M4",
+      "name": "Feuilles lanceolees vertes",
+      "role": "green_leaf",
+      "box": [
+        2200,
+        740,
+        2530,
+        1060
+      ]
+    }
+  ],
+  "source_sha256": "60aec322b8fd5532482629029f2278a0b149f512d1a8c4f5b265e3f93ffe47dd",
+  "date": "5 October 2026",
+  "kind": "raw reference crops, not procedural or PBR outputs"
+}
