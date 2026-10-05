@@ -1,0 +1,52 @@
+# 5 October 2026: hierarchical native crown branches and twig/leaf generators, all geometry made by native SOPs.
+import hou,json,math
+from pathlib import Path
+WORK=Path('/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01');DATA=WORK/'measurements/tree/native-v001';PROD=Path('/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01');net=hou.node('/obj/Eucalyptus')
+def node(parent,kind,name,inputs=(),**parms):
+ n=parent.createNode(kind,name,exact_type_name=kind=='curve')
+ for i,x in enumerate(inputs):n.setInput(i,x[0] if isinstance(x,tuple) else x,x[1] if isinstance(x,tuple) else 0)
+ for k,v in parms.items():n.parm(k).set(v)
+ return n
+def fp(k,label,value,lo=0,hi=1):return hou.FloatParmTemplate(k,label,1,default_value=(value,),min=lo,max=hi)
+def ip(k,label,value,lo=1,hi=128):return hou.IntParmTemplate(k,label,1,default_value=(value,),min=lo,max=hi)
+def coords(p):return ' '.join(','.join(f'{v:.7f}' for v in pt) for pt in p)
+def color(parent,name,src,rgb):return node(parent,'color',name,[src],colorr=rgb[0],colorg=rgb[1],colorb=rgb[2])
+for n in list(net.children()):
+ if n.name().startswith(('Crown_','Leaves_')) or n.name() in ['M_Crown_Branches','M_Leaf_Groups','M_Full_Tree','OUT_eucalyptus']:n.destroy()
+# 5 October 2026: a leaf generator takes an existing branch spine, never free-floating leaf clouds.
+lg=net.createNode('subnet','Leaf_Generator_Template');g=lg.parmTemplateGroup();f=hou.FolderParmTemplate('controls','Leaf generation')
+for p in [fp('start_u','Foliage begins',.25),ip('shoot_count','Attached shoots',110,8,300),fp('shoot_length','Shoot length',.55,.12,1.4),ip('leaves_per_shoot','Leaves per shoot',18,4,40),fp('leaf_length','Leaf card length',.10,.03,.2),ip('seed','Variation seed',17,0,500)]:f.addParmTemplate(p)
+g.append(f);lg.setParmTemplateGroup(g)
+parent=node(lg,'carve','Parent_Foliage_Zone',[(lg.indirectInputs()[0],0)],arclen=1);parent.parm('domainu1').setExpression('ch("../start_u")')
+roots=node(lg,'scatter','Shoot_Attachment_Points',[parent],npts=110,relaxiterations=2);roots.parm('npts').setExpression('ch("../shoot_count")');roots.parm('seed').setExpression('ch("../seed")')
+dirs=node(lg,'attribrandomize','Shoot_Growth_Directions',[roots],name='N',dimensions=3,distribution='uniform',minx=-1,miny=-1,maxx=1,maxy=.45,minz=-1,maxz=1);dirs.parm('seed').setExpression('ch("../seed")')
+twig=node(lg,'curve','Editable_Twig_Shape',type=0,coords='0,0,0 0,.04,.15 .015,.02,.30 0,-.06,.55')
+scale=node(lg,'xform','Shoot_Length',[twig]);scale.parm('scale').setExpression('ch("../shoot_length")/.55')
+curve=node(lg,'resample','Shoot_Curve',[scale],length=.04,treatpolysas=2)
+sweep=node(lg,'sweep::2.0','Shoot_Wood',[curve],surfaceshape=1,radius=.0018,cols=5,applyscale=1,endcaptype=1,reversecrosssections=1)
+sweep.parm('scaleramp').set(hou.Ramp([hou.rampBasis.Linear]*2,[0,1],[1,.12]));wood=color(lg,'Twig_Color',sweep,(.30,.29,.22))
+leafpoints=node(lg,'scatter','Leaf_Attachment_Points',[curve],npts=18,relaxiterations=0);leafpoints.parm('npts').setExpression('ch("../leaves_per_shoot")');leafpoints.parm('seed').setExpression('ch("../seed")')
+orientation=node(lg,'attribrandomize','Leaf_Card_Orientation',[leafpoints],name='orient',dimensions=4,distribution='uniformorient');orientation.parm('seed').setExpression('ch("../seed")')
+card=node(lg,'zenray_native_leaf_card::1.0','Leaf_Card_Instance');card.parm('length').setExpression('ch("../leaf_length")')
+leaves=node(lg,'copytopoints::2.0','Leaf_Cards_On_Shoot',[card,orientation],pack=1)
+source=node(lg,'merge','Shoot_With_Leaves',[wood,leaves]);copies=node(lg,'copytopoints::2.0','Shoots_On_Parent_Branch',[source,dirs],pack=1)
+out=node(lg,'output','OUT_Attached_Foliage',[copies],outputidx=0);lg.layoutChildren()
+ptg=lg.parmTemplateGroup();lg=lg.createDigitalAsset(name='zenray_native_leaf_generator::1.0',hda_file_name=str(PROD/'otls/ZenRay_Native_LeafGenerator.hda'),description='ZenRay Native Leaf Generator',min_num_inputs=1,max_num_inputs=1);d=lg.type().definition();d.setParmTemplateGroup(ptg);lg.setParmTemplateGroup(ptg);d.updateFromNode(lg);lg.setDisplayFlag(False)
+# 5 October 2026: crown targets are measured front-view envelope anchors; side/top depths stay editable and are compared, never claimed exact.
+targets=[
+ ('far_left',.92,220,269,-.4,.42),('far_left',.90,241,231,-.8,.52),('left',.93,260,196,.15,.58),('left',.90,297,147,.0,.57),('left',.86,332,120,-.35,.63),
+ ('center',.94,371,89,.15,.64),('center',.91,411,62,.3,.58),('center',.90,443,102,-.5,.64),('center',.86,405,134,-.7,.60),
+ ('right',.94,496,132,1.3,.64),('right',.94,539,171,1.1,.62),('right',.92,563,224,.7,.54),('right',.93,524,277,.2,.56),
+ ('low_right',.90,478,320,.1,.58),('low_right',.87,430,326,-.55,.58),('left',.82,283,276,1.0,.55),
+ ('center',.92,373,198,2.3,.55),('right',.92,449,213,2.1,.60),('left',.90,316,183,2.5,.65),('center',.94,410,141,2.3,.60),
+ ('left',.92,308,161,-2.2,.62),('center',.95,382,116,-2.0,.65),('right',.91,467,179,-2.1,.60),('low_right',.91,413,256,-2.0,.65)]
+fit=json.loads((DATA/'NativeCameraFit-v001.json').read_text());yaw,pitch,pixels,cx,cy=fit['cameras']['front'];branches=[];leafgroups=[];records=[]
+for i,(role,u,px,py,z,length) in enumerate(targets):
+ parent=net.node('Branch_'+role);spine=parent.node('Smooth_Branch_Curve').geometry();pts=[p.position() for p in spine.points()];root=pts[round(u*(len(pts)-1))]
+ x=(px-cx)/pixels;y=((cy-py)/pixels+z*math.sin(pitch))/math.cos(pitch);end=hou.Vector3(x,y,z)
+ local=end-root;mid=local*.52+hou.Vector3(0,.20,0);guide=[(0,0,0),tuple(mid),tuple(local)]
+ br=net.createNode('zenray_native_branch::1.0',f'Crown_{i:02d}_{role}');br.setInput(0,parent,1);br.parm('attach_u').set(u);br.parm('guide').set(coords(guide));br.parm('radius').set(.027 if local.length()>1 else .017);br.parm('tip_ratio').set(.10);br.parm('sides').set(7);br.parm('resolution').set(.07);br.setDisplayFlag(False);branches.append(br)
+ leaf=net.createNode('zenray_native_leaf_generator::1.0',f'Leaves_{i:02d}_{role}');leaf.setInput(0,br,1);leaf.parm('start_u').set(.36);leaf.parm('shoot_count').set(145);leaf.parm('shoot_length').set(length);leaf.parm('seed').set(17+i*7);leaf.setDisplayFlag(False);leafgroups.append(leaf)
+ records.append({'branch':br.path(),'parent':parent.path(),'attachment':u,'front_target_px':[px,py],'editable_depth':z,'leaf_generator':leaf.path()})
+lg.destroy();wood=node(net,'merge','M_Crown_Branches',branches);foliage=node(net,'merge','M_Leaf_Groups',leafgroups);full=node(net,'merge','M_Full_Tree',[net.node('OUT_Trunk_Branches'),wood,foliage]);out=node(net,'null','OUT_eucalyptus',[full]);out.setDisplayFlag(True);out.setRenderFlag(True);net.layoutChildren();out.cook(force=True);hou.hipFile.save();errors=[(n.path(),n.errors()) for n in net.children() if n.errors()]
+report={'date':'5 October 2026','crown_branches':records,'points':len(out.geometry().points()),'primitives':len(out.geometry().prims()),'errors':errors,'scope':'Geometry only. Crossed flat cards without material or opacity maps.'};(DATA/'NativeCrown-v001.json').write_text(json.dumps(report,indent=2));result={k:v for k,v in report.items() if k!='crown_branches'}
