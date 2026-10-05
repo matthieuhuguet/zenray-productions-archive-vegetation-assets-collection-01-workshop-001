@@ -1,0 +1,25 @@
+{
+  "date": "5 October 2026",
+  "config": {
+    "crop": [
+      1150,
+      150,
+      2660,
+      1600
+    ],
+    "root": [
+      1620,
+      1594
+    ],
+    "top_y": 178,
+    "height": 8.0,
+    "raw": "03_erwan-gaudichon-eucalyptus-03.jpg",
+    "output_scale": 0.55
+  },
+  "strict_iou": 0.676482518230606,
+  "closed_iou": 0.7998770875904558,
+  "camera": "orthographic front, registered by root and total height; original perspective unknown",
+  "mask_limit": "estimated foreground inside hand-traced tree ROI, ground excluded",
+  "geometry": "actual live OUT_eucalyptus points and polygon indices; no artificial silhouette fitting",
+  "faces": 732336
+}
