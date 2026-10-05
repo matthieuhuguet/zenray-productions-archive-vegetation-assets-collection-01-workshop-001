@@ -1,0 +1,13 @@
+{
+  "date": "5 October 2026",
+  "wood_iou": 0.43452060532382597,
+  "leaf_iou": 0.13586097704622116,
+  "foreground_iou": 0.4499932392439057,
+  "method": "Actual native viewport with occlusion, fixed approximate camera, alpha threshold 128, RGB semantic classification.",
+  "limits": [
+    "Raw mask is estimated and editable.",
+    "Camera is manually registered, not recovered from source metadata.",
+    "Packed leaf source color remains dark green.",
+    "Scores are silhouette overlap, not artistic validation."
+  ]
+}
