@@ -1,0 +1,17 @@
+# Références photos botaniques du lys (06 October 2026)
+
+Ce dossier regroupe les photographies botaniques réelles du lys (Lilium), servant d'étalon visuel pour les formes, la colorimétrie et les textures du composant fleur de la collection. (06 October 2026)
+
+## Inventaire des fichiers (06 October 2026)
+
+| Fichier | Source originale | Résolution | Canaux | Rôle et zones anatomiques (06 October 2026) |
+|---|---|---|---|---|
+| `01_lys1_fleur-double-rose.png` | `lys1.png` | 1280 x 900 | RGBA | Vue rapprochée d'une fleur de lys double rose. Référence pour le dégradé magenta/rose/blanc des tépales (zones Z1 et Z2), l'ondulation des bordures et la translucidité. Boutons secondaires visibles en arrière-plan. (06 October 2026) |
+| `02_lys2_stargazer-etamines-pistil.png` | `lys2.png` | 1000 x 1000 | RGB | Lys Stargazer sur fond noir. Référence anatomique nette pour les organes reproducteurs : étamines et filaments olive, anthères chargées de pollen orange (zone Z3), pistil avec style vert et stigmate brun trilobé, papilles et mouchetures pourpres sur les tépales. (06 October 2026) |
+| `03_feuillelys3_bouton-feuille-tige-isole.png` | `feuillelys3.png` | 1960 x 1960 | RGBA (alpha détouré) | Bouton floral fermé et feuille lancéolée sur tige, isolés sur fond transparent. Référence pour le profil et la texture du bouton fermé (zone Z7), les nervures et la courbure de la feuille (zone Z6), et l'insertion sur la tige (zone Z5). (06 October 2026) |
+
+## Empreintes SHA256 (06 October 2026)
+
+- `01_lys1_fleur-double-rose.png` : `d50ca85daf6606674c11f33b6aad842e5aedf81b009f72b5eb904db33c296e4d` (06 October 2026)
+- `02_lys2_stargazer-etamines-pistil.png` : `6f12ed081bb6008df0efde6e707a5b6d351dfbfcbfd212cb95166c934ddf3e03` (06 October 2026)
+- `03_feuillelys3_bouton-feuille-tige-isole.png` : `bfd4e52e5d0560f300c956f3158142c4210b96edd6f382bb1b8e93a1f2fe4658` (06 October 2026)
