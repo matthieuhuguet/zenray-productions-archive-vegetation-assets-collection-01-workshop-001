@@ -372,6 +372,23 @@
    "content": [
     {
      "type": "link",
+     "href": "#glossary",
+     "content": [
+      {
+       "type": "text",
+       "text": "Words used in this article",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
      "href": "#credits",
      "content": [
       {
@@ -507,6 +524,30 @@
      "styles": {}
     }
    ]
+  },
+  {
+   "type": "table",
+   "props": {
+    "columns": [
+     "Agent",
+     "What it did on this project"
+    ],
+    "rows": [
+     [
+      "Claude Code",
+      "The lily HDA, the Copernicus graph and its six maps, the look development in Houdini, the Unreal level, the cameras, the renders, the two 2048 px cuts, the audio and the covers."
+     ],
+     [
+      "Codex",
+      "The first eucalyptus attempts, the base colour and occlusion pass on band 0, the title animations and the Vogun weights, the Cycles and Octane research and install, the completed evolution videos, the numbered steps and the 4096 px video."
+     ],
+     [
+      "Gemini",
+      "The first height evolution video, assembled from 77 states."
+     ]
+    ],
+    "caption": "Who did what. I set the rules, chose, and validated."
+   }
   },
   {
    "type": "paragraph",
@@ -2216,7 +2257,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/17-first-lumen.webp",
-    "caption": "Figure 17. The first Lumen render, 2048 px. Petals and leaves are cut out by the opacity map, with shadow and bounce light.",
+    "caption": "Figure 17. The first good Lumen render, 2048 px.",
     "alt": "A pale pink lily with cut-out petals and leaves on a grey studio floor.",
     "width": 2048,
     "height": 2048
@@ -2367,7 +2408,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/21-first-lighting.webp",
-    "caption": "Figure 21. The first three lighting proposals for the single flower: soft studio, warm key with cool fill, dramatic low key. They barely differ and they are too bright.",
+    "caption": "Figure 21. The first three lighting proposals for the single flower: soft studio, warm key with cool fill, dramatic low key.",
     "alt": "Three renders of the same lily on a pale background, labelled A, B and C.",
     "width": 1920,
     "height": 640
@@ -2587,7 +2628,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/25-five-variations.webp",
-    "caption": "Figure 25. Five variations of the same HDA. Only the seed, the tepal half width, the stem height and the stem bend change.",
+    "caption": "Figure 25. Five variations of the same HDA, side by side in Houdini.",
     "alt": "Five pink lilies of different heights and shapes in the Houdini viewport.",
     "width": 920,
     "height": 700
@@ -2622,7 +2663,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/26-colourways.webp",
-    "caption": "Figure 26. The base-colour trim in pink, blue and white. The blue and the white are made from the pink export; no extra node in Copernicus.",
+    "caption": "Figure 26. The base-colour trim sheet in pink, blue and white.",
     "alt": "Three versions of the trim sheet base colour: pink petals, blue petals and white petals.",
     "width": 1500,
     "height": 500
@@ -2752,7 +2793,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/28-bed-lighting.webp",
-    "caption": "Figure 28. Three lighting moods for the bed: A Shoji (light through paper), B Misty Morning and C Komorebi (sun through leaves). I kept A.",
+    "caption": "Figure 28. Three lighting moods for the bed: A Shoji, B Misty Morning and C Komorebi.",
     "alt": "Three renders of the flower bed under warm, cold and sunlit lighting.",
     "width": 2100,
     "height": 700
@@ -3242,6 +3283,17 @@
    "content": [
     {
      "type": "text",
+     "text": "The stamens are mazes where the reference has grains.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
      "text": "The top of the bed orbit goes black in the middle of the move.",
      "styles": {}
     }
@@ -3311,6 +3363,194 @@
      ]
     ]
    }
+  },
+  {
+   "id": "glossary",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Words used in this article",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "HDA",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ", Houdini Digital Asset: a network packed behind one node, with its own parameters.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Copernicus (COP)",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": Houdini's image and texture context, where a height map is built with nodes.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Trim sheet",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": one texture that holds the details of many parts, each part reading its own band through its UVs.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Tepal",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": what a lily calls its petals, the inner and the outer ones.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "VEX, wrangle",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": Houdini's code language and the nodes that run it. None is used in the Copernicus graph.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Ablation",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": switching a layer off to measure what it really changes.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Cyclorama",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": a floor that curves into a wall, so that a studio has no corner.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Lumen",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": Unreal Engine's real-time global illumination. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Movie Render Queue",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": its renderer for finished frames.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "LUFS",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ": the unit of perceived loudness. A true peak is the highest level the sound reaches between samples.",
+     "styles": {}
+    }
+   ]
   },
   {
    "id": "credits",
