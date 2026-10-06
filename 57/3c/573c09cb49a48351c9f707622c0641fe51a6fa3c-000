@@ -1,0 +1,17 @@
+{
+  "env": [
+    {
+      "CYCLES_ROOT": {
+        "value": "/Users/zenray/Create/Build/HoudiniRenderers/22.0.368/Cycles/houdini",
+        "method": "replace"
+      }
+    },
+    {
+      "PATH": {
+        "value": "$CYCLES_ROOT/bin",
+        "method": "append"
+      }
+    }
+  ],
+  "hpath": "$CYCLES_ROOT"
+}

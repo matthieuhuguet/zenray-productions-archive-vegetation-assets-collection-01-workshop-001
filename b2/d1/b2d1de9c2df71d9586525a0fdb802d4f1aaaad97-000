@@ -1,0 +1,22 @@
+{
+    "Plugins": [
+        {
+            "Info": {
+                "Types": {
+                    "HdCyclesPlugin": {
+                        "bases": [
+                            "HdRendererPlugin"
+                        ],
+                        "displayName": "Cycles",
+                        "priority": 0
+                    }
+                }
+            },
+            "LibraryPath": "../../usd/hdCycles.dylib",
+            "Name": "hdCycles",
+            "ResourcePath": "../../../",
+            "Root": "..",
+            "Type": "library"
+        }
+    ]
+}

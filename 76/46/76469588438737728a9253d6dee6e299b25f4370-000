@@ -1,0 +1,38 @@
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- The CXX compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Houdini: /Applications/Houdini/Current
+-- Houdini Python version: 3.13
+-- Found ZLIB: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libz.tbd (found version "1.2.12")
+-- Using precompiled libraries at /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found PugiXML: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/pugixml/lib/libpugixml.a
+-- Found Embree: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/embree/lib/libembree4.dylib (Required is at least version "3.8.0")
+-- Found OpenImageDenoise: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/openimagedenoise/lib/libOpenImageDenoise.dylib
+-- Found Epoxy: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/epoxy/lib/libepoxy.a
+-- Found Alembic: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/alembic/lib/libAlembic.a
+-- Found Zstd: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/zstd/lib/libzstd.a
+-- Performing Test SUPPORTS_NEON_BUILD
+-- Performing Test SUPPORTS_NEON_BUILD - Success
+-- Found sse2neon: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64/sse2neon
+-- Found Metal: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework
+-- Performing Test _has_no_error_unused_macros
+-- Performing Test _has_no_error_unused_macros - Success
+-- Performing Test _has_cxxflag_float_conversion
+-- Performing Test _has_cxxflag_float_conversion - Success
+-- Performing Test _has_cxxflag_double_promotion
+-- Performing Test _has_cxxflag_double_promotion - Success
+-- Configuring done (2.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build

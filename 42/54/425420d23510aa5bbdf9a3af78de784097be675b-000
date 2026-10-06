@@ -1,0 +1,8 @@
+# CMake generated Testfile for 
+# Source directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/src/app
+# Build directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/app
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(cycles_version "/Users/zenray/Create/Build/HoudiniRenderers/22.0.368/Cycles/cycles" "--version")
+set_tests_properties(cycles_version PROPERTIES  _BACKTRACE_TRIPLES "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/src/app/CMakeLists.txt;142;add_test;/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/src/app/CMakeLists.txt;0;")

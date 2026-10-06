@@ -1,0 +1,32 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/app/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/bvh/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/device/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/doc/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/doc/license/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/graph/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/integrator/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/cpu/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/cuda/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/hip/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/hiprt/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/metal/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/oneapi/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel/device/optix/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/scene/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/session/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/subd/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/util/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/hydra/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/third_party/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/third_party/cuew/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/third_party/hipew/cmake_install.cmake",
+		"/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/third_party/sky/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

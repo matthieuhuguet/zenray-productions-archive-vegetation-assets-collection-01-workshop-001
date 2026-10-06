@@ -1,0 +1,9 @@
+# CMake generated Testfile for 
+# Source directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/third_party
+# Build directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/third_party
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("cuew")
+subdirs("hipew")
+subdirs("sky")

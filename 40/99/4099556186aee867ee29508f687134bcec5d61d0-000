@@ -1,0 +1,13 @@
+# CMake generated Testfile for 
+# Source directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/src/kernel
+# Build directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src/kernel
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("device/cpu")
+subdirs("device/cuda")
+subdirs("device/hip")
+subdirs("device/hiprt")
+subdirs("device/metal")
+subdirs("device/oneapi")
+subdirs("device/optix")

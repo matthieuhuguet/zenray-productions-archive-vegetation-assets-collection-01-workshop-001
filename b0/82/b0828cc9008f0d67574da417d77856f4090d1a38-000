@@ -1,0 +1,18 @@
+# CMake generated Testfile for 
+# Source directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/src
+# Build directory: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build/src
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("app")
+subdirs("bvh")
+subdirs("device")
+subdirs("doc")
+subdirs("graph")
+subdirs("integrator")
+subdirs("kernel")
+subdirs("scene")
+subdirs("session")
+subdirs("subd")
+subdirs("util")
+subdirs("hydra")
