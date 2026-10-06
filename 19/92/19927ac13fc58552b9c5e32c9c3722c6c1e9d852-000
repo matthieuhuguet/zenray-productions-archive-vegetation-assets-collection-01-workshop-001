@@ -1,0 +1,3387 @@
+{
+ "schema": "article.public.v1",
+ "slug": "fleur-de-lys-procedural-lily-houdini-unreal",
+ "title": "Fleur de Lys: a procedural lily, from Houdini to Unreal Engine",
+ "subtitle": "How did I create these shots? The whole story, from the first HDA to the last frame.",
+ "blocks": [
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Three videos came out of one procedural lily. This page explains how every shot was made, from the first Houdini Digital Asset to the last frame rendered in Unreal Engine.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The lily is a single HDA and a single Copernicus trim sheet. Its six maps (height, base colour, normal, ambient occlusion, roughness and opacity) come from a graph of stock Houdini nodes: no VEX, no wrangle, and no image file read inside the graph. The shots are rendered in Unreal Engine 5.8 with Lumen. It took two days, 5 and 6 October 2026. Claude Code, Codex and Gemini built and checked things while I set the rules and validated every step.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "v-how",
+   "type": "youtube",
+   "props": {
+    "youtubeId": "",
+    "aspect": "1 / 1",
+    "poster": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/poster-how.webp",
+    "label": "How did I create these shots?",
+    "controls": 1,
+    "caption": "Video 1. How did I create these shots? Seven numbered steps, 38 seconds."
+   }
+  },
+  {
+   "id": "v-petals",
+   "type": "youtube",
+   "props": {
+    "youtubeId": "",
+    "aspect": "1 / 1",
+    "poster": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/poster-petals.webp",
+    "label": "Petals Height",
+    "controls": 1,
+    "caption": "Video 2. Petals Height. The height of one petal, iteration by iteration, then its three colours."
+   }
+  },
+  {
+   "id": "v-trim",
+   "type": "youtube",
+   "props": {
+    "youtubeId": "",
+    "aspect": "1 / 1",
+    "poster": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/poster-trim.webp",
+    "label": "Trim Sheet Height",
+    "controls": 1,
+    "caption": "Video 3. Trim Sheet Height. The whole trim sheet growing, state after state."
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Made in Houdini, rendered in Unreal Engine. The lily is modelled after a reference by Erwan Gaudichon, thank you to him: ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/VyE3V4",
+     "content": [
+      {
+       "type": "text",
+       "text": "his ArtStation post",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": ". I measured his work and never copied it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Music: ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Sonic Riots",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " by Grandbrothers in Petals Height, ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Butterfly Effect",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " by fox capture plan in Trim Sheet Height, and ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Feverkin",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " from ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Alternate Realities Part I (Soundtrack)",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " in How did I create these shots?",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "contents",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Contents",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#brief",
+     "content": [
+      {
+       "type": "text",
+       "text": "The brief and the rules",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#hda",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 1: creating the HDA",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#height",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 2: the height",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#maps",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 3: back and forth with texturing",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#unreal-import",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 4: importing into Unreal, with opacity",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#studio",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 5: setup before three-point lighting",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#shot",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 6: previewing the first shot",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#bed",
+     "content": [
+      {
+       "type": "text",
+       "text": "Step 7: final scattering",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#videos",
+     "content": [
+      {
+       "type": "text",
+       "text": "From renders to three videos",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#mistakes",
+     "content": [
+      {
+       "type": "text",
+       "text": "What went wrong",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#numbers",
+     "content": [
+      {
+       "type": "text",
+       "text": "The numbers",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#credits",
+     "content": [
+      {
+       "type": "text",
+       "text": "Credits and sources",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
+     "href": "#about",
+     "content": [
+      {
+       "type": "text",
+       "text": "How this article was written",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "brief",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The brief and the rules",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "On 5 October I opened a new project called ZenRay Vegetation Collection 01. The plan was three vegetation assets in the same Houdini scene, each one after a different post by Erwan Gaudichon: a ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/VyE3V4",
+     "content": [
+      {
+       "type": "text",
+       "text": "lily",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": ", a ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/a0gxvk",
+     "content": [
+      {
+       "type": "text",
+       "text": "pampas grass",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": " and a ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/5WVB5w",
+     "content": [
+      {
+       "type": "text",
+       "text": "eucalyptus",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": ". I downloaded the 23 images of the three posts in 4K and cut them into reference sheets: four views, material crops, component sheets.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The lily came first because it was the simplest, and it is the only asset that was finished at the end of the second day. The pampas grass stays at a first model of about 9,000 polygons. The eucalyptus attempts, a trunk built with a Point VOP and a canopy of hanging clusters, never reached the reference, so I archived the last version and stopped. Both are still on the list.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "How I work with agents",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Three agents worked on this project: Claude Code, Codex and Gemini. They do not share a conversation, they share a memory. ZenRay Assets V2 maps every folder of the project (the workshop, the Houdini scene, the Unreal content, the notes), keeps a feedback file with every prompt and every correction, and writes a checkpoint at the end of each session. Houdini is driven live through a small bridge, Unreal through a queue of Python scripts.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "That only works with rules, and most of them came from mistakes made in the first hours:",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A reference is measured, never copied.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Masks, profiles and tables are allowed. A reference image that a node reads, resizes, blends or traces is not.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Image generation is mine.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " The agents never generate images. I can give them an image as a reference, never as a result.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Real nodes only in Copernicus.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " No VEX, no wrangle, no Python inside a graph. Python builds the graph and measures it, the nodes carry the shape.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "One band at a time.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A band is finished, or declared provisional, before the next one opens, and I validate it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Iterate by blocks.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A block of up to 64 nodes to explore, then an optimisation pass that removes what does not matter.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Every iteration leaves an image,",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " in a folder called versions, before the next one starts.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Seamless by construction.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A whole number of cells and a Wrap border, never a cut that is glued afterwards.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "At most eight parameters per folder",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " on an HDA. The rest stays inside the network.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Never rebuild what I tuned by hand,",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " a light, a camera, a material value, without asking.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-01",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/01-pipeline.webp",
+    "caption": "Figure 1. The whole pipeline in one picture. Houdini builds the asset and its maps, Unreal renders the shots, ffmpeg and Python cut the videos.",
+    "alt": "Diagram: references measured in Houdini, an HDA and a Copernicus trim sheet, FBX and 4096 maps into Unreal Engine with Lumen and Movie Render Queue, then ffmpeg for three videos.",
+    "width": 2560,
+    "height": 1150
+   }
+  },
+  {
+   "id": "hda",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 1: creating the HDA",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-02",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/02-step1-hda-in-houdini.webp",
+    "caption": "Figure 2. Step 1, creating the HDA. The lily as a Houdini Digital Asset: three folders of parameters on the right, five variations of it on the left.",
+    "alt": "Houdini screenshot: five pink lilies in the viewport and the HDA parameters (stem height, stem bend, leaf count, tepal length, seed) on the right.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The lily is a Houdini Digital Asset, ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "zenray_lily",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ", saved in its own .hda file and instanced in the scene. Everything a shot needs is a parameter of this asset or a table inside it, which is what makes the variations of step 7 cheap.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Seven components, three folders",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Inside, seven Python SOPs build the seven families of parts of a lily: stem, leaves, pedicels and buds, tepals, stamens, pistil and calyx. They are merged, given normals, and sent to one output. The final instance has 7,416 primitives and 9,888 points.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The interface is three folders. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "HDA Shape",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " has eight parameters: stem height, stem bend, leaf count, leaf length, tepal length, tepal flare, pedicel length and seed. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "HDA Detail",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " has eight more: leaf droop, leaf half width, tepal half width, tepal edge wave, stamen length, stem radius, calyx size and funnel. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "HDA Layout",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " holds the flower table, the band table of the trim sheet, a UV mode and two leaf settings. Eight is a limit I set on purpose: a parameter that I never need to touch stays inside the network.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Measure first, then model",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Before shaping anything, I gave the agent a four-view reference sheet (front, side, top and three-quarter) and it was turned into masks. The HDA was then fitted to those masks. The overlap between my silhouettes and the masks started at 0.725 and reached 0.80 on average: 0.76 from the front, 0.68 from the side and 0.78 from the top. The side view is the weakest, and the buds, which the front and side views barely show, are placed by interpretation.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The place of every flower lives in a table inside the HDA. Each line is a kind (F for a flower, B for a bud), a position along the stem from 0 to 1, an azimuth, a tilt above the horizontal and a size. Moving a flower means editing a number, not selecting an object.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "codeBlock",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "# kind  position  azimuth  tilt  size\nF 1.000 242.0 53.0 0.94\nF 0.861 190.0 22.7 1.13\nF 0.850  11.0 39.0 0.91\nF 0.713 137.0 22.0 1.01\nB 0.700  76.0 15.7 1.00\nB 0.600 325.0 29.0 0.95",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-03",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/03-hda-versions.webp",
+    "caption": "Figure 3. The HDA at versions 1, 4 and 7, each shown from the front, the side, the top and in three quarters. In version 1 the flowers sit low on a stem that is mostly leaves.",
+    "alt": "Three rows of four viewport views of the lily model, becoming more detailed from top to bottom.",
+    "width": 2400,
+    "height": 1820
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "These are versions 1, 4 and 7 of the same HDA, seen from the front, the side, the top and in three quarters. In version 1 the parts exist but the flowers sit low on a stem that is mostly leaves. Version 4 spreads the flowers around the stem on their measured azimuths. Version 7 is closer to the final proportions. The colours in these previews are only flat colours per part; the real ones come later from the trim sheet.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "UVs made for a trim sheet",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The HDA has a ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "uv_mode",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " parameter. At 0 every part keeps its own local UVs. At 1 every part is mapped onto the band of the trim sheet that belongs to it. The bands are a text parameter, one line per band with its top and bottom between 0 and 1. The petals are mapped so that the edge of the mesh falls on the edge of a petal in the sheet, the pedicel sits on the calyx block, the anthers are on the top of the stamen band and their filaments below, and the leaves, the stem and the buds each have their own band. Most of the geometry goes through two functions, one for ribbons and one for tubes, so moving to a trim sheet meant editing one table instead of every UV.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-04",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/04-uv-check.webp",
+    "caption": "Figure 4. Checking the UVs. The lily is coloured with the base colour read at each vertex UV: pink-white petals, magenta tubes and green leaves mean that every part lands on its own band.",
+    "alt": "Four views of the lily coloured by the trim sheet through its UVs.",
+    "width": 2560,
+    "height": 640
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "To check, the lily is coloured with the base colour read at its own UVs. Pink-white petals, magenta tubes and green leaves mean that each part lands on its band.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "height",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 2: the height",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-05",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/05-step2-copernicus.webp",
+    "caption": "Figure 5. Step 2, the almost final height in Copernicus. The network Lily_Trim holds one subnet per band; the viewer shows the height.",
+    "alt": "Houdini screenshot: the grey height map of the lily trim sheet in the viewer and the Copernicus network on the right.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The height map is the heart of the project: every other map is derived from it. The screenshot above is the one from the video: the Copernicus network ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Lily_Trim",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " has one subnet per band, and a switch node flips the viewer through the six maps.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "One material instead of seven",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A lily is made of small surfaces: petals, a few stamens, a stem, a leaf, a bud. Seven materials would mean seven graphs and seven sets of maps for a plant that is never seen larger than a hand. I hesitated, because adapting the UVs to a sheet sounded heavy for an HDA. The agent looked at how the HDA builds its geometry and showed that the change is one table. So the lily is one trim sheet: one canvas, seven horizontal bands.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "props": {
+    "columns": [
+     "Band",
+     "Parts",
+     "Cells across",
+     "Share of the height"
+    ],
+    "rows": [
+     [
+      "0",
+      "Inner tepals, the big petals",
+      "3",
+      "19.3 %"
+     ],
+     [
+      "1",
+      "Outer tepals",
+      "3 arches",
+      "19.5 %"
+     ],
+     [
+      "2",
+      "Stamens and pistil",
+      "3 stigmas",
+      "11.9 %"
+     ],
+     [
+      "3",
+      "Calyx",
+      "7 arches",
+      "10.2 %"
+     ],
+     [
+      "4",
+      "Stem",
+      "one seamless strip",
+      "11.6 %"
+     ],
+     [
+      "5",
+      "Leaf",
+      "2 leaves",
+      "11.2 %"
+     ],
+     [
+      "6",
+      "Bud",
+      "3 buds",
+      "16.3 %"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "i-06",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/06-seven-bands.webp",
+    "caption": "Figure 6. The finished height map, 2048 px, with its seven bands. One material, seven families of parts.",
+    "alt": "The grey height map of the lily trim sheet with seven labelled horizontal bands: inner tepal, outer tepal, stamens, calyx, stem, leaf and bud.",
+    "width": 2520,
+    "height": 1800
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Three attempts",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The reference for this height is a map that I made with an image generator, because no artist-made height existed. It looks convincing and it is full of inconsistencies: the cells are mirrored around the centre, they differ from each other, and the contours are curves, not formulas. It is a reference to measure, nothing else.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Copy it.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " My first graph read the generated image and processed it. That is forbidden, and it is pointless, since I can measure the image myself. The graph was deleted and its files archived.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Write formulas.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Seven bands of 64 wrangle nodes each, 448 in total, calibrated by a measuring bench until the grey levels matched (the error fell from 1.33 to 0.25). The levels matched and the shapes did not. An averaged cell repeated everywhere loses the petal, and a width-against-height function can only draw a symmetric bottle. This graph, 459 nodes, was deleted too.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Use real nodes, one band at a time.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Tile Pattern, Remap, Blend, Function, Fractal Noise, Streak Blur, Turing Patterns, Mirror and Ramp, with a measuring loop around them. That is the graph that stayed.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The method that worked",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "For one band the loop is always the same. Pick one representative cell of the reference, never an average. Measure its contour as a curve, with a mirror when the organ is symmetric. Draw that contour with nodes. Get the volume from the distance to the edge and a profile curve. Get veins and fibres from direction fields. Repeat the cell a whole number of times with a controlled variation per cell. Then compare side by side and with numbers, and only then add the next block of nodes.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The numbers I used: the mean and the spread of the grey levels, the 10th and 90th percentiles, the energy of the edges (which counts fine detail), the correlation of the vertical profile, a structure error (the difference of the two images blurred over three pixels), and for the seams the error between the two border columns against the same error between neighbouring inner columns.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The numbers catch what the eye misses, and the eye catches what the numbers miss. At one point band 0 matched the reference in mean (0.638 against 0.643), in spread (0.160 against 0.157) and in edge energy, and a zoom showed a regular comb of fibres where the reference has a few smooth, curved ones. The statistics were at parity and the picture was wrong. The rule that came out of it: look first, measure second.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Optimising by ablation.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " After a block of nodes, each layer is bypassed in turn and the band is measured again. A layer that changes the band by less than one grey level out of 255, with no effect on the edge energy or on the structure error, is deleted. A layer whose removal lowers the error is harmful and goes as well. The first version of the tool ignored the shadow layers and judged only on the mean, so it kept useless layers and deleted useful ones; it was rewritten. On the leaf, this pass took the band from 157 to 100 nodes at the same quality.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-07",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/07-sheet-growth.webp",
+    "caption": "Figure 7. The sheet fills up band by band. Eight of the 160 recorded states, from the first petals to the last bud; bands that do not exist yet stay flat grey.",
+    "alt": "Eight small squares showing the height sheet being filled from the top band downward.",
+    "width": 2532,
+    "height": 1260
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "One petal",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Band 0 took the most iterations, so it is the one worth reading closely. The petal is a smooth volume with a fan of fibres converging towards its base, a double spine in the middle that fades towards the top, and speckles.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-08",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/08-petal-moments.webp",
+    "caption": "Figure 8. One petal, nine moments between 5 October (top left) and 6 October (bottom right). Height only, exactly as the graph produced it.",
+    "alt": "A three by three grid of the height of one petal, from flat grey blocks to a fan of fibres with dark speckles.",
+    "width": 1901,
+    "height": 1109
+   }
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The silhouette",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " is matched within 3 pixels of the reference.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The vault",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " is how the petal hollows towards its axis. My first reading, a darker centre all along the petal, was wrong. Measured, the tone is flat at about 0.78 near the top and falls to about 0.51 at the bottom. I rendered three values of the vault parameter to choose, and 1.0 is the measured one.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The fibres",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " are drawn with Streak Blur along a direction field. The field is a fan fitted to the reference with a mean error of 2.8 degrees over 85 blocks. It converges towards the bottom of the petal and bends with an exponent of 0.7 on the distance to the axis. My first try converged towards the top, and the error came from there.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The speckles",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " are soft, slightly elongated blobs aligned with the same field, like moles on skin. One mask feeds the height (grey hollows) and the colour (crimson). I made them fewer and greyer after a review, not black.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The rim",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " is a very subtle bright edge, set by a RIM parameter, and a DOTS parameter sets the density of the speckles.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-09",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/09-vault-tests.webp",
+    "caption": "Figure 9. The vault test: the cross-section curve at 1.0 (measured), 1.6 and 2.2, from top to bottom. My first reading, a darker centre all along the petal, was wrong.",
+    "alt": "Three rows of the petal height with an increasingly dark centre.",
+    "width": 2048,
+    "height": 1243
+   }
+  },
+  {
+   "id": "i-10",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/10-petal-band-4096.webp",
+    "caption": "Figure 10. The petal band today, cropped from the 4096 export. Three petals, each with its own speckles.",
+    "alt": "A wide strip of the grey height of three petals at 4096 pixels.",
+    "width": 2560,
+    "height": 494
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The other six bands",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Stamens, band 2.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Anthers, filaments and stigma heads are placed from the positions and sizes of 30 elements measured on the reference. The anthers use a Turing pattern, a reaction-diffusion node. It is the heaviest band, 301 nodes, and the one that stayed furthest from the reference: the pattern is a maze where the reference has grains.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Calyx, band 3.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Seven arches and a funnel. The mean tone is 0.470 against 0.469 for the reference.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Stem, band 4.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " My first hairs were regular arcs, because a hair is not a sinusoid: it has a start, a curvature and a length. The hairs are now small stretched seeds blurred along a direction field with Streak Blur (+55 degrees at the top, 0 in the middle, -55 at the bottom). The seam error is 0.0278, under the 0.0296 between neighbouring columns, so it is invisible.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Leaf, band 5.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Silhouette within 0.01 of the band height, five families of fibres (fine, medium, dark grooves, grain, long fibres) and two outlines: the edge and a second fine arc at about 0.47 of the half width. It took 13 iterations.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Bud, band 6.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " The seam came from different top and bottom values at the two ends of a cell. Making both equal brought the seam score from 100 to 0. A second block of nodes adds the fibrous skin.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Seamless by construction",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Every pattern repeats a whole number of times across the width, and the network border is set to Wrap, so a tile joins itself exactly. The seam is checked by measurement: the error across the border must fall inside the distribution of the errors between neighbouring inner columns. The final graph has seven band subnets, no wrangle, and the node types you would expect: 696 Blend and 628 Remap nodes carry most of the work, with 63 Fractal Noise, 56 Function, 21 Streak Blur and 5 Turing Patterns.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Traps worth keeping",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Units.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A cell coordinate runs from -1 to +1, so with three cells the centred coordinate in canvas fractions is ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "u / 6",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ", not ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "u / 2",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ". With ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "u / 2",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " every petal came out three times too narrow.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The Tile Pattern joint.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " The node writes a wrong pixel on each joint between tiles, which printed a bright line in the middle of the small petals. The coordinates now come from two Ramp nodes, a repeat ramp for the sawtooth in x and a rotated one in y.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Moiré.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Sinusoid fibres on a fan that converges fold into aliasing when their spacing falls under two pixels. A fade mask and lower counts fixed it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Filler nodes.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Six filler tone curves that squeezed 0.7 into 0.7 flattened a band (the 90th percentile fell from 0.81 to 0.74). A filler must be an identity, and the pruning pass deletes it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Resolution.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " The resolution parameter of the copnet drives nothing, the export resolution is the one of the image ROP. For a while every export was 1024 and nobody noticed.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Smoothness.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A mask that goes from 0 to 1 over a short linear ramp leaves a staircase. Masks use a smoothstep at least four pixels wide at the output resolution, and shape curves use monotone cubic interpolation. Applied to every curve, the cubic deformed the tone curves (the mean jumped from 0.64 to 0.76), so it only applies to shapes.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Save the pictures.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " I asked for one image per iteration. The first hours did not do it, and the comparison image was overwritten at every pass. I recovered 183 pictures from the conversation transcript, which keeps every image the agent has looked at, and the scripts now copy each comparison with a timestamp. Those pictures are the 160 states of video 3.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "4096 and what the pixel size changes",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The graph was built at 2048 and exported at 4096. Everything defined in pixels (blur radii, Turing pattern radii, streak lengths) is multiplied by the resolution divided by 2048, through one constant. The 4096 height, brought back to 2048, differs from the 2048 height by 2.4 grey levels out of 255 on average and 27 at the 99th percentile, which comes from the edges getting sharper.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "maps",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 3: back and forth with texturing",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-11",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/11-step3-karma.webp",
+    "caption": "Figure 11. Step 3, back and forth with texturing. The lily rendered by Karma CPU in the Houdini viewport, the render settings on the right.",
+    "alt": "Houdini screenshot: a large pale pink lily in the viewport and the Karma render settings.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 3 is a loop between Houdini and the screen: change a map, look at the lily, change the map again. It has three parts: the colour, the other maps and the look development.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Colour",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The colour came only once the height was good, and it comes from the height: the base colour is derived from it, with palettes measured on reference photos. The first petal colour was wrong in an instructive way. I coloured the petal by its height, but in a real petal the colour depends on the distance to the edge: the edge is almost white, and the colour builds up towards the inside, deeper in the middle. A photo made that clear. The petal colour is now driven by the distance to the contour: about one per cent of the sheet width of clean white, then a short transition into the colour.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The three petals of band 0 are three pinks: a pale pink, a pink, and a washed pink that I asked for as a variation of the middle one. Each flower of the HDA uses one of the three petals, so one lily has one pink, never three.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-12",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/12-three-petals.webp",
+    "caption": "Figure 12. The three petals of band 0 in base colour: pale pink, pink and washed pink. Each flower picks one of them.",
+    "alt": "Three petals in base colour, pale pink, pink and washed pink, with dark speckles.",
+    "width": 2065,
+    "height": 395
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The centre of each tepal and of each bud is green: a gradient that is full on the axis and fades into the pink at the edges. A first version with a flat green rectangle was rejected. Local ambient occlusion, computed from the height, strengthens the pattern in the base colour of band 0, at an intensity of 0.05 set by a parameter called Pattern AO Intensity.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-13",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/13-ao-before-after.webp",
+    "caption": "Figure 13. Local ambient occlusion in the base colour of band 0, before (top) and after (bottom), at intensity 0.05.",
+    "alt": "Two strips of three pink petals, the second one with subtle occlusion in the creases.",
+    "width": 1254,
+    "height": 540
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Six maps",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "From the height, the graph derives the others:",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Normal:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " a Height to Normal node.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Ambient occlusion:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " a Height to Ambient Occlusion node, so that only the recesses darken.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Roughness:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " one level per band, with the recesses rougher.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Opacity:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " a real cut-out for the petals, the leaves and the buds, with hard two-pixel windows between bands. The map is 16 % black, 83 % white and only 1 % grey. The areas that are cut away are filled with the edge colour of each organ, so the cut has no pink or black halo.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Base colour:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " a palette per band, with the pink petals, the green centres and the speckles on top.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A switch node called ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "VIEW_switch_between_maps",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " flips the viewer through the six maps with one parameter: 0 for the height, 1 for the base colour, 2 for the normal, 3 for the occlusion, 4 for the roughness and 5 for the opacity. The maps are exported at 2048 and at 4096.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-14",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/14-six-maps.webp",
+    "caption": "Figure 14. The six final maps, aligned: height, base colour, normal, ambient occlusion, roughness and opacity (2048 px).",
+    "alt": "Six square maps of the lily trim sheet in a grid of three by two.",
+    "width": 2428,
+    "height": 1614
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Look development in Houdini",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "To see the lily without leaving Houdini, the mesh goes to Solaris, the material is built from the maps, and Karma renders it. Four traps took time:",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Thin surfaces looked transparent.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A mesh imported into the stage arrives in USD with ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "doubleSided",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " set to false, so petals and leaves lose their back face. I changed the opacity, the alpha blend mode and even removed the texture before finding it. A small Python node now sets ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "doubleSided",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " to true on every mesh.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Grey petals.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " A material that multiplied the texture by the mesh colour turned the petals grey. One hour.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Granular edges.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " Karma does not smooth an opacity cut-out.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A GL viewport is a preview.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " It has no real glass and no precise ambient occlusion, so Karma stays the reference for the quality of the edges.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Karma XPU on Apple Silicon runs on the CPU only, through Embree: its GPU path needs an NVIDIA card. A 1080 px frame took about 50 seconds on the CPU. I wanted my M5 Max GPU, so I looked for a free renderer for Solaris on macOS. Cycles, from Blender, has an official Hydra delegate with a Metal backend. It was compiled for Houdini 22.0.368 and rendered the 72 frames of an orbit in about 50 seconds. Octane Prime for Mac installed and loaded, but it needs an OTOY account, and I did not test a render.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Cycles came out paler than Karma, with a mean saturation of 0.22 against 0.32, because it reads the preview material and not Karma's: no translucency, no sheen, and a normal map read the wrong way that drew black fibres on the petals. A grade after the render (saturation times 1.45, value times 0.93) brought it to 0.34. The white viewport that I had for a while had a surprising cause: the display flag sat on the node that holds the Karma render settings, and with that flag on it Cycles draws solid white. Moving the flag to the light node before it fixed the viewport. The values of the Cycles look development live in a Markdown file that I can edit, and a script applies them to the scene.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "None of this reaches the final shots. The transparency still did not look right in Cycles, so I moved the lily into Unreal and rendered with Lumen.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-15",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/15-lookdev-iterations.webp",
+    "caption": "Figure 15. Four of the look development renders in Karma, from the first grey read (v3) to the pink petals (v12).",
+    "alt": "Four renders of the same lily plant, from grey and flat to pink.",
+    "width": 2430,
+    "height": 957
+   }
+  },
+  {
+   "id": "unreal-import",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 4: importing into Unreal, with opacity",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-16",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/16-step4-unreal-import.webp",
+    "caption": "Figure 16. Step 4, importing into Unreal with opacity. The material instance MI_LilyTrim and the five maps it reads, in the content browser.",
+    "alt": "Unreal Editor screenshot: a pink lily in the viewport, a material instance window showing the trim sheet and the texture assets below.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The lily leaves Houdini as an FBX file of 99 cm with its UVs, and the maps leave as 4096 PNG files. In Unreal Engine 5.8.1 the master material ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "M_LilyTrim",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " is masked and two-sided, with the opacity map driving the opacity mask. The instance ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "MI_LilyTrim",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " exposes a normal strength, a sign for the green channel of the normal and a specular value.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The green channel of a normal map is flipped between Houdini and Unreal, which is the usual OpenGL against DirectX difference. The material carries a ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "NormalYSign",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " parameter set to -1. The normal strength started at 0.3 and ended at 0.2, set by eye; since then no script is allowed to touch it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The first render was a white frame with a black band at the top: the exposure, the size of the cyclorama and the distance of the camera were wrong. The second one is the first good one. The petals and the leaves are cut out by the opacity map, and the light bounces on the floor.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-17",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/17-first-lumen.webp",
+    "caption": "Figure 17. The first Lumen render, 2048 px. Petals and leaves are cut out by the opacity map, with shadow and bounce light.",
+    "alt": "A pale pink lily with cut-out petals and leaves on a grey studio floor.",
+    "width": 2048,
+    "height": 2048
+   }
+  },
+  {
+   "id": "studio",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 5: setup before three-point lighting",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-18",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/18-step5-studio.webp",
+    "caption": "Figure 18. Step 5, setup before three-point lighting. The studio level with a cyclorama, the flower and a camera, and the sequence under it.",
+    "alt": "Unreal Editor screenshot: a lily in a dark studio box, a camera actor in front, and an empty Sequencer.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The studio level ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "L_LilyStudio",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " holds a cyclorama (a floor that curves into a wall), the flower, three lights (key, fill and back light) set in candela, a post process volume with a manual exposure, and a camera. A sequence, ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "LS_LilyStudio",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ", carries the camera. The first camera used a 50 mm lens on a 36 by 36 mm sensor, a field of view of 39.6 degrees, at 175 cm and 8 degrees of elevation. The later ones use 85 mm, about 24 degrees.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "I wanted a move from 10 to 55 degrees of elevation in five seconds, with a complete turn and an easing. A storyboard sheet came first, 3 elevations by 5 azimuths rendered small, so that I could choose an angle without rendering a whole move.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-19",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/19-orbit-storyboard.webp",
+    "caption": "Figure 19. Storyboard sheet: three elevations (10, 30 and 55 degrees) by five azimuths, rendered small with Lumen.",
+    "alt": "A grid of fifteen small renders of the lily from different angles.",
+    "width": 1600,
+    "height": 960
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The animation is 120 frames at 24 fps with a smoothstep easing: a slow start, a faster middle and a slow end. Five frames of it:",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-20",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/20-orbit-five-frames.webp",
+    "caption": "Figure 20. Five frames of the first camera move: 5 seconds, a full turn, the elevation rising from 10 to 55 degrees.",
+    "alt": "Five renders of the lily seen from changing angles.",
+    "width": 1600,
+    "height": 320
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The blur.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " The first frames were soft: the camera was at f/2.8 with a focus distance of 100,000. At f/32 with a manual focus set at the distance of the orbit, the frame is sharp. Depth of field is off in the render settings.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The light.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " The first three lighting proposals (soft studio, warm key with a cool fill, dramatic low key) differed too little and were too bright. I wanted something much subtler, like a Japanese room.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-21",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/21-first-lighting.webp",
+    "caption": "Figure 21. The first three lighting proposals for the single flower: soft studio, warm key with cool fill, dramatic low key. They barely differ and they are too bright.",
+    "alt": "Three renders of the same lily on a pale background, labelled A, B and C.",
+    "width": 1920,
+    "height": 640
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The script that rebuilt my level.",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " My build script recreated the material and the level at every run. It wiped the lights I had set by hand and deleted the animation camera, so three of the renders that I was shown were wrong. The rule now: a build script creates what does not exist and never touches a level once I have tuned it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "shot",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 6: previewing the first shot",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-22",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/22-step6-render-queue.webp",
+    "caption": "Figure 22. Step 6, preview of the first shot. Movie Render Queue at frame 57 of 240, Lumen on.",
+    "alt": "Unreal Editor screenshot: the Movie Render Queue preview window showing a pink lily and the frame counter.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Renders go through Movie Render Queue, not through a screen capture. The settings that mattered: 6 spatial samples per pixel, 32 to 64 warm-up frames so that Lumen settles, no temporal anti-aliasing and no depth of field. At 1080 px a 120 frame move took about 30 seconds. At 2048 px a 240 frame move took 3 minutes and 13 seconds. A 4K render lagged so much that I stopped it at 42 frames out of 240 and went back to 2K. The screenshot shows the queue at frame 57 of 240, with 2 minutes 22 left.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "These four frames come from the close orbit, which became the ending of the videos: 85 mm, aimed at 82 cm height (the flowers), the camera going from 150 cm to 95 cm, a fixed elevation of 12 degrees, 240 frames, with a slow start, a faster middle and a slow end.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-23",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/23-close-orbit-frames.webp",
+    "caption": "Figure 23. Four frames of the close orbit, 2048 px each (frames 0, 40, 150 and 190 of 240).",
+    "alt": "Four renders of pink lilies from a low camera moving around the plant.",
+    "width": 2560,
+    "height": 633
+   }
+  },
+  {
+   "id": "bed",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Step 7: final scattering",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-24",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/24-step7-scattering.webp",
+    "caption": "Figure 24. Step 7, final scattering. The level L_LilyBed with its 150 actors, and the camera sequence.",
+    "alt": "Unreal Editor screenshot: a dense bed of pink, blue and white lilies in the viewport and the Sequencer below.",
+    "width": 2560,
+    "height": 1496
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "To show that the asset is an HDA, I wanted a bed of lilies, not one plant.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Five shapes from one HDA",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Five instances of the HDA, with different values for four parameters only: the seed, the tepal half width, the stem height and the stem bend. They are exported as five FBX files, ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "SM_LilyV1",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " to ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "SM_LilyV5",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ", and not as ten: the colour changes are material instances, not meshes.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "props": {
+    "columns": [
+     "Instance",
+     "Seed",
+     "Tepal half width (m)",
+     "Stem height (m)",
+     "Stem bend (m)"
+    ],
+    "rows": [
+     [
+      "V1",
+      "7",
+      "0.039",
+      "0.745",
+      "0.02"
+     ],
+     [
+      "V2",
+      "12",
+      "0.034",
+      "0.62",
+      "0.10"
+     ],
+     [
+      "V3",
+      "23",
+      "0.045",
+      "0.85",
+      "0.05"
+     ],
+     [
+      "V4",
+      "31",
+      "0.036",
+      "0.55",
+      "0.16"
+     ],
+     [
+      "V5",
+      "44",
+      "0.042",
+      "0.70",
+      "0.12"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "i-25",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/25-five-variations.webp",
+    "caption": "Figure 25. Five variations of the same HDA. Only the seed, the tepal half width, the stem height and the stem bend change.",
+    "alt": "Five pink lilies of different heights and shapes in the Houdini viewport.",
+    "width": 920,
+    "height": 700
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Three colours from one trim sheet",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Pink is the live base colour from Copernicus, exported at 4096. Blue and white are made from that export by a small script, because the HSV node alone could not isolate the pink; there is no extra node in the graph. Three material instances then use the three textures. My first pass used an old base colour PNG instead of the live trim sheet, so the wrong textures were deleted from Unreal, where they cost memory for nothing.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-26",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/26-colourways.webp",
+    "caption": "Figure 26. The base-colour trim in pink, blue and white. The blue and the white are made from the pink export; no extra node in Copernicus.",
+    "alt": "Three versions of the trim sheet base colour: pink petals, blue petals and white petals.",
+    "width": 1500,
+    "height": 500
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The scatter",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The bed is a simple scatter, made by a Python script inside Unreal: 140 flowers in a disc of 170 cm of radius, scaled between 0.38 and 0.70, tilted by up to 9 degrees, a mix of 40 % pink, 40 % blue and 20 % white, with a fixed seed so that the bed is the same at every run. Each flower is a static mesh actor named after its index and its colour, like ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "LilyBed124_pink",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ". The scatter first went into the studio level by mistake and replaced the flower and the cameras; I repaired the studio level and the bed now has its own level, ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "L_LilyBed",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ".",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-27",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/27-first-bed.webp",
+    "caption": "Figure 27. The first bed render: 140 flowers, three colourways, five shapes. The floor and the light are still wrong.",
+    "alt": "A round bed of pink, blue and white lilies on a pale floor.",
+    "width": 2048,
+    "height": 2048
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Light and camera for the bed",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Three moods for the bed. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "A, Shoji:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " light through paper, a very diffuse warm key and almost no fill. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "B, Misty Morning:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " cold and flat. ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "C, Komorebi:",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " sun through leaves, directional, with sharp shadows. I kept A: a key of 300 cd with a softness of 2.2 and a warm tint, a fill of 45 cd with a cold tint, a rim of 256 cd, and an exposure of -3.4 EV. The values I had before are saved in a JSON backup.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-28",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/28-bed-lighting.webp",
+    "caption": "Figure 28. Three lighting moods for the bed: A Shoji (light through paper), B Misty Morning and C Komorebi (sun through leaves). I kept A.",
+    "alt": "Three renders of the flower bed under warm, cold and sunlit lighting.",
+    "width": 2100,
+    "height": 700
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Two orbits go around the bed, 240 frames each (10 seconds at 24 fps), with the same easing. One rises from 4 degrees, almost at ground level, to 55 degrees, nearly top down, and comes back. The other keeps a fixed elevation of 22 degrees. The fixed one is the hook of the videos. I also wanted the same render with one flower only. Hiding the 140 actors worked, but the camera script reloaded the level from disk and showed them again, and a render started with the bed visible. The fix is a toggle script that only hides and shows, saves nothing, and runs last.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-29",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/29-bed-frames.webp",
+    "caption": "Figure 29. Four frames of the bed orbit with the Shoji lighting (frames 0, 30, 190 and 220 of 240).",
+    "alt": "Four renders of a dense bed of lilies seen from a low camera.",
+    "width": 2560,
+    "height": 633
+   }
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A defect is still there: in the middle of both orbits the top of the frame goes black, because the cyclorama ends and the camera sees beyond it.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "videos",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "From renders to three videos",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "All three videos start from the same ten seconds: the orbit around the bed at 22 degrees. Two of them compress it to six seconds, keep the easing, and put the title on top at 1.0 second.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-30",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/30-timeline.webp",
+    "caption": "Figure 30. How the three videos are cut. The two 2048 px cuts share the same hook; the third one is 4096 px and walks through the seven steps.",
+    "alt": "Timeline diagram of the three videos with their segments, title, sound effect and music.",
+    "width": 2560,
+    "height": 1290
+   }
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Video 2, Petals Height",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " (42.67 s, 2048 px, 24 fps). The hook, then the 84 height images of one petal at 0.33 second each with the last one held for a second, then the base colours of the three petals for a second each, then the close orbit compressed to five seconds.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Video 3, Trim Sheet Height",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " (61.33 s, 2048 px, 24 fps). The same hook, then the full height-evolution video (50.33 seconds, 160 states of the whole sheet), then the same close orbit. The first version of the evolution video was assembled by Gemini from 77 states, and Codex completed it to 160.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Video 1, How did I create these shots?",
+     "styles": {
+      "bold": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " (38 s, 4096 px, 30 fps, built with Codex). Ten seconds with the bed and a single flower side by side, each cropped to half of the square, then my seven screenshots in numeric order, four seconds each: one second in, two seconds of hold and one second out, with the file name as a white caption.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The title",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The title is set in Vogun Medium, pure yellow, two lines with the second in capitals, and a soft centred shadow. The reveal is made of four bands of electrical cross-connections that run from left to right and then from top to bottom, and the exit plays back and forth. It is only the movement of the letters: no particles, no visual effect. It lasts 1.5 seconds in, 2 seconds of hold and 1.5 seconds out.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Vogun only comes in Medium. I made Light, Regular, Semibold and Bold from it with synthetic weights, and the original Medium file is untouched (its SHA-256 is identical). The title files are opaque cream rectangles, so for each frame I rebuild an alpha channel by a key (the text is the difference between the red and the blue channels, with its shadow) at 3840 by 2160, before scaling to the canvas.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-31",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/31-title-reveal.webp",
+    "caption": "Figure 31. The title reveal over the hook, four frames: bands of electrical cross-connections run left to right, then top to bottom.",
+    "alt": "Four frames of a yellow two-line title appearing over the flower bed.",
+    "width": 2550,
+    "height": 630
+   }
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Sound",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A short sound effect plays at 1.0 second in all three videos, at the start of the title. It was far too quiet at -28.2 LUFS, so I raised it to -17 LUFS before the mix. Each track was then normalised to -14 LUFS with a true peak of -1.5 dB, with a two-pass loudnorm. The two cuts came out of the first mix at -8.4 LUFS with peaks above 0 dB: they were clipping. After the sound effect and a last normalisation they sit between -14.07 and -14.09 LUFS, with true peaks between -1.4 and -1.63 dB. Butterfly Effect starts at 2:24 of the track, with a fade-in of 0.4 second and a fade-out of 1.5 seconds. I did not listen to the final mixes at the time of writing the notes this article comes from, so a human ear is still the real check.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "props": {
+    "level": 3
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Formats and covers",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Each video exists as an HEVC .mov tagged ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "hvc1",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ", the tag that Apple wants (ffmpeg writes ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "hev1",
+     "styles": {
+      "code": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " by default, which the iPhone refuses), and as an H.264 .mp4. The 4096 px .mp4 is H.264 level 6.0, and some phones and platforms refuse that level; a 2048 version is the fallback. The three covers are 9:16, 2160 by 3840 px, with the same yellow Vogun title.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-32",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/32-covers.webp",
+    "caption": "Figure 32. The three 9:16 covers: How do I create those shots, Petals Height and Trim Sheet Height.",
+    "alt": "Three vertical covers with yellow titles over a flower and a flower bed.",
+    "width": 1952,
+    "height": 1138
+   }
+  },
+  {
+   "id": "mistakes",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "What went wrong",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "I copied the reference in the first hour. It cost a graph.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "I trusted statistics over my eyes. The numbers were at parity and the picture was wrong.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "I let seven bands advance together. One band at a time, validated, is faster.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "I did not save the iteration images at the start, and I had to recover 183 of them from a transcript.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "A build script overwrote my lights and deleted a camera, and a scatter script wrote 140 flowers into the studio level.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "I tried a 4K render when 2K was enough.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Cycles looked pale and its viewport stayed white for the wrong reason.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The eucalyptus did not reach its reference.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "The top of the bed orbit goes black in the middle of the move.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "numbers",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The numbers",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "props": {
+    "columns": [
+     "What",
+     "Value"
+    ],
+    "rows": [
+     [
+      "Duration of the work",
+      "2 days, 5 and 6 October 2026"
+     ],
+     [
+      "Reference images downloaded",
+      "23, in 4K, from 3 posts"
+     ],
+     [
+      "HDA",
+      "7 components, 3 folders (8, 8 and 5 parameters), 7,416 primitives, 9,888 points"
+     ],
+     [
+      "Trim sheet",
+      "7 bands, 6 maps, exported at 2048 and 4096"
+     ],
+     [
+      "Copernicus network",
+      "502 nodes at the top level, 1,644 nodes in total, 0 wrangles"
+     ],
+     [
+      "Saved states of the height",
+      "160 full-sheet states, 84 states of one petal"
+     ],
+     [
+      "Flower bed",
+      "140 flowers, 5 shapes, 3 colours"
+     ],
+     [
+      "Render, bed orbit",
+      "240 frames at 2048 px in 3 min 13 s, 6 samples per pixel"
+     ],
+     [
+      "Videos",
+      "38 s (4096 px), 42.67 s and 61.33 s (2048 px)"
+     ],
+     [
+      "Loudness",
+      "-14 LUFS, true peak -1.5 dB"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "credits",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "Credits and sources",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Reference: ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/VyE3V4",
+     "content": [
+      {
+       "type": "text",
+       "text": "Erwan Gaudichon on ArtStation",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": ". The other two posts of the collection: ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/a0gxvk",
+     "content": [
+      {
+       "type": "text",
+       "text": "pampas grass",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": " and ",
+     "styles": {}
+    },
+    {
+     "type": "link",
+     "href": "https://www.artstation.com/artwork/5WVB5w",
+     "content": [
+      {
+       "type": "text",
+       "text": "eucalyptus",
+       "styles": {}
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": ".",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Tools: Houdini 22.0.368 Indie with Copernicus, Solaris and Karma; Unreal Engine 5.8.1 with Lumen and Movie Render Queue; Cycles by the Blender Foundation (Apache 2.0); Octane Prime for Mac; ffmpeg; Python and Pillow.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Agents: Claude Code, Codex and Gemini, with ZenRay Assets V2 as their shared memory.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Image generation: used for references only, never as a result.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Music: ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Sonic Riots",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " by Grandbrothers; ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Butterfly Effect",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " by fox capture plan; ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Feverkin",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": " from ",
+     "styles": {}
+    },
+    {
+     "type": "text",
+     "text": "Alternate Realities Part I (Soundtrack)",
+     "styles": {
+      "italic": true
+     }
+    },
+    {
+     "type": "text",
+     "text": ".",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Title font: Vogun Medium by Yukita Creative. Captions: Vogun Medium.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "How this article was written",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "paragraph",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "This page was written from the project's own records, not from memory: the Assets V2 map of the project, its feedback file with every prompt and correction, the conversations of the three agents, the saved iteration images and the scripts. Every number above comes from a file, a log or a measurement made on 5 and 6 October 2026. Where a point was not verified, the text says so.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "id": "i-33",
+   "type": "image",
+   "props": {
+    "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/33-last-frame.webp",
+    "caption": "Figure 33. The last shot of the three videos: frame 230 of the close orbit.",
+    "alt": "A close-up of pink lilies with a big open flower in the foreground.",
+    "width": 2048,
+    "height": 2048
+   }
+  }
+ ]
+}
