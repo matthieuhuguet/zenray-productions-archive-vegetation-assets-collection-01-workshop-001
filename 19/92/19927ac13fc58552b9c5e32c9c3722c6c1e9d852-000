@@ -84,7 +84,7 @@
     },
     {
      "type": "text",
-     "text": ". I measured his work and never copied it.",
+     "text": ". I used his work to measure proportions, colours and patterns. None of his images, and none of the images generated from them, is read by the final graph.",
      "styles": {}
     }
    ]
@@ -321,6 +321,23 @@
    "content": [
     {
      "type": "link",
+     "href": "#recipe",
+     "content": [
+      {
+       "type": "text",
+       "text": "The recipe in ten lines",
+       "styles": {}
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "bulletListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "link",
      "href": "#mistakes",
      "content": [
       {
@@ -451,7 +468,7 @@
     },
     {
      "type": "text",
-     "text": ". I downloaded the 23 images of the three posts in 4K and cut them into reference sheets: four views, material crops, component sheets.",
+     "text": ". I downloaded the 23 images of the three posts in 4K and cut them into reference sheets: material crops and component sheets. The four-view sheets and the reference height maps were generated from them with an image generator.",
      "styles": {}
     }
    ]
@@ -845,7 +862,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/03-hda-versions.webp",
-    "caption": "Figure 3. The HDA at versions 1, 4 and 7, each shown from the front, the side, the top and in three quarters. In version 1 the flowers sit low on a stem that is mostly leaves.",
+    "caption": "Figure 3. The HDA at versions 1, 4 and 7, seen from the front, the side, the top and in three quarters.",
     "alt": "Three rows of four viewport views of the lily model, becoming more detailed from top to bottom.",
     "width": 2400,
     "height": 1820
@@ -857,7 +874,7 @@
    "content": [
     {
      "type": "text",
-     "text": "These are versions 1, 4 and 7 of the same HDA, seen from the front, the side, the top and in three quarters. In version 1 the parts exist but the flowers sit low on a stem that is mostly leaves. Version 4 spreads the flowers around the stem on their measured azimuths. Version 7 is closer to the final proportions. The colours in these previews are only flat colours per part; the real ones come later from the trim sheet.",
+     "text": "In version 1 the parts exist but the flowers sit low on a stem that is mostly leaves. Version 4 spreads the flowers around the stem. Version 7 is the same model seen closer, with more detail in the tubes, the stamens and the buds. The colours in these previews are flat colours per part; the real ones come later from the trim sheet.",
      "styles": {}
     }
    ]
@@ -903,7 +920,7 @@
    "type": "image",
    "props": {
     "url": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/04-uv-check.webp",
-    "caption": "Figure 4. Checking the UVs. The lily is coloured with the base colour read at each vertex UV: pink-white petals, magenta tubes and green leaves mean that every part lands on its own band.",
+    "caption": "Figure 4. The lily coloured with the base colour read at its own UVs.",
     "alt": "Four views of the lily coloured by the trim sheet through its UVs.",
     "width": 2560,
     "height": 640
@@ -915,7 +932,7 @@
    "content": [
     {
      "type": "text",
-     "text": "To check, the lily is coloured with the base colour read at its own UVs. Pink-white petals, magenta tubes and green leaves mean that each part lands on its band.",
+     "text": "To check the UVs, the lily is coloured with the base colour read at its own UVs. Pink-white petals, magenta tubes and green leaves mean that each part lands on its band, and a UV outside the sheet would show at once.",
      "styles": {}
     }
    ]
@@ -1384,7 +1401,7 @@
     },
     {
      "type": "text",
-     "text": " Anthers, filaments and stigma heads are placed from the positions and sizes of 30 elements measured on the reference. The anthers use a Turing pattern, a reaction-diffusion node. It is the heaviest band, 301 nodes, and the one that stayed furthest from the reference: the pattern is a maze where the reference has grains.",
+     "text": " Anthers, filaments and stigma heads are placed from the positions and sizes of 30 elements measured on the reference. The anthers use a Turing pattern, a reaction-diffusion node. It is the heaviest band, 301 nodes, and the place where my graph is still furthest from the reference: the pattern is a maze where the reference has grains.",
      "styles": {}
     }
    ]
@@ -1402,7 +1419,7 @@
     },
     {
      "type": "text",
-     "text": " Seven arches and a funnel. The mean tone is 0.470 against 0.469 for the reference.",
+     "text": " Seven arches and a funnel. At the last measurement the mean tone was 0.470 against 0.469 for the reference.",
      "styles": {}
     }
    ]
@@ -1655,7 +1672,7 @@
     },
     {
      "type": "text",
-     "text": " I asked for one image per iteration. The first hours did not do it, and the comparison image was overwritten at every pass. I recovered 183 pictures from the conversation transcript, which keeps every image the agent has looked at, and the scripts now copy each comparison with a timestamp. Those pictures are the 160 states of video 3.",
+     "text": " I asked for one image per iteration. The first hours did not do it, and the comparison image was overwritten at every pass. I recovered 183 pictures from the conversation transcript, which keeps every image the agent has looked at, and the scripts now copy each comparison with a timestamp. Those pictures are what video 3 is made of.",
      "styles": {}
     }
    ]
@@ -1955,7 +1972,7 @@
    "content": [
     {
      "type": "text",
-     "text": "To see the lily without leaving Houdini, the mesh goes to Solaris, the material is built from the maps, and Karma renders it. Four traps took time:",
+     "text": "To see the lily without leaving Houdini, the mesh goes to Solaris through a short chain: the mesh import, a node that sets the faces double sided, a material built from the maps, a camera, a dome light with a key and a fill, the Karma render settings and the render node. Four traps took time:",
      "styles": {}
     }
    ]
@@ -2260,7 +2277,7 @@
     },
     {
      "type": "text",
-     "text": ", carries the camera. The first camera used a 50 mm lens on a 36 by 36 mm sensor, a field of view of 39.6 degrees, at 175 cm and 8 degrees of elevation. The later ones use 85 mm, about 24 degrees.",
+     "text": ", carries the camera. The first camera used a 50 mm lens on a 36 by 36 mm sensor, a field of view of 39.6 degrees, at 175 cm and 8 degrees of elevation. The close shots use 85 mm, about 24 degrees, and the bed uses 50 mm.",
      "styles": {}
     }
    ]
@@ -2405,7 +2422,7 @@
    "content": [
     {
      "type": "text",
-     "text": "Renders go through Movie Render Queue, not through a screen capture. The settings that mattered: 6 spatial samples per pixel, 32 to 64 warm-up frames so that Lumen settles, no temporal anti-aliasing and no depth of field. At 1080 px a 120 frame move took about 30 seconds. At 2048 px a 240 frame move took 3 minutes and 13 seconds. A 4K render lagged so much that I stopped it at 42 frames out of 240 and went back to 2K. The screenshot shows the queue at frame 57 of 240, with 2 minutes 22 left.",
+     "text": "Renders go through Movie Render Queue, not through a screen capture. The settings that mattered: 6 spatial samples per pixel, 32 to 64 warm-up frames so that Lumen settles, no temporal anti-aliasing and no depth of field. At 1080 px a 120 frame move took about 30 seconds. At 2048 px a 240 frame move took 3 minutes and 13 seconds. A 4K render lagged so much that I stopped it at 42 frames out of 240 and went back to 2K.",
      "styles": {}
     }
    ]
@@ -2769,7 +2786,7 @@
    "content": [
     {
      "type": "text",
-     "text": "A defect is still there: in the middle of both orbits the top of the frame goes black, because the cyclorama ends and the camera sees beyond it.",
+     "text": "A defect is still there: in the middle of the bed orbit, and in a smaller way of the close orbit, the top of the frame goes black, because the cyclorama ends and the camera sees beyond it.",
      "styles": {}
     }
    ]
@@ -2929,7 +2946,7 @@
    "content": [
     {
      "type": "text",
-     "text": "A short sound effect plays at 1.0 second in all three videos, at the start of the title. It was far too quiet at -28.2 LUFS, so I raised it to -17 LUFS before the mix. Each track was then normalised to -14 LUFS with a true peak of -1.5 dB, with a two-pass loudnorm. The two cuts came out of the first mix at -8.4 LUFS with peaks above 0 dB: they were clipping. After the sound effect and a last normalisation they sit between -14.07 and -14.09 LUFS, with true peaks between -1.4 and -1.63 dB. Butterfly Effect starts at 2:24 of the track, with a fade-in of 0.4 second and a fade-out of 1.5 seconds. I did not listen to the final mixes at the time of writing the notes this article comes from, so a human ear is still the real check.",
+     "text": "A short sound effect plays at 1.0 second in all three videos, at the start of the title. It was far too quiet at -28.2 LUFS, so I raised it to -17 LUFS before the mix. Each track was then normalised to -14 LUFS with a true peak of -1.5 dB, with a two-pass loudnorm. The two cuts came out of the first mix at -8.4 LUFS with peaks above 0 dB: they were clipping. After the sound effect and a last normalisation they sit between -14.07 and -14.09 LUFS, with true peaks between -1.4 and -1.63 dB. Butterfly Effect starts at 2:24 of the track, with a fade-in of 0.4 second and a fade-out of 1.5 seconds.",
      "styles": {}
     }
    ]
@@ -2992,6 +3009,130 @@
     "width": 1952,
     "height": 1138
    }
+  },
+  {
+   "id": "recipe",
+   "type": "heading",
+   "props": {
+    "level": 2
+   },
+   "content": [
+    {
+     "type": "text",
+     "text": "The recipe in ten lines",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Fix the rules first: measure, never copy; real nodes only; one band at a time.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Turn the references into masks, profiles and tables. Nothing else leaves them.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Build the HDA from components, with a table for the layout, and fit it to the masks.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Decide the trim sheet: the bands, the number of cells in each, and the UV table of the HDA.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Build the height band by band: a block of nodes, a comparison with pictures and numbers, an ablation pass.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Derive the colour, the normal, the occlusion, the roughness and the opacity from the height.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Export at 4096, scale every pixel-based setting with the resolution, and check the seams.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "In Unreal, import the FBX and the maps, make a masked two-sided material, and use instances for the colours.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Light and film it: Lumen, three lights, f/32 with a manual focus, Movie Render Queue with 6 samples.",
+     "styles": {}
+    }
+   ]
+  },
+  {
+   "type": "numberedListItem",
+   "props": {},
+   "content": [
+    {
+     "type": "text",
+     "text": "Cut the videos: a hook, the content, an ending, a title, and a sound that is measured at -14 LUFS.",
+     "styles": {}
+    }
+   ]
   },
   {
    "id": "mistakes",

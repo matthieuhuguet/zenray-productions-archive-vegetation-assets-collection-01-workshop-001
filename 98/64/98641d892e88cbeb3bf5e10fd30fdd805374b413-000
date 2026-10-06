@@ -114,7 +114,7 @@
    "number": 3,
    "kind": "figure",
    "section": "hda",
-   "caption": "The HDA at versions 1, 4 and 7, each shown from the front, the side, the top and in three quarters. In version 1 the flowers sit low on a stem that is mostly leaves.",
+   "caption": "The HDA at versions 1, 4 and 7, seen from the front, the side, the top and in three quarters.",
    "alt": "Three rows of four viewport views of the lily model, becoming more detailed from top to bottom.",
    "sha256": "9fecd81d394b2d17b50caec60292c9b38677e865a674523676768029bb6d54d4"
   },
@@ -129,7 +129,7 @@
    "number": 4,
    "kind": "figure",
    "section": "hda",
-   "caption": "Checking the UVs. The lily is coloured with the base colour read at each vertex UV: pink-white petals, magenta tubes and green leaves mean that every part lands on its own band.",
+   "caption": "The lily coloured with the base colour read at its own UVs.",
    "alt": "Four views of the lily coloured by the trim sheet through its UVs.",
    "sha256": "9aeabe21406b2a73222e31de50bdc78b74fd3641c1fd5796c2b3b4abdf396d5b"
   },
