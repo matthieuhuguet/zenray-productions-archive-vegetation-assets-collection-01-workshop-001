@@ -30,7 +30,7 @@
    "id": "v-how",
    "type": "youtube",
    "props": {
-    "youtubeId": "",
+    "youtubeId": "Ir-aFj3LmOM",
     "aspect": "1 / 1",
     "poster": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/poster-how.webp",
     "label": "How did I create these shots?",
@@ -42,7 +42,7 @@
    "id": "v-petals",
    "type": "youtube",
    "props": {
-    "youtubeId": "",
+    "youtubeId": "5zmjNVxzkiY",
     "aspect": "1 / 1",
     "poster": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/poster-petals.webp",
     "label": "Petals Height",
@@ -54,7 +54,7 @@
    "id": "v-trim",
    "type": "youtube",
    "props": {
-    "youtubeId": "",
+    "youtubeId": "EEWB-OSGQKI",
     "aspect": "1 / 1",
     "poster": "/projects/fleur-de-lys-procedural-lily-houdini-unreal/poster-trim.webp",
     "label": "Trim Sheet Height",
