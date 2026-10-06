@@ -1189,7 +1189,7 @@
     },
     {
      "type": "text",
-     "text": " Tile Pattern, Remap, Blend, Function, Fractal Noise, Streak Blur, Turing Patterns, Mirror and Ramp, with a measuring loop around them. That is the graph that stayed.",
+     "text": " Remap, Blend, Function, Fractal Noise, Streak Blur, Turing Patterns, Worley Noise and Ramp, with a measuring loop around them (the first band tests also used Tile Pattern and Mirror, the final graph does not). That is the graph that stayed.",
      "styles": {}
     }
    ]
@@ -2120,7 +2120,7 @@
    "content": [
     {
      "type": "text",
-     "text": "Karma XPU on Apple Silicon runs on the CPU only, through Embree: its GPU path needs an NVIDIA card. A 1080 px frame took about 50 seconds on the CPU. I wanted my M5 Max GPU, so I looked for a free renderer for Solaris on macOS. Cycles, from Blender, has an official Hydra delegate with a Metal backend. It was compiled for Houdini 22.0.368 and rendered the 72 frames of an orbit in about 50 seconds. Octane Prime for Mac installed and loaded, but it needs an OTOY account, and I did not test a render.",
+     "text": "On Apple Silicon, Karma XPU runs on the CPU only, through Embree, and its GPU path needs an NVIDIA card. A Karma CPU frame at 1080 px took about 50 seconds. I wanted my M5 Max GPU, so I looked for a free renderer for Solaris on macOS. Cycles, from Blender, has an official Hydra delegate with a Metal backend. It was compiled for Houdini 22.0.368 and rendered the 72 frames of an orbit in about 50 seconds. Octane Prime for Mac installed and loaded, but it needs an OTOY account, and I did not test a render.",
      "styles": {}
     }
    ]
