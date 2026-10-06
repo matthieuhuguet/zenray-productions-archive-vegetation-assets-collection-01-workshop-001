@@ -1,0 +1,17 @@
+# Flower reference images, chronological (6 October 2026)
+
+| N | File | What | Former name |
+|---|---|---|---|
+| 01 | 01_gen_flower-4views-perfect.png | 4 views of the lily (AI gen) | perfect-4-views.png |
+| 02 | 02_gen_flower-parts-upscaled.png | upscaled flower parts (AI gen) | upscaled-flower-parts.png |
+| 03 | 03_gen_trimsheet-height_v1.png | trim sheet height v1, bands 0-6 (AI gen) | trimsheet-height-flower.png |
+| 04 | 04_gen_trimsheet-basecolor_v1.png | trim sheet base colour v1 (reference only) | trimsheet-basecolor-flower-REFERENCE-ONLY.png |
+| 05 | 05_photo_petal-colour-reference.webp | petal colour photo | petal-colour-reference-tmp1.webp |
+| 06 | 06_gen_trimsheet-height_v2.png | trim sheet height v2, current target (AI gen) | newref2height.png |
+| 07 | 07_gen_trimsheet-basecolor_v2.png | trim sheet base colour v2, current target (AI gen) | basecolornewref1.png |
+| 08 | 08_mix_height-v2_band1-old-ref.png | height v2 with the OLD ref band 1 (superseded) | newref2height-band1-blend.png |
+| 09 | 09_mix_basecolor-v2_band1-old-ref.png | base colour v2 with the OLD ref band 1 (superseded) | basecolornewref1-band1-blend.png |
+| 10 | 10_mix_height-v2_band1-houdini.png | height v2 + Houdini band 1 (back and forth input) | newref2height-houdini-band1.png |
+| 11 | 11_mix_basecolor-v2_band1-houdini.png | base colour v2 + Houdini band 1, green core gradient (back and forth input) | basecolornewref1-houdini-band1.png |
+
+Rule (6 October 2026): new generations continue the numbering, NN_kind_description_vN. References are for MEASURING only, never inside the graph.
