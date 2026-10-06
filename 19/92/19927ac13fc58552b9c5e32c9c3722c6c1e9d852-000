@@ -1189,7 +1189,7 @@
     },
     {
      "type": "text",
-     "text": " Remap, Blend, Function, Fractal Noise, Streak Blur, Turing Patterns, Worley Noise and Ramp, with a measuring loop around them (the first band tests also used Tile Pattern and Mirror, the final graph does not). That is the graph that stayed.",
+     "text": " Remap, Blend, Function, Fractal Noise, Streak Blur, Turing Patterns, Worley Noise and Ramp, with a measuring loop around them (the first band tests also used Tile Pattern, which the final graph no longer does). That is the graph that stayed.",
      "styles": {}
     }
    ]
