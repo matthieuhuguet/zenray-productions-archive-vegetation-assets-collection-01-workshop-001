@@ -1,0 +1,7 @@
+-- Found Houdini: /Applications/Houdini/Current
+-- Houdini Python version: 3.13
+-- Using precompiled libraries at /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/source/lib/macos_arm64
+-- Found Metal: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/cycles/build
