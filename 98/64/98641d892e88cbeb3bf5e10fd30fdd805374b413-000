@@ -10,7 +10,7 @@
  },
  "totals": {
   "files": 37,
-  "bytes": 9546566
+  "bytes": 9342768
  },
  "images": [
   {
@@ -62,7 +62,7 @@
    "file": "thumb.webp",
    "width": 2560,
    "height": 1440,
-   "bytes": 359010,
+   "bytes": 192308,
    "quality": 90,
    "over_budget": false,
    "slug": "card-thumb",
@@ -71,13 +71,13 @@
    "section": "",
    "caption": "Card thumbnail for the works grid",
    "alt": "Thumbnail: a pink lily on a blurred copy of itself.",
-   "sha256": "33f83989e35b57836d4eb2da9a39ce7c8babf6660a747c92dce10d9b3d781024"
+   "sha256": "38268765667a7f95d345e1fec7ea9b97ff2e0d4d91897c24653c94645dd854a5"
   },
   {
    "file": "01-pipeline.webp",
    "width": 2560,
-   "height": 1120,
-   "bytes": 113466,
+   "height": 1150,
+   "bytes": 115198,
    "quality": 90,
    "over_budget": false,
    "slug": "pipeline",
@@ -86,7 +86,7 @@
    "section": "brief",
    "caption": "The whole pipeline in one picture. Houdini builds the asset and its maps, Unreal renders the shots, ffmpeg and Python cut the videos.",
    "alt": "Diagram: references measured in Houdini, an HDA and a Copernicus trim sheet, FBX and 4096 maps into Unreal Engine with Lumen and Movie Render Queue, then ffmpeg for three videos.",
-   "sha256": "8598252d9f4fe71e09cbaeb5e1cf1dcb9776e933a6672a13d7a412e48c92c838"
+   "sha256": "ed981129be2737108beb978569fea7406547c66d54f4208ae01e72c8abc166bd"
   },
   {
    "file": "02-step1-hda-in-houdini.webp",
@@ -286,8 +286,8 @@
   {
    "file": "15-lookdev-iterations.webp",
    "width": 2430,
-   "height": 600,
-   "bytes": 80042,
+   "height": 957,
+   "bytes": 274716,
    "quality": 90,
    "over_budget": false,
    "slug": "lookdev-iterations",
@@ -296,7 +296,7 @@
    "section": "maps",
    "caption": "Four of the look development renders in Karma, from the first grey read (v3) to the pink petals (v12).",
    "alt": "Four renders of the same lily plant, from grey and flat to pink.",
-   "sha256": "8580ec12653e6dec4a8a3119815bdef2a1e17e4459986a450f4aaea48944bf73"
+   "sha256": "32301b8be4541e35c32e2ba976c73fa0338ec89a8611c57c4b6d98c5d224bdb6"
   },
   {
    "file": "16-step4-unreal-import.webp",
@@ -407,16 +407,16 @@
    "file": "23-close-orbit-frames.webp",
    "width": 2560,
    "height": 633,
-   "bytes": 225606,
+   "bytes": 228542,
    "quality": 90,
    "over_budget": false,
    "slug": "close-orbit-frames",
    "number": 23,
    "kind": "figure",
    "section": "unreal",
-   "caption": "Four frames of the close orbit, 2048 px each (frames 0, 50, 150 and 230 of 240).",
+   "caption": "Four frames of the close orbit, 2048 px each (frames 0, 40, 150 and 190 of 240).",
    "alt": "Four renders of pink lilies from a low camera moving around the plant.",
-   "sha256": "9ba02675545a92181c55fa2ce82ac558c95f0bd29a1f13f16b486e8acd7c71c9"
+   "sha256": "fe82ff145c1b2954a3534cbf3734a55fb9b7bf75495c070da7ae42229ba3b955"
   },
   {
    "file": "24-five-variations.webp",
@@ -497,22 +497,22 @@
    "file": "29-bed-frames.webp",
    "width": 2560,
    "height": 633,
-   "bytes": 357748,
+   "bytes": 361430,
    "quality": 90,
    "over_budget": false,
    "slug": "bed-frames",
    "number": 29,
    "kind": "figure",
    "section": "bed",
-   "caption": "Four frames of the bed orbit with the Shoji lighting (frames 0, 20, 200 and 230 of 240).",
+   "caption": "Four frames of the bed orbit with the Shoji lighting (frames 0, 30, 190 and 220 of 240).",
    "alt": "Four renders of a dense bed of lilies seen from a low camera.",
-   "sha256": "62dbda6d1df9fcf30ac3bbd374b9d5f989c78e51eef3e4c6fbd30758d61e6abe"
+   "sha256": "0f3c173ea6a44ca5a10588b9db8d25e39ab75af93a6225497f48fcff676d0672"
   },
   {
    "file": "30-timeline.webp",
    "width": 2560,
-   "height": 1180,
-   "bytes": 81862,
+   "height": 1290,
+   "bytes": 83470,
    "quality": 90,
    "over_budget": false,
    "slug": "timeline",
@@ -521,22 +521,22 @@
    "section": "videos",
    "caption": "How the three videos are cut. The two 2048 px cuts share the same hook; the third one is 4096 px and walks through the seven steps.",
    "alt": "Timeline diagram of the three videos with their segments, title, sound effect and music.",
-   "sha256": "91bda22e512ab8c5e8118080eec4b535e7257b0ff555f730c06d65aa3e40f220"
+   "sha256": "0af9584d18ee366394b3a05d616c9605f4c29a48e23e6fa831b5e3340ee3f471"
   },
   {
    "file": "31-title-reveal.webp",
-   "width": 2552,
-   "height": 504,
-   "bytes": 348928,
+   "width": 2550,
+   "height": 630,
+   "bytes": 406764,
    "quality": 90,
    "over_budget": false,
    "slug": "title-reveal",
    "number": 31,
    "kind": "figure",
    "section": "videos",
-   "caption": "The title reveal, five frames over the hook: four bands of electrical cross-connections run left to right, then top to bottom, and the exit plays back and forth.",
-   "alt": "Five frames of a yellow two-line title appearing and disappearing over the flower bed.",
-   "sha256": "09496dfcb856942c23663c4340f5b685e4a1f31d828942c50f3a8e995eab0c6a"
+   "caption": "The title reveal over the hook, four frames: bands of electrical cross-connections run left to right, then top to bottom.",
+   "alt": "Four frames of a yellow two-line title appearing over the flower bed.",
+   "sha256": "b06969c1a36d2cf151c7a391e0e44b74326ca66a4217d53941312967b806ae79"
   },
   {
    "file": "32-covers.webp",
@@ -557,16 +557,16 @@
    "file": "33-last-frame.webp",
    "width": 2048,
    "height": 2048,
-   "bytes": 619842,
+   "bytes": 320278,
    "quality": 90,
    "over_budget": false,
    "slug": "last-frame",
    "number": 33,
    "kind": "figure",
    "section": "videos",
-   "caption": "The last frame of the close orbit. Everything above exists to make this one picture, and the 239 before it.",
+   "caption": "The last shot of the three videos: frame 230 of the close orbit.",
    "alt": "A close-up of pink lilies with a big open flower in the foreground.",
-   "sha256": "7a5886f3d01c2bde6dc11f0cf48814cc92fddf9173b319a29b8d0602c90d8738"
+   "sha256": "3061fec64f8496b9e2d5eed73ab13caa64226a5e66d447c45c4c300897927791"
   }
  ]
 }
