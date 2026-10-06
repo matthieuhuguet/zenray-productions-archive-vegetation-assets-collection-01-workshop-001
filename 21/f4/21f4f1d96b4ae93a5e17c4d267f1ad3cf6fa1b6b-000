@@ -1,0 +1,28 @@
+{
+  "date": "6 October 2026",
+  "houdini": "22.0.368",
+  "cyclesSourceCommit": "a456b761034dda42c32eef9f4aae0fa5a5c9f604",
+  "octane": "2026.5.0.0 Prime arm64",
+  "installRoot": "/Users/zenray/Create/Build/HoudiniRenderers/22.0.368",
+  "launcher": "/Users/zenray/Create/Build/HoudiniRenderers/22.0.368/LaunchSolarisGPU.command",
+  "cyclesGpuValidated": true,
+  "octaneDelegateLoaded": true,
+  "octaneRenderValidated": false,
+  "octaneAccountMissing": true,
+  "verification": {
+    "installedCyclesSpatialStddev": [
+      0.6915727506242378,
+      0.42957341167038104,
+      0.6569603196276325
+    ],
+    "karmaMaximumPixelDifference": 0.0,
+    "cyclesIndependentOfBuildLibraries": true,
+    "defaultPackages": [
+      "cycles.json"
+    ]
+  },
+  "observedExternalChanges": [
+    "Production .hip SHA256 changes after 16:19:22; no test script writes this file.",
+    "A user cycles.json symlink appears at 16:19:24; preserved, no test script creates this symlink."
+  ]
+}

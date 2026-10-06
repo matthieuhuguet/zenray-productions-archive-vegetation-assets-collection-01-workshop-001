@@ -1,0 +1,145 @@
+[Octane]      Octane Render for Houdini. Build 2026.5.0.0 (Build date: Sep 21 2026 10:21:52)
+[Octane] Octane API: 2026.5
+[Octane] HDK API: 22.0.368
+[Octane] Houdini host version: 22.0.368
+[Octane] Initializing Octane API
+[Octane] Octane API ready. Initialization time: 0.668 seconds
+[Octane] OCIO configuration ready. Initialization time: 0.007 seconds
+[Octane] Octane network rendering enabled. Initialization time: 0.000 seconds
+[Octane] WARNING: preferences file not found: /Users/zenray/Library/Preferences/houdini/22.0/octane.pref
+[Octane] 16:08:52 INFOR: [nodes] -------------  Registering Octane VOP nodes
+[Octane] 16:08:52 INFOR: [nodes] -------------  Octane VOP nodes registered
+[Octane] 16:08:52 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
+[Octane] 16:08:52 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
+##################################################################
+#  CYCLES_LOGGING is overridden to 'true'.  Default is 'false'.  #
+##################################################################
+##########################################################################
+#  CYCLES_LOGGING_LEVEL is overridden to 'info'.  Default is 'warning'.  #
+##########################################################################
+00:00.00 | Added device "Apple M5 Max (GPU - 40 cores)" with id "METAL_Apple M5 Max (GPU - 40 cores)".
+00:00.00 | Device with id "METAL_Apple M5 Max (GPU - 40 cores)" supports OpenImageDenoise.
+00:00.01 | Using default CPU kernels.
+00:00.04 | Adaptive sampling: automatic min samples = 64
+00:00.04 | Effective scene passes:
+00:00.04 | - type: combined, name: "color", mode: NOISY, is_written: True
+00:00.04 | - type: adaptive_aux_buffer, name: "", mode: NOISY, is_written: True
+00:00.04 | - type: depth, name: "depth", mode: NOISY, is_written: True
+00:00.04 | - type: object_id, name: "primId", mode: NOISY, is_written: True
+00:00.04 | - type: aov_value, name: "instanceId", mode: NOISY, is_written: True
+00:00.04 | - type: sample_count, name: "", mode: NOISY, is_written: True
+00:00.04 | Requested features:
+00:00.04 | Use BSDF True
+00:00.04 | Use Emission True
+00:00.04 | Use Volume False
+00:00.04 | Use Bump False
+00:00.04 | Use Voronoi False
+00:00.04 | Use Shader Raytrace False
+00:00.04 | Use MNEE False
+00:00.04 | Use Transparent False
+00:00.04 | Use Denoising False
+00:00.04 | Use Path Tracing True
+00:00.04 | Use Hair False
+00:00.04 | Use Pointclouds False
+00:00.04 | Use Object Motion False
+00:00.04 | Use Baking False
+00:00.04 | Use Subsurface False
+00:00.04 | Use Volume False
+00:00.04 | Use Shadow Catcher False
+00:00.04 | Use Portal Node False
+00:00.09 | Total 7 shaders.
+00:00.09 | Shader manager updated 7 shaders in 0.00054275 seconds.
+00:00.09 | Total 2 objects.
+00:00.09 | Total 0 particle systems.
+00:00.09 | Total 2 meshes.
+00:00.13 | Using METAL layout.
+00:00.16 | Total 10 lookup tables.
+00:00.16 | Total 1 lights.
+00:00.16 | Background MIS has been disabled.
+00:00.16 | Number of lights sent to the device: 0
+00:00.16 | Use light tree with 0 emitters and 0 nodes.
+00:00.16 | Total 11 lookup tables.
+00:00.17 | System memory statistics after full device sync:
+00:00.17 |   Usage: 16,666 (16.28K)
+00:00.17 |   Peak: 1,065,242 (1.02M)
+00:00.17 | Adaptive sampling: automatic min samples = 64
+02:37.23 | Rendered 1 samples in 0.936249 seconds (0.936249 seconds per sample), occupancy: 0.000732422
+02:37.24 | Adaptive sampling: automatic min samples = 64
+02:37.24 | Rendered 1 samples in 0.00214375 seconds (0.00214375 seconds per sample), occupancy: 0.000732422
+02:37.24 | Adaptive sampling: automatic min samples = 64
+02:37.24 | Rendered 1 samples in 0.00225425 seconds (0.00225425 seconds per sample), occupancy: 0.000732422
+02:37.24 | Adaptive sampling: automatic min samples = 64
+02:37.25 | Rendered 1 samples in 0.00308367 seconds (0.00308367 seconds per sample), occupancy: 0.000732422
+02:37.25 | Adaptive sampling: automatic min samples = 64
+02:37.25 | Rendered 1 samples in 0.00215729 seconds (0.00215729 seconds per sample), occupancy: 0.000732422
+02:37.25 | Adaptive sampling: automatic min samples = 64
+02:37.25 | Rendered 1 samples in 0.00227108 seconds (0.00227108 seconds per sample), occupancy: 0.000732422
+02:37.26 | Adaptive sampling: automatic min samples = 64
+02:37.26 | Rendered 1 samples in 0.00273104 seconds (0.00273104 seconds per sample), occupancy: 0.000732422
+02:37.26 | Adaptive sampling: automatic min samples = 64
+02:37.26 | Rendered 1 samples in 0.00221025 seconds (0.00221025 seconds per sample), occupancy: 0.000732422
+02:37.26 | Adaptive sampling: automatic min samples = 64
+02:37.26 | Rendering in main loop is done in 0.971139 seconds.
+02:37.26 | Full path tracing report:
+02:37.26 | 
+02:37.26 | Path tracing on: Apple M5 Max (GPU - 40 cores) (Metal) (display) [METAL_Apple M5 Max (GPU - 40 cores)]
+02:37.26 |                      Hardware Ray-Tracing: On
+02:37.26 | 
+02:37.26 | Render Scheduler Summary
+02:37.26 | 
+02:37.26 | Mode: Interactive
+02:37.26 | Resolution: 128x128
+02:37.26 | 
+02:37.26 | Adaptive sampling:
+02:37.26 |   Use: True
+02:37.26 |   Step: 16
+02:37.26 |   Min Samples: 64
+02:37.26 |   Threshold: 0.050000
+02:37.26 | 
+02:37.26 | Denoiser:
+02:37.26 |   Use: False
+02:37.26 | 
+02:37.26 | Time (in seconds):
+02:37.26 |                                        Wall              Average
+02:37.26 |           Path Tracing             0.962991             0.120374
+02:37.26 |        Adaptive Filter             0.000000             0.000000
+02:37.26 |         Display Update             0.003889             0.001944
+02:37.26 | 
+02:37.26 |   Total: 0.966880
+02:37.26 | 
+02:37.26 | Rendered 8 samples in 0.971200 seconds
+02:37.26 | Adaptive sampling: automatic min samples = 64
+02:37.26 | Rendering in main loop is done in 0.971299 seconds.
+02:37.26 | Full path tracing report:
+02:37.26 | 
+02:37.26 | Path tracing on: Apple M5 Max (GPU - 40 cores) (Metal) (display) [METAL_Apple M5 Max (GPU - 40 cores)]
+02:37.26 |                      Hardware Ray-Tracing: On
+02:37.26 | 
+02:37.26 | Render Scheduler Summary
+02:37.26 | 
+02:37.26 | Mode: Interactive
+02:37.26 | Resolution: 128x128
+02:37.26 | 
+02:37.26 | Adaptive sampling:
+02:37.26 |   Use: True
+02:37.26 |   Step: 16
+02:37.26 |   Min Samples: 64
+02:37.26 |   Threshold: 0.050000
+02:37.26 | 
+02:37.26 | Denoiser:
+02:37.26 |   Use: False
+02:37.26 | 
+02:37.26 | Time (in seconds):
+02:37.26 |                                        Wall              Average
+02:37.26 |           Path Tracing             0.962991             0.120374
+02:37.26 |        Adaptive Filter             0.000000             0.000000
+02:37.26 |         Display Update             0.003889             0.001944
+02:37.26 | 
+02:37.26 |   Total: 0.966880
+02:37.26 | 
+02:37.26 | Rendered 8 samples in 0.971366 seconds
+02:37.69 | Adaptive sampling: automatic min samples = 64
+02:37.69 | Rendering was canceled.
+[Octane] 16:11:32 INFOR: [render] ------------   - Cleaning the scene. Full clean state 1
+[Octane] 16:11:32 INFOR: [render] ------------   - Scene including 0 items cleaned. 0 items deleted. 0 remaing items.
+[Octane] 16:11:32 INFOR: [api] ---------------  Closing the Octane API

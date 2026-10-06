@@ -1,0 +1,12 @@
+{
+  "installedCyclesSpatialStddev": [
+    0.6915727506242378,
+    0.42957341167038104,
+    0.6569603196276325
+  ],
+  "karmaMaximumPixelDifference": 0.0,
+  "cyclesIndependentOfBuildLibraries": true,
+  "defaultPackages": [
+    "cycles.json"
+  ]
+}

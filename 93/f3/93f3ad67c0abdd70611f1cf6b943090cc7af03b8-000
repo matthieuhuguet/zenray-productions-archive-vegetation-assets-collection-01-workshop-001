@@ -1,0 +1,29 @@
+diff --git a/src/cmake/Modules/FindUSDHoudini.cmake b/src/cmake/Modules/FindUSDHoudini.cmake
+index 6c8f631..4078a9e 100644
+--- a/src/cmake/Modules/FindUSDHoudini.cmake
++++ b/src/cmake/Modules/FindUSDHoudini.cmake
+@@ -31,7 +31,8 @@ if(HOUDINI_ROOT AND EXISTS ${HOUDINI_ROOT})
+   string(REGEX MATCHALL "[0-9]+" HOUDINI_VERSION_MAJOR ${_houdini_version_major})
+ 
+   # USD
+-  set(USD_LIBRARIES hd hgi hgiGL gf arch garch plug tf trace vt work sdf cameraUtil hf pxOsd usd usdImaging usdGeom python)
++  # 6 October 2026: Link the scene-index library required by Houdini USD 26.5.
++  set(USD_LIBRARIES hd hdsi hgi hgiGL gf arch garch plug tf trace vt work sdf cameraUtil hf pxOsd usd usdImaging usdGeom python)
+ 
+   foreach(lib ${USD_LIBRARIES})
+     find_library(_pxr_library NAMES pxr_${lib} PATHS ${_library_dir} NO_DEFAULT_PATH)
+diff --git a/src/hydra/CMakeLists.txt b/src/hydra/CMakeLists.txt
+index f1af78c..5a7b2c3 100644
+--- a/src/hydra/CMakeLists.txt
++++ b/src/hydra/CMakeLists.txt
+@@ -190,8 +190,9 @@ if(WITH_CYCLES_HYDRA_RENDER_DELEGATE)
+         PLUG_INFO_LIBRARY_PATH
+         "${CYCLES_HYDRA_INSTALL_PATH}/usd_plugins/${HdCyclesPluginName}"
+         "${CYCLES_HYDRA_INSTALL_PATH}/usd/${HdCyclesPluginName}${CMAKE_SHARED_LIBRARY_SUFFIX}")
++      # 6 October 2026: Resolve kernels from the actual Houdini plugin root.
+       file(RELATIVE_PATH PLUG_INFO_RESOURCE_PATH
+-        "${CYCLES_HYDRA_INSTALL_PATH}/${HdCyclesPluginName}"
++        "${CYCLES_HYDRA_INSTALL_PATH}/usd_plugins/${HdCyclesPluginName}"
+         "${CYCLES_INSTALL_PATH}")
+     else()
+       file(RELATIVE_PATH

@@ -1,0 +1,28 @@
+# Installation Cycles et Octane Solaris, 6 October 2026
+
+Cycles officiel est compilé pour Houdini 22.0.368 arm64 avec Metal. Le profil GPU charge Cycles et Octane Prime 2026.5.0.0 ensemble. Octane reconnaît un GPU local ; aucun rendu Octane valide n’est encore obtenu et Matthieu confirme ne pas avoir de compte OTOY. (6 October 2026)
+
+Le lanceur `/Users/zenray/Create/Build/HoudiniRenderers/22.0.368/LaunchSolarisGPU.command` ouvre Houdini Indie avec `HOUDINI_PACKAGE_DIR` pointant sur `SolarisGPU/packages` et `USDIMAGINGGL_ENGINE_ENABLE_SCENE_INDEX=0`. Il ne ferme ni ne sauvegarde une session existante. Depuis Solaris, choisir Cycles ou Octane dans la liste des moteurs. La session GUI lancée par ce fichier n’est pas ouverte pendant cette installation. (6 October 2026)
+
+## Preuves, 6 October 2026
+
+- Cycles : rendu 128 x 128, huit échantillons, GPU Apple M5 Max 40 cores, Hardware Ray-Tracing On ; après mise en cache des kernels, 0,72 seconde de path tracing sur cette scène minuscule, aucune promesse de vitesse sur un asset complet. Premier démarrage : environ 157 secondes de compilation Metal. Logs `CyclesLegacyRender.log` et `CyclesInstalledRender.log`. (6 October 2026)
+- `InstalledVerification.json` : le rendu fonctionne même lorsque les bibliothèques de compilation sont temporairement inaccessibles, puis restaurées ; écart maximal entre les pixels des rendus Karma avant/après = 0. (6 October 2026)
+- `InstalledDiscovery.log` : Cycles, Octane, Karma CPU et GL restent présents dans le même processus. XPU est listé par Houdini mais sa présence ne prouve pas son fonctionnement sur Mac. (6 October 2026)
+- `ImageVerification.json` : la sortie Cycles en Hydra récent est blanchâtre, sans matériau vert, et rejetée au contrôle de la scène ; le profil de compatibilité rend une sphère verte réelle. Les sorties Octane sont noires avec zéro échantillon et rejetées. Un code de sortie 0 ne suffit jamais à valider un rendu. (6 October 2026)
+- `houdini.env` garde son SHA256 initial. La scène de production change à 16:19:22 pendant le travail ; aucun script de ce chantier ne la charge ou la sauvegarde. Un lien utilisateur `cycles.json` apparaît à 16:19:24 et est conservé. Ces deux changements ne sont pas présentés comme des fichiers restés identiques. (6 October 2026)
+
+## Reproduction, 6 October 2026
+
+- Source Cycles officiel : commit `a456b761034dda42c32eef9f4aae0fa5a5c9f604`. `CyclesHoudini22.patch` conserve les corrections locales : lier hdsi et corriger ResourcePath du plugin. (6 October 2026)
+- Configuration depuis `renderers/cycles` : `cmake -S source -B build -G Ninja -DHOUDINI_ROOT=/Applications/Houdini/Current -DCMAKE_INSTALL_PREFIX=/Users/zenray/Create/Build/HoudiniRenderers/22.0.368/Cycles -DCMAKE_BUILD_TYPE=Release -DWITH_CYCLES_DEVICE_METAL=ON -DWITH_CYCLES_STANDALONE_GUI=OFF -DWITH_CYCLES_OSL=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_CXX_FLAGS=-DFMT_CONSTEVAL=`. (6 October 2026)
+- Puis `cmake --build build --parallel 16`, `cmake --install build` et `python3 /Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/Scripts/RendererFixInstallNames.py`. Cette dernière commande retire les RPATH de compilation, ajoute les bibliothèques installées et signe uniquement les deux binaires Cycles construits localement. (6 October 2026)
+- Octane : archive officielle `https://render.otoy.com/downloads/38/d9/d0/a3/Octane_2026.5.0.0_Houdini_22.0.368_Prime_macos.zip`, extraite dans le dossier Octane. `createPackageFileForOctane.sh` est lu mais jamais exécuté : le profil écrit ses propres chemins et conserve les recherches existantes. (6 October 2026)
+- La priorité Hydra d’Octane est mise à 0 dans ses métadonnées locales, avec original `plugInfo.json.vendor`, afin de conserver Karma prioritaire. Aucun binaire Octane n’est modifié. (6 October 2026)
+- Pour lancer les vérificateurs : `/Applications/Houdini/Current/Frameworks/Houdini.framework/Resources/bin/hython /Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/Scripts/RendererVerifyInstalled.py`. Les scènes isolées et images restent dans `renderers/tests`. (6 October 2026)
+
+## Activation et retour arrière, 6 October 2026
+
+- Créer le compte OTOY personnel, obtenir Octane X Prime puis activer depuis la fenêtre Octane du profil GPU ; ne pas envoyer de mot de passe dans le chat. Reprendre ensuite le test natif Octane. La licence compte/serveur est un prérequis externe encore non vérifié. (6 October 2026)
+- Ouvrir Houdini avec son lanceur habituel conserve le mode Hydra habituel ; le profil externe ne s’applique qu’au lanceur GPU. Pour retirer le profil, renommer `SolarisGPU/packages` ou retirer ses deux JSON. Ne pas supprimer les packages personnels ni le lien cycles.json apparu en parallèle. (6 October 2026)
+- Les bibliothèques tierces, la compilation et l’archive Octane restent locales ; aucune sauvegarde cloud de ces dépendances n’est affirmée. (6 October 2026)

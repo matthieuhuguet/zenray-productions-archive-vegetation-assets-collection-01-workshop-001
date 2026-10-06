@@ -1,0 +1,146 @@
+{
+  "Cycles": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 1.7592917680740356,
+    "maximum": 2.1991147994995117,
+    "mean": 1.9423858356749406,
+    "stddev": 0.21629476881797643,
+    "spatialStddev": [
+      0.21629476881793233,
+      0.21629476881793233,
+      0.21629476881793233
+    ],
+    "samples": 0,
+    "greenMaterialVisible": false,
+    "nonblank": true,
+    "sha256": "438301ef3f13b82918473580674b2b748cc16a98111460096b8a0e54ea0ec975"
+  },
+  "CyclesLegacy": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 0.0,
+    "maximum": 2.1991147994995117,
+    "mean": 1.571205937807387,
+    "stddev": 0.6111891928177069,
+    "spatialStddev": [
+      0.6915727507566563,
+      0.4295734116028857,
+      0.656960319727869
+    ],
+    "samples": 0,
+    "greenMaterialVisible": true,
+    "nonblank": true,
+    "sha256": "50d256ffa9f561679dc359c5aaec457786db10f31ff449249f682b22ccee7b9b"
+  },
+  "CyclesInstalled": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 0.0,
+    "maximum": 2.1991147994995117,
+    "mean": 1.5712059378737802,
+    "stddev": 0.6111891927538735,
+    "spatialStddev": [
+      0.6915727506242378,
+      0.42957341167038104,
+      0.6569603196276325
+    ],
+    "samples": 0,
+    "greenMaterialVisible": true,
+    "nonblank": true,
+    "sha256": "842c0a207bb929a3b73bf876a869a0cbbe8a43470f3517471a3f868751d981fd"
+  },
+  "Octane": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 0.0,
+    "maximum": 0.0,
+    "mean": 0.0,
+    "stddev": 0.0,
+    "spatialStddev": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "samples": 0,
+    "greenMaterialVisible": false,
+    "nonblank": false,
+    "sha256": "46ab19650595476bad3db25a87f311fd4f64ce9c17748d65a5a9263b73099b8c"
+  },
+  "OctaneNative": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 0.0,
+    "maximum": 0.0,
+    "mean": 0.0,
+    "stddev": 0.0,
+    "spatialStddev": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "samples": 0,
+    "greenMaterialVisible": false,
+    "nonblank": false,
+    "sha256": "3d5a079a1074d46bd7e85b833756d84134f4fa971ba0ccd6dbb9d4b2f3f9b453"
+  },
+  "KarmaBaseline": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 0.0,
+    "maximum": 0.44384765625,
+    "mean": 0.14772141197075447,
+    "stddev": 0.1265237820792391,
+    "spatialStddev": [
+      0.11427044695143974,
+      0.14266675896417114,
+      0.11436892085932221
+    ],
+    "samples": 0,
+    "greenMaterialVisible": true,
+    "nonblank": true,
+    "sha256": "1fde9795334b234aa7fd892be307e7be0e31c8861177362b62e1c3508c4255b7"
+  },
+  "KarmaWithPlugins": {
+    "exists": true,
+    "resolution": [
+      128,
+      128
+    ],
+    "minimum": 0.0,
+    "maximum": 0.44384765625,
+    "mean": 0.14772141197075447,
+    "stddev": 0.1265237820792391,
+    "spatialStddev": [
+      0.11427044695143974,
+      0.14266675896417114,
+      0.11436892085932221
+    ],
+    "samples": 0,
+    "greenMaterialVisible": true,
+    "nonblank": true,
+    "sha256": "37c3d56dfe57213ae9ddace102695cc15a788913243e6db246ac9dba44b3b981"
+  },
+  "originalFiles": {
+    "/Users/zenray/Library/Preferences/houdini/22.0/houdini.env": true,
+    "/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/hip/VegetationCollection01.hiplc": false
+  }
+}
