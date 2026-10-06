@@ -14,7 +14,7 @@
             },
             "LibraryPath": "../../usd/hdCycles.dylib",
             "Name": "hdCycles",
-            "ResourcePath": "../../../",
+            "ResourcePath": "../../../../",
             "Root": "..",
             "Type": "library"
         }
