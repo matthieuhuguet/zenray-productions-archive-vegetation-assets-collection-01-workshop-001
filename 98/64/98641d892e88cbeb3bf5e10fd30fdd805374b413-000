@@ -10,7 +10,7 @@
  },
  "totals": {
   "files": 37,
-  "bytes": 9342768
+  "bytes": 9340648
  },
  "images": [
   {
@@ -89,7 +89,7 @@
    "file": "01-pipeline.webp",
    "width": 2560,
    "height": 1150,
-   "bytes": 115198,
+   "bytes": 113078,
    "quality": 90,
    "over_budget": false,
    "slug": "pipeline",
@@ -99,7 +99,7 @@
    "caption": "The whole pipeline in one picture. Houdini builds the asset and its maps, Unreal renders the shots, ffmpeg and Python cut the videos.",
    "alt": "Diagram: references measured in Houdini, an HDA and a Copernicus trim sheet, FBX and 4096 maps into Unreal Engine with Lumen and Movie Render Queue, then ffmpeg for three videos.",
    "sources": [],
-   "sha256": "ed981129be2737108beb978569fea7406547c66d54f4208ae01e72c8abc166bd"
+   "sha256": "0f92795b675962770c6202f850f44f896f001da96a2602008567baca54fb98c6"
   },
   {
    "file": "02-step1-hda-in-houdini.webp",

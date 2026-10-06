@@ -8,7 +8,7 @@ Built by `Scripts/ArticleLily/Figures.py`. 37 files, 9.3 MB, every width at most
 | poster | `poster-petals.webp` | 1600 x 1600 | 237 | Poster: Petals Height | `render/flower_close_orbit_2k/close_0230.png` |
 | poster | `poster-trim.webp` | 1600 x 1600 | 366 | Poster: Trim Sheet Height | `render/bed_orbit_flat_2k/flat_0040.png` |
 | card | `thumb.webp` | 2560 x 1440 | 188 | Card thumbnail for the works grid | `render/flower_close_orbit_2k/close_0230.png` |
-| 1 | `01-pipeline.webp` | 2560 x 1150 | 112 | The whole pipeline in one picture. Houdini builds the asset and its maps, Unreal renders the shots, ffmpeg and Python cut the videos. |  |
+| 1 | `01-pipeline.webp` | 2560 x 1150 | 110 | The whole pipeline in one picture. Houdini builds the asset and its maps, Unreal renders the shots, ffmpeg and Python cut the videos. |  |
 | 2 | `02-step1-hda-in-houdini.webp` | 2560 x 1496 | 227 | Step 1, creating the HDA. The lily as a Houdini Digital Asset: three folders of parameters on the right, five variations of it on the left. | `video/steps/inputs/1 creating hda.png` |
 | 3 | `03-hda-versions.webp` | 2400 x 1820 | 335 | The HDA at versions 1, 4 and 7, seen from the front, the side, the top and in three quarters. | `previews/lily_v001.png`<br>`previews/lily_v004_flowers.png`<br>`previews/lily_v007.png` |
 | 4 | `04-uv-check.webp` | 2560 x 640 | 99 | The lily coloured with the base colour read at its own UVs. | `previews/lily_uv_check.png` |

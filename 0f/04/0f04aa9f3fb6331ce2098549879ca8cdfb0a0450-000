@@ -1,0 +1,390 @@
+# Conversation digest: Vegetations Creating Materials October 2026
+
+Reader id `claude:2562b086-836d-49c5-80c7-0c935a98513c`, provider claude, 25 messages that cite the paths of vegetation-assets-collection-01 (every other message of this conversation is deliberately left out) from 2026-10-06 to the end, built from the original transcript (44 windows read).
+
+### 2026-10-06T15:20:32.711Z · prompt
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+Summary:
+1. Primary Request and Intent:
+   Matthieu (French, terse, dictates) is building, with Houdini 22.0.368 (Indie, Copernicus COP + Solaris), the procedural lily trim sheet and flower for "Vegetations Assets ZenRay Collection 01" (Assets V2 id `vegetation-assets-collection-01`; project root `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/`; TMP `/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/`). Refs only for measuring (numbered `refs/flower-sheets/01..11`, target 06 height v2 / 07 base colour v2). Over this segment he asked, in order: iterate the petal (band 0) and leaf (band 5) height against ref v2 by measurements and masks (and fix specific visual feedback: curved fibres, vaulted centre, bead/mole dots fewer and greyer, double spine fading upward, wavy contour back, subtle luminous edge); compile a movie (height storyboard, petals, Karma renders, hook, title, music, square format); produce a tilted orbit turn over (35/15/55/72 degrees tests) and render the 72 frames of B55 quickly on the GPU; get Cycles/Octane accessible in the Houdini GUI for look dev (viewport preview without rendering, render on demand); fix the white Cycles viewport; make the Cycles viewport look good and give him an editable parameter section in the skill; record everything in `/zenray-houdini`.
+   **Latest explicit request (not yet executed):** "Il manque la transparence anyway... toujours pareil bon on va simplement lancer /zrs et mettre dans unreal pour compute dans lumen go ... setup la scène 3 point light cyclorama + camera + mesh + texture + material go. /zenray-houdini lance unreal". I.e. abandon Cycles for look dev (no transparency), launch the ZenRayShards Unreal project (skills `/zrs` and `/zenray-houdini`), import the lily mesh + textures, create the material (with transparency/opacity), set up a studio scene (cyclorama, 3 point lights, camera) and render with Lumen.
+   Standing constraints: brevity; no em dash; each added line dated in English with month in full (e.g. "6 October 2026"); code identifiers in English; never use Matthieu's personal browser (built-in browser fine); never type credentials (OTOY/Octane Prime account and licence must be done by Matthieu himself, "ne jamais demander son mot de passe"); document in the skill and sync (`~/.claude/skills/skill-sync/scripts/sync-skill.sh zenray-houdini`); one Assets V2 checkpoint at the end of each work turn (`cd /Users/zenray/Create/Build/Productions/GithubProductions/ZenRayProgress && node scripts/Assets/Client.mjs checkpoint vegetation-assets-collection-01 '{"agent":"claude","sessionId":"2562b086-836d-49c5-80c7-0c935a98513c","checkpointId":"...","summary":"..."}'`); save every iteration image in `versions/`; measure before tuning, change one thing at a time; verify visually by capturing the Houdini window without taking his screen; ask before irreversible actions; one build at a time for the movie; never delete rendered frames before new ones exist; for Unreal: all game assets in `/Game/ZenRayShards`, PascalCase, never delete an asset in use (ForceDeleteObjects corrupts the package), grep SolvedBugs before diagnosing, tools in `/Users/zenray/Create/Build/Productions/ZenRayShards/ZenRayShards` (`python3 Scripts/unreal_guard.py ensure`, `Scripts/mcp.py`).
+
+2. Key Technical Concepts:
+   - Copernicus COP real nodes (ramp, remap, blend, function, fractalnoise, worleynoise F1 dots, streakblur with `rgbatouv` direction fields, heighttonormal, monotorgb colour ramps, turingpatterns), no VEX engine; `TrimNodes.PIXEL_SCALE = res/2048` scales pixel parms; export via rop_image setres.
+   - Petal measurement method: common coordinates (row lv, t=|x-axis|/half width, d=distance to edge), per-petal axis offset from silhouette, `ref-maps/petal_measured.json` (silhouette, vaulted tone surface, rib, d
+[... 13807 more characters in the original]
+
+### 2026-10-06T15:27:48.901Z · iteration
+
+La scène Unreal est prête et le rendu Lumen fonctionne.
+
+- **Rendu :** [lily_ue_v002.png](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/lily_ue_v002.png), 2048 px. La transparence des pétales et des feuilles est correcte, avec ombres et rebond de lumière.
+- **Ce qui est en place :**
+  - le mesh du lys (FBX exporté depuis Houdini, 99 cm de haut) ;
+  - les cartes 4096 : couleur, normale, roughness, AO, opacité ;
+  - le matériau `M_LilyTrim` (masqué, double face) et son instance ;
+  - le niveau `L_LilyStudio` : cyclorama, clé, remplissage et contre-jour, caméra et Lumen.
+- **Réglages :** tout est dans `unreal/lily_params.json`, et le reste dans `VegetationCollection01/unreal/`. Le premier rendu était blanc, avec une bande noire en haut. L'exposition, la taille du cyclorama et la distance de caméra sont corrigées dans cette version.
+- **Documentation :** le skill `zenray-houdini` est mis à jour et synchronisé, avec la chaîne complète et les pièges rencontrés. Le checkpoint Assets V2 est envoyé, mais la sauvegarde cloud n'est pas confirmée (`backupConfirmed:false`).
+
+Les cartes ne sont pas encore retouchées, donc les bandes 1 à 4 et la couleur des bandes 2 à 5 restent des premières passes. Je n'ai pas encore lancé de rendu 4K ni de turn over.
+
+Pour le prochain rendu, tu choisis : un réglage de la lumière ou du look, un rendu 4K, ou un turn over en Lumen.
+
+### 2026-10-06T15:40:11.891Z · iteration
+
+Planche prête : [storyboard_ue_orbit_3angles.png](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/storyboard_ue_orbit_3angles.png), 3 élévations (10°, 30°, 55°) × 5 images (azimut 0, 72, 144, 216, 288° pour t = 0 à 4 s, boucle à 5 s), 640 px, Lumen.
+
+- **10° :** le plus naturel, fond noir en haut.
+- **30° :** les fleurs se lisent le mieux.
+- **55° :** vue presque en plongée, les corolles s'ouvrent, mais la tige disparaît.
+
+Je m'arrête là : dis-moi l'angle retenu (et 120 ou 240 frames) avant que je lance le turn over complet. Les images sont plus sombres que le rendu 2048, à cause des 4 samples et du préchauffage court de Lumen.
+
+### 2026-10-06T15:43:00.219Z · iteration
+
+L'animation de caméra est faite : 120 frames (5 s à 24 i/s), l'élévation passe de 10° à 55° en douceur (smoothstep) avec un tour complet autour du lys. Le zoom est un 85 mm (FOV ≈ 24° au lieu de 39,6°), visé sur les fleurs.
+
+- **Aperçu :** [LilyOrbitAnim_preview_v001.mp4](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyOrbitAnim_preview_v001.mp4), en 640 px. Les cinq images de contrôle ([orbit_anim_ue_v001_5frames.png](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/orbit_anim_ue_v001_5frames.png)) montrent bien le passage de la vue de face à la plongée.
+- **Séquence :** `LS_LilyAnim`, dans le Content Browser à côté de `LS_LilyStudio`.
+- **Réglages :** tout est dans `lily_params.json`, bloc `animation` (distance, focale, vitesse du tour, angles).
+- **Documentation :** le skill est à jour et le checkpoint est envoyé.
+
+Dis-moi si le zoom te convient (ou plus serré), puis je lance le rendu 4K.
+
+### 2026-10-06T15:49:07.654Z · iteration
+
+Le rendu 1080p est terminé et net : [LilyOrbitAnim_1080_v001.mp4](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyOrbitAnim_1080_v001.mp4), 120 frames en 1080 × 1080, 5 s à 24 i/s.
+
+- **Flou :** la caméra Unreal était à f/2.8 avec une mise au point à 100000. Elle est maintenant à f/32 avec la mise au point fixée à la distance de l'orbite, et le contrôle sur la frame 60 est piqué.
+- **Rendu :** Movie Render Queue avec Lumen, 6 échantillons par pixel, 32 frames de préchauffage, sans profondeur de champ. Le tout a pris environ 30 s.
+- **Skill et checkpoint :** le skill est mis à jour et le checkpoint est envoyé.
+
+Le format est resté carré (1080 × 1080), comme le film précédent. Si tu veux du 16:9 (1920 × 1080) ou la 4K, dis-le-moi et je relance.
+
+### 2026-10-06T16:02:19.496Z · iteration
+
+Le rendu 2K est terminé : 120 frames en 2048 × 2048 (5 s à 24 i/s), via le Movie Render Queue.
+
+- **Vidéo :** [LilyOrbitAnim_2K_v001.mp4](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyOrbitAnim_2K_v001.mp4)
+- **Frames :** `render/orbit_anim_ue_2k/`, avec une frame de contrôle (la 60) dans `versions/orbit_anim_ue_2k_f60.png`.
+- **Lumières :** j'ai sauvegardé le niveau avant de rendre, et je n'ai pas touché aux lumières ni à la force de normale. Elles sont donc celles que tu as sauvegardées dans l'éditeur, et la frame de contrôle montre bien un éclairage warm. Je ne vois pas à l'image si `NormalStrength` est resté à 0,2, vérifie-le sur `MI_LilyTrim`.
+
+Je n'ai pas mis à jour le skill pour cette passe. Les trois propositions de lighting sont toujours à faire.
+
+### 2026-10-06T16:15:55.698Z · iteration
+
+Les mauvaises textures et instances sont supprimées, et la vidéo que tu cherches est `LilyHeightToRender_v004.mov` ; l'index de tout le dossier est `video/INDEX.md`, dans `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/`.
+
+- **Supprimés dans Unreal :** `T_LilyBaseColor`, `T_LilyBaseColorBlue`, `MI_LilyTrimBlue` et `MI_LilyTrim`. Tout ce qui les utilisait (le lys, les 5 variations, le niveau studio) pointe maintenant sur `MI_LilyTrimLive`. La force de normale à 0,2 est conservée, et le parent `M_LilyTrim` pointe aussi sur la texture à jour.
+- **Restent :** `M_LilyTrim`, `MI_LilyTrimLive`, `MI_LilyTrimLiveBlue`, les textures `T_LilyBaseColorLive` et `T_LilyBaseColorLiveBlue`, les maps normale, roughness, AO et opacité, et `M_LilyCyclorama`.
+
+La planche des 5 variations (rose puis bleue) n'est pas rendue : mon rendu a été interrompu quand tu as arrêté la tâche. Dis-moi si je la relance maintenant.
+
+### 2026-10-06T16:18:59.337Z · iteration
+
+La planche des 5 variations est construite dans Houdini : [variants_houdini_sheet_v001.png](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/variants_houdini_sheet_v001.png), capture de la vue de face.
+
+- **Nœuds :** `LilyVar_V1` à `LilyVar_V5` dans `/obj`, cinq instances du HDA espacées de 0,55 m, avec chacune son `seed`, son `tepal_width`, sa `stem_height` et son `stem_bend`. Les valeurs sont dans `unreal/variants/variants.json`. J'ai masqué l'original `Lily_Flower` pour que la planche reste lisible.
+- **FBX :** il n'y en a que 5 (`SM_LilyV1` à `V5`), déjà importés dans Unreal, et les versions rose et bleue passent par les instances de matériau `MI_LilyTrimLive` et `MI_LilyTrimLiveBlue`.
+- **Unreal :** j'ai arrêté toute construction de niveau dans l'éditeur. Il a redémarré pendant mon script de planche, et je n'ai pas encore vérifié qu'il est de nouveau prêt.
+- **Limite de la planche :** c'est la vue de la scène Houdini, donc la couleur vient de la géométrie, pas de la vraie base color du trim.
+
+Dis-moi si les 5 formes te conviennent. Je construirai ensuite le parterre diffus en cercle dans Houdini, puis je l'enverrai en un seul FBX dans Unreal.
+
+### 2026-10-06T16:21:10.612Z · iteration
+
+Le contrôle de l'éditeur Unreal s'est terminé sans erreur (la sortie est vide, donc je ne sais pas s'il est prêt). Je n'y ai rien relancé.
+
+J'attends ta validation des 5 formes sur [la planche](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/variants_houdini_sheet_v001.png) avant de construire le parterre dans Houdini.
+
+### 2026-10-06T16:23:38.136Z · iteration
+
+Le parterre diffus en cercle est fait : [bed_ue_v001.png](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/bed_ue_v001.png), 140 fleurs en rose, bleu et blanc au hasard, avec les 5 variations de forme.
+
+- **Dans Houdini :** les 5 variations existent (`LilyVar_V1` à `V5`). La base color utilisée est celle du graphe actuel de Copernicus, exportée en 4096. Le node `hsv` seul ne sait pas sélectionner le rose, donc le blanc et le bleu sont générés par un script (`MakeBlueBaseColour.py`) à partir de cet export : pas de node ajouté dans Copernicus.
+- **Dans Unreal :** simple scatter dans le nouveau niveau `L_LilyBed`, avec trois instances (`MI_LilyTrimLive`, `…LiveBlue`, `…LiveWhite`). Tout est réglable dans `lily_params.json`, bloc `bed`.
+- **Mon erreur :** mon script a d'abord écrit le scatter dans ton `L_LilyStudio`. Je l'ai réparé : plus de fleurs du parterre, `LilyFlower` remise, tes lumières intactes. Il manque seulement la caméra d'animation `LilyAnimCam`, que le script d'animation recrée.
+- **Défauts visibles :** le sol (cyclorama trop petit, courbé et taché) fait moche, et les pétales sont presque tous blancs avec seulement le cœur coloré. Cela vient de la base color elle-même et de l'exposition.
+
+Dis-moi ce que tu corriges d'abord : un sol d'herbe ou plat, l'exposition, ou la couleur des pétales.
+
+### 2026-10-06T16:43:01.981Z · iteration
+
+Voici la planche : [bed_lighting_3proposals_v001.png](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/bed_lighting_3proposals_v001.png). Les trois propositions sont plus sombres et plus douces que ton éclairage actuel, vues du parterre depuis `LilyBedCam`, avec une exposition plus basse (-3,0 à -4,0 EV contre -3,6 pour toi).
+
+- **A, Shoji (lumière à travers un papier) :** clé très diffuse et chaude, remplissage presque éteint. L'ambiance est calme, le contraste faible, avec un fond brun.
+- **B, Misty Morning (matin de brume) :** lumière froide et plate, presque sans ombre dure. C'est la plus discrète, avec un fond bleu-gris.
+- **C, Komorebi (soleil à travers les feuilles) :** clé chaude plus directionnelle, avec des ombres nettes et un fond sable. C'est la plus contrastée, je la trouve la plus lisible pour les fleurs, mais A est celle qui ressemble le plus à une scène japonaise.
+
+Je n'ai rien sauvegardé : les trois variantes ont été appliquées en mémoire, puis j'ai remis tes valeurs (clé 512 cd, remplissage 512 cd, contre-jour 1024 cd, exposition -3,6) dans `L_LilyBed`. Tes lumières sont donc inchangées.
+
+Dis-moi laquelle tu retiens, ou laquelle je pousse encore plus subtile.
+
+### 2026-10-06T16:44:15.703Z · iteration
+
+La vidéo V04 (107 Mo) est ici : `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyHeightToRender_v004.mov`, avec sa version `.mp4` à côté.
+
+- **Dossier et contexte :** le dossier `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/` contient aussi `INDEX.md` (le fichier .md que j'avais créé, 12,9 Ko) et le manifest `LilyHeightToRender_v004.manifest.json`.
+- **Assets V2 :** le projet est `vegetation-assets-collection-01`, et son index d'entrée est `/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/Index.md`.
+- **Pas vérifié :** je n'ai pas trouvé la vidéo V04 elle-même dans la liste du mapping (j'ai affiché seulement 24 documents sur 74). Je ne peux donc pas dire si elle est déjà sauvegardée dans le cloud.
+
+### 2026-10-06T16:51:24.939Z · iteration
+
+Le rendu 2K de l'orbite flat est terminé : 240 frames en 2048 × 2048 (10 s à 24 i/s) en 3 minutes 13 s, avec l'éclairage Shoji.
+
+- **Vidéo :** [LilyBedOrbitFlat_2K_v001.mp4](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyBedOrbitFlat_2K_v001.mp4) (109 Mo), frames dans `render/bed_orbit_flat_2k/`, et cinq images de contrôle dans `versions/bed_orbit_flat_2k_5frames.png`.
+- **Défaut visible :** sur les frames du milieu de l'orbite (60, 120 et 180), le haut de l'image est un aplat noir. C'est le fond du cyclorama qui s'arrête, la caméra voit au-delà quand elle regarde dans cette direction. Les extrémités (0 et 239) sont correctes.
+- **Pas vérifié :** je n'ai regardé que ces cinq frames, pas la vidéo en entier.
+
+Je peux corriger le noir (agrandir le fond ou changer le cadrage) avant de relancer, ou tu valides telle quelle.
+
+### 2026-10-06T17:14:01.800Z · prompt
+
+Confirme-moi que tu as encore le contexte du montage parce que j'ai la flemme de tout réexpliquer. peut être dans index ou regarde /zenray-assets-v2  encode la vidéo du render de la fleur stp on reprend le montage de v04 maintenant on va remettre le titre full res 
+
+on commence par le parterre dans la vidéo c'est le hook (on voit du coup le titre) a 1 sec ensuite on met height evolution / on va créer On va créer deux vidéos. Il va y avoir une vidéo qui focus vraiment sur le détail des pétales et on va avoir une autre vidéo qui focus sur toute la trim sheet de height donc c'est séquence elle sont différentes.
+
+
+: /Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/versions/height_evolution/height_evolution_complete.mp4 pour l'autre vidéo
+on enlève aussi les 2 frames base color et height qui était dans le montage après le rendu karma turn over
+on enlève les render karma et on conclu On fini par l'animation de flower_close_orbit_2k/ qui doit durer 5 secondes normalement go 2 vidéos. je vérifie et on edit.
+
+### 2026-10-06T17:36:32.530Z · iteration
+
+La vidéo « pétales » est finie et je construis maintenant la seconde, la « trim sheet ».
+
+- **Le bug :** c'était bien un bug de mon script, le traitement parallèle relançait tout le script dans chaque processus. Corrigé avec `Scripts/KeyTitleFrame.py` (détourage du titre en 4K par lots). La vidéo « pétales » a ensuite pris environ 3 minutes.
+- **Vidéo « pétales » :** [LilyHeight_petals_v005.mov](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyHeight_petals_v005.mov) (et son `.mp4`), 42,67 s en 2048 × 2048. D'après sept images de contrôle, le parterre ouvre la vidéo, le titre apparaît à 1 s et reste lisible, puis viennent les planches de height et les pétales, et la fleur seule conclut les 5 dernières secondes.
+- **Vidéo « trim sheet » :** en cours, avec `height_evolution_complete.mp4` au milieu. Je te préviens quand elle est écrite.
+
+Je n'ai pas regardé la vidéo en entier, et il n'y a pas encore de mise à jour de l'index ni du skill.
+
+### 2026-10-06T17:37:17.760Z · iteration
+
+Les deux vidéos v005 sont construites, avec un hook parterre, le titre à 1 s et la fin sur la fleur seule en 5 s.
+
+- **Pétales :** [LilyHeight_petals_v005.mov](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyHeight_petals_v005.mov), 42,67 s, avec son `.mp4`. Après le hook, elle enchaîne les 84 images de height et les 3 pétales.
+- **Trim sheet :** [LilyHeight_trim_v005.mov](/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyHeight_trim_v005.mov), 61,33 s, avec son `.mp4`. Après le hook, elle enchaîne `height_evolution_complete.mp4` en entier (50 s).
+- **Format :** 2048 × 2048, musique Sonic Riots. Le titre est détouré en 3840 × 2160 puis réduit au cadre.
+
+À vérifier de ton côté : j'ai regardé des images de contrôle des deux vidéos, mais pas le montage de bout en bout. Sur la vidéo trim sheet, le début de `height_evolution_complete.mp4` montre une grande zone grise vide (la trim sheet se remplit), et c'est du contenu de ta vidéo, pas un défaut du montage.
+
+Dis-moi ce que tu modifies à l'édition (durée, ordre, titre). L'index (`video/INDEX.md`) et le skill sont à jour, mais je n'ai pas envoyé de checkpoint Assets pour cette passe.
+
+### 2026-10-06T17:40:01.560Z · iteration
+
+La vidéo de la fleur en 240 frames est déjà dans le dossier du montage, `video/`, à côté des deux montages v005 :
+
+- `FlowerCloseOrbit_2K_240f.mp4` (73 Mo)
+- `FlowerCloseOrbit_2K_240f.mov` (38 Mo, HEVC `hvc1`)
+
+Chemin complet : `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/`. Elle fait 2048 × 2048, 240 frames, 10 s à 24 i/s, sans musique, et elle est notée dans `INDEX.md`.
+
+Si tu parlais d'une autre vidéo « qu'on a déjà », par exemple l'orbite du parterre (`render/bed_orbit_flat_2k`), dis-le-moi et je l'encode aussi dans ce dossier.
+
+### 2026-10-06T18:08:57.347Z · prompt
+
+Base directory for this skill: /Users/zenray/.claude/skills/ytb-dlp
+
+# Trimmed 2026-09-10 (zenray-musk)
+
+Ce skill contenait le manuel complet de yt-dlp (README amont, ~2500 lignes : installation,
+licences, compilation, liste exhaustive des options). C'est le bruit que `yt-dlp --help`
+donne déjà gratuitement. Supprimé. Ce qui reste : la méthode réelle (cookies + PO Token
+4K, payée en debug) et un aide-mémoire des commandes que Matthieu utilise vraiment.
+
+## Méthode cookies + PO Token (le cas qui casse le plus souvent : formats bloqués à 360p)
+
+Symptôme : `yt-dlp -F` ne montre que `18  mp4  640x360` alors qu'une 4K existe, ou YouTube
+répond « Sign in to confirm your age ». Ne jamais accepter 360p en silence.
+
+1. Sonder avec les cookies du navigateur :
+   ```
+   yt-dlp --cookies-from-browser chrome --no-playlist --list-subs 'URL'
+   yt-dlp --cookies-from-browser chrome --no-playlist -F 'URL'
+   ```
+2. Si `-F` ne rend toujours que le format 18, YouTube attend un GVS PO Token. Installer une
+   seule fois le fournisseur :
+   ```
+   /opt/homebrew/Cellar/yt-dlp/<version>/libexec/bin/python -m pip install --user -U 'yt-dlp-getpot-wpc==1.1.2'
+   ```
+   (dépendance `nodriver` installée avec). Si l'import échoue sous Python 3.14 avec
+   `SyntaxError: Non-UTF-8 code starting with '\xb1'` dans `nodriver/cdp/network.py`
+   (bug connu : https://github.com/ultrafunkamsterdam/nodriver/issues/35), corriger une
+   fois :
+   ```
+   cp <site-packages>/nodriver/cdp/network.py <site-packages>/nodriver/cdp/network.py.pre-utf8 \
+     && iconv -f ISO-8859-1 -t UTF-8 <site-packages>/nodriver/cdp/network.py.pre-utf8 > <site-packages>/nodriver/cdp/network.py
+   ```
+3. Relancer avec le client `mweb` et le chemin de Chrome pour le fournisseur PO Token :
+   ```
+   PYTHONPATH=<site-packages> yt-dlp --cookies-from-browser chrome --no-playlist \
+     --extractor-args 'youtube:player_client=mweb' \
+     --extractor-args 'youtubepot-wpc:browser_path=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
+     -F 'URL'
+   ```
+   Le fournisseur ouvre un navigateur local le temps du run (ne pas le fermer) et log
+   `Minting gvs PO Token for mweb`. Les formats jusqu'à 3840x2160 apparaissent alors.
+4. Télécharger en forçant la hauteur minimale, sous-titres inclus si besoin :
+   ```
+   PYTHONPATH=<site-packages> yt-dlp --cookies-from-browser chrome --no-playlist \
+     --abort-on-error --check-formats --concurrent-fragments 16 --retries 10 --fragment-retries 10 \
+     --extractor-args 'youtube:player_client=mweb' \
+     --extractor-args 'youtubepot-wpc:browser_path=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
+     -f 'bv[height>=2160]+ba' --merge-output-format mkv \
+     --write-subs --sub-langs 'en' --sub-format 'srt' --convert-subs srt \
+     --paths '/Users/zenray/.claude/tmp/tmp-<nom-parlant>' \
+     --output '%(title)s [%(id)s].%(ext)s' --newline --print after_move:filepath 'URL'
+   ```
+5. Vérifier, jamais se fier au nom de fichier : `ffprobe -v error -show_entries
+   stream=codec_name,width,height:format=duration,size -of default=noprint_wrappers=1 <fichier>`
+   doit lire `width=3840 height=2160`. Vérifier le SRT avec `wc -l`.
+
+Sans PO Token, `android_vr` ne fonctionne pas avec les cookies (images seules) ;
+`web_safari` monte jusqu'à 1080p mais pas au flux GVS 4K. `mweb` + PO Token est la seule
+voie mesurée qui débloque la 4K sur une vidéo à restriction d'âge.
+
+## Aide-mémoire des commandes courantes
+
+Meilleure qualité vidéo+audio fusionnés, avec cookies :
+```
+yt-dlp --cookies-from-browser chrome -f 'bv*+ba/b' -o '%(title)s [%(id)s].%(ext)s' 'URL'
+```
+
+Audio seul en MP3 (le cas fréquent : musique) :
+```
+yt-dlp --cookies-from-browser chrome -x --audio-format mp3 -o '%(title)s.%(ext)s' 'URL'
+```
+Preset équivalent : `yt-dlp -t mp3 'URL'` (`-f 'ba[acodec^=mp3]/ba/b' -x --audio-format mp3`).
+
+Sous-titres seuls, langue donnée, format SRT propre :
+```
+yt-dlp --cookies-from-browser chrome --write-subs --sub-langs fr --sub-format srt --convert-su
+[... 676 more characters in the original]
+
+### 2026-10-06T18:23:13.368Z · prompt
+
+sfx remux : '/Users/zenray/Downloads/DS 13. Prompt.mp3' normalise l'audio puis au moment du titre play le dans les trois vidéos du coup. 
+
+<pasted_content id="e812">
+'/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/LilyHeight_trim_v005.mp4' '/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/howIcreatethoseshots.mov' '/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/LilyHeight_petals_v005.manifest.json' '/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/LilyHeight_petals_v005.mov' '/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/LilyHeight_petals_v005.mp4' '/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/LilyHeight_trim_v005.manifest.json' '/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/final videos/LilyHeight_trim_v005.mov'
+</pasted_content id="e812">
+
+j'ai update nom du dossier mais tu peux renommer le dossier en soit et commencer à ranger le dossier /zenray-assets-v2 
+
+y'a trois vidéos tu captes.... je bossais avec codex la 3 ème. howdoicreatethoseshots 
+
+INCLUS LE MONTAGE DANS UN .MD /ctrl-s tout /zenray-assets-v2 
+inclue le dans le fichier md de montage index mapping proprement ok go
+
+### 2026-10-06T18:23:20.222Z · prompt
+
+Base directory for this skill: /Users/zenray/.claude/skills/zenray-assets-v2
+
+## Utilisation du skill (2 October 2026)
+
+- Lire la définition intégrale ci-dessous avant de modifier ZenRay Assets V2 ; elle conserve les exigences de Matthieu et distingue la cible de l’état vérifié au 2 October 2026. (2 October 2026)
+- Travailler dans `/Users/zenray/Create/Build/Productions/GithubProductions/ZenRayProgress` et réutiliser ses moteurs de surveillance, archive, index et restauration. (2 October 2026)
+- Relire `/Users/zenray/.claude/Memory1/Projects/zenray-assets-v2/FEEDBACK.md` et les tâches ouvertes de la session avant une reprise ; un nouveau prompt ne supprime aucune obligation précédente. (2 October 2026)
+- Mesurer l’état actuel du code et du service avant d’annoncer une fonctionnalité terminée ; les nombres du document sont une photographie historique, pas un compteur actuel. (2 October 2026)
+- Vérifier les changements par les tests pertinents et la vraie page localhost ; conserver les réglages visuels dans les variables centrales et leurs curseurs de développement. (2 October 2026)
+- Ajouter les corrections de périmètre et nouvelles preuves sous une section datée sans réécrire cette définition historique. Modifier ce skill uniquement dans `~/.claude/skills/zenray-assets-v2/`, puis utiliser `skill-sync`. (2 October 2026)
+
+# ZenRay Assets V2 : ce que le projet est, ce qu’il n’est pas (2 October 2026)
+
+## 1. La demande qui gouverne le projet (2 October 2026)
+
+Le but est de créer le protocole réutilisable de tous les projets de Matthieu, d’abord 3D et jeu, plutôt que de ranger ses fichiers une seule fois. (2 October 2026)
+
+Ses exigences structurantes sont : « pas besoin de ranger en local mais le cloud doit être parfaitement rangé », « LES FICHIERS DU PROJET », « L’HISTORIQUE DU PROJET ET SA CHRONOLOGIE », « TOUT LES FEEDBACKS / PROMPTS » et, à terme, « LOAD UNLOAD UN PROJET COMME SUR GITHUB ». (2 October 2026)
+
+La simplicité attendue concerne l’usage quotidien : nommer le projet une fois, travailler, retrouver immédiatement ce qui existe, savoir ce qui est sauvegardé, puis reprendre ailleurs sans perdre les consignes ni les fichiers. (2 October 2026)
+
+Ce document distingue la définition du produit, le fonctionnement construit et les parties encore incomplètes. Il décrit un état daté, auquel les corrections futures s’ajoutent sans effacer le passé. (2 October 2026)
+
+## 2. Ce qu’est ZenRay Assets V2 (2 October 2026)
+
+ZenRay Assets V2 est l’espace des projets de ZenRayProgress et son protocole de continuité entre travail local, archive cloud, historique et mémoire. (2 October 2026)
+
+Un projet possède une identité stable, plusieurs emplacements locaux, un classement cloud et un feedback canonique. Ces éléments décrivent le même projet, même lorsque leurs fichiers résident dans quatre dossiers différents. (2 October 2026)
+
+Un « asset » y désigne aussi bien une texture qu’une scène, un document, une référence, un post ou une séquence. Le projet est l’unité principale ; les assets sont ses éléments. (2 October 2026)
+
+La page doit permettre de répondre immédiatement à quatre questions : où sont mes fichiers, que s’est-il passé, quelles consignes faut-il conserver et que puis-je charger maintenant ? (2 October 2026)
+
+Le produit appartient à ZenRayProgress. Il ne transforme pas automatiquement ZenRayWebsite ou ZenRayStudio et ne confond pas leurs dépôts. (2 October 2026)
+
+## 3. Les quatre sources locales (2 October 2026)
+
+| Source | Ce qu’elle contient | Son rôle (2 October 2026) |
+| --- | --- | --- |
+| TMP | Fichiers de travail, références, exports, essais, images, séquences, textures, posts, liens enregistrés et documents. | Atelier souple où commencer sans classement manuel par catégorie. (2 October 2026) |
+| Memory | Feedback canonique, consignes, décisions et connaissances durables du projet. | Mémoire qui survit aux sessions et évite de redemander les mêmes règles. (2 October 2026) |
+| ZenRayHoudini | Scènes .hiplc, graphes, HDA, ress
+[... 142108 more characters in the original]
+
+### 2026-10-06T18:28:20.464Z · prompt
+
+en .mp4 stp : /Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/FinalVideos/howIcreatethoseshots.mov
+
+### 2026-10-06T18:28:57.079Z · iteration
+
+Le `.mp4` est créé : `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/FinalVideos/howIcreatethoseshots.mp4` (136 Mo, 38,1 s).
+
+- **Encodage :** H.264 qualité crf 17, 4096 × 4096, audio copié tel quel depuis le `.mov` (SFX inclus, -14 LUFS).
+- **Compatibilité :** le niveau H.264 est 6,0 à cause de la taille 4096 × 4096. Certains lecteurs ou plateformes peuvent le refuser, surtout les téléphones. Je n'ai pas testé la lecture. Si ça bloque, dis-moi et je le fais en 2048 ou 2160.
+- **Index :** ligne ajoutée dans `video/INDEX.md`.
+
+### 2026-10-06T18:34:53.698Z · prompt
+
+il me faut les 3  thumbnail dans le dossier final vidéo via le sous titrage vogun /zenray-houdini 
+
+ : via une illustration de les 2 en même temps.  qu'on avait dans cette vidéo 
+a 3 secondes c'est l'illustration parfaite. /Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/video/LilyComparison_4K_v001.mov
+
+titre Jaune:
+How do I create those shots
+/ = retour à la ligne
+Puis : Petals Height / Fleur de lys (caps) (Prendre le rendu unreal de la fleur)
+Puis :; Trim Sheet Height / Fleur de lys (caps) (Prendre le rendu unreal du parterre)
+
+
+Par contre miniature au format 9:16.
+
+### 2026-10-06T19:04:30.894Z · prompt
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+Summary:
+1. Primary Request and Intent:
+   Matthieu (French, terse, dictates; wants brevity, no em dash, English dates “6 October 2026” on every added line, code in English) is working on “Vegetations Assets ZenRay Collection 01” (Assets V2 id `vegetation-assets-collection-01`; production `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/`; TMP workshop `/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/`; Memory `/Users/zenray/.claude/Memory1/Projects/vegetation-assets-collection-01/`). After finishing Unreal renders, montage, audio/SFX and thumbnails, his LATEST request (6 October 2026, ~20:42 Paris) is:
+   - “Crée l'article ultra complet avec l'illustration des trois vidéos. Attends que j'ai fini de les poster. En fait, tu as tous les fichiers pour créer vraiment l'article ultime. Par contre, je veux jamais que les photos soient trop grandes ou qu'elles soient pas indexées. Je veux que tu expliques vraiment tout de A à Z, du début de Houdini qu'on a créé les HDA jusqu'au moment où tu dois juste tout expliquer. Donc c'est un article ultra complet. /zenray-website si tu veux ouvrir” plus skills /think-of-everything, /zenray-assets-v2, /dont-stop, /ctrl-s.
+   - Pasted explanation: use all existing media and the conversation context (not necessarily Houdini); Gemini, Codex and Claude Code all worked on the project; the conversation JSON indexes must be linked to the project in ZenRay Assets V2 (“si tu l'as pas fait, c'est critique”); index them for future article creation (also in the zenray-website skill: next time an article is created, fetch the index of the 3+ linked conversations from the project and get the context); when the article is done, record everything done in ZenRay Houdini; media can be recovered from videos he made (e.g., How do I create those shots).
+   - Mid-turn addition: “A défaut il faudra changer /claude-md-global et SURTOUT LE CODE DE ZenRay Assets afin de lier chaque conversation au projet dans le but de cloud et de créer des articles ultra complets.”
+   - Key constraints: article is a DRAFT only, not published/deployed until he says the videos are posted; images never too large and always indexed; explain A to Z (HDA creation → Copernicus trim sheet → Houdini lookdev → Unreal Lumen → variations/bed → camera/lighting → three videos/montage/audio/thumbnails).
+
+2. Key Technical Concepts:
+   - Houdini 22.0.368 Indie: HDA `zenray_lily` (Object-level, seven Python SOP components, three parameter folders ≤8 params each, flower_table, trim_bands, uv_mode), Copernicus (COP) trim sheet in 7 bands (tepal_inner, tepal_outer, stamens, calyx, stem, leaf, bud), real COP nodes only (blend/remap/monotorgb/streakblur/turingpatterns/heighttonormal/heighttoambientocclusion/fractalnoise/worleynoise/tilepattern…), seamless by construction (integer cell counts, Wrap), canonical cell, band-by-band validated workflow, 64-node exploration iterations then ablation optimisation, measurement via masks/profiles/bench (references only measure, never copied into graph), `versions/` image per iteration, `PIXEL_SCALE = res/2048` for 4096, 502-node final network; Solaris/Karma XPU/CPU, Cycles (Metal) and Octane via user packages, double-sided USD trap, white Cycles viewport root cause.
+   - Unreal Engine 5.8.1 ZenRayShards: Lumen, Movie Render Queue (PIE executor, AAM_NONE + spatial samples), LevelSequence cameras keyed per frame (smoothstep easing), CineCamera (f/32 + manual focus avoids blur), Rect lights (cd), PostProcessVolume manual exposure, masked two-sided material with opacity mask, normal Y flip (NormalYSign −1), Material Instances for colour variants (pink/blue/white), queue bridge `UeQueue.py` (never `-ExecutePythonScript`), traps: save_map keeps old world name, level reload un-hides actors, DOF crash (r.DepthOfFieldQuality 0), deleting
+[... 19253 more characters in the original]
+
+### 2026-10-06T19:46:22.151Z · prompt
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+Summary:
+1. Primary Request and Intent:
+   Matthieu (French, terse, wants brevity; rules: no em/en dash anywhere, English dates with month in full on every added line of rules/skills/memory, code identifiers in English, only grammar corrected when he writes text, never use his personal browser) is working on the project "Vegetations Assets ZenRay Collection 01" (Assets V2 id `vegetation-assets-collection-01`; production `/Users/zenray/Create/Build/Productions/ZenRayHoudini/VegetationCollection01/`; workshop `/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/`; memory `/Users/zenray/.claude/Memory1/Projects/vegetation-assets-collection-01/`). His LATEST request (6 October 2026, ~20:42 Paris): "Crée l'article ultra complet avec l'illustration des trois vidéos. Attends que j'ai fini de les poster. En fait, tu as tous les fichiers pour créer vraiment l'article ultime. Par contre, je veux jamais que les photos soient trop grandes ou qu'elles soient pas indexées. Je veux que tu expliques vraiment tout de A à Z, du début de Houdini qu'on a créé les HDA jusqu'au moment où tu dois juste tout expliquer… /zenray-website si tu veux ouvrir" + skills /think-of-everything, /zenray-assets-v2, /dont-stop, /ctrl-s. Pasted explanation: use all existing media and the conversation context; Gemini, Codex and Claude Code all worked on the project; their conversations must be indexed/linked to the project in ZenRay Assets V2 ("c'est critique"), indexed for future articles (also in the zenray-website skill); when the article is done, record everything done in ZenRay Houdini. Mid-turn addition: "A défaut il faudra changer /claude-md-global et SURTOUT LE CODE DE ZenRay Assets afin de lier chaque conversation au projet dans le but de cloud et de créer des articles ultra complets." The /dont-stop condition X: full article exists as an unpublished draft (A to Z, three videos illustrated, every image sized and indexed), linked conversations verified and recorded, everything saved in skills and memory.
+
+2. Key Technical Concepts:
+   - Houdini 22.0.368 Indie: HDA `zenray_lily` (seven Python SOP components, folders HDA Shape 8 / HDA Detail 8 / HDA Layout 5, flower_table, trim_bands, uv_mode), Copernicus network `/obj/Lily_Trim` (7 band subnets, stock nodes only, 502 top-level nodes, 1,644 authored nodes, zero wrangle), headless measurement with hython via `houdini_hom` target=headless (count nodes excluding internals of HDA-instance compound nodes), Karma CPU/XPU, Cycles Metal, Octane, Solaris stage chain.
+   - Unreal Engine 5.8.1: Lumen, Movie Render Queue, masked two-sided material M_LilyTrim, instances, cyclorama, sequences LS_LilyBedOrbit / LS_LilyBedOrbitFlat / LS_LilyFlowerCloseOrbit, Shoji lighting.
+   - Website: React+Vite, Cloudflare Pages upload deploy only, article JSON `article.public.v1`, WebP-only, card in `PROJECTS` (id 105), slug trap (card title slug must differ from article slug), sitemap image extension, local branch draft, deploy only from up-to-date shared branch and clean worktree.
+   - Image rules: numbered `NN-name.webp`, "Figure N." captions, public `images-index.json` + private `ImagesIndex.md` with provenance, max 2560 px, quality drops before width, weight budgets, display caps (1400 px, 100vw−40, natural width, 86vh×ratio), checker `Check.py` tested both directions, no reference images of other artists.
+   - Assets V2: conversation catalog identity fix for resumed Claude transcripts, evidence-based linking (`ConversationLinks.mjs`), `LinkConversations.mjs`, `ConversationDigest.mjs` with privacy filter (`citingProject`), `SessionBindings.json` single binding, `ConversationIndex.md/json`, skill contract (`CheckSkillContract.mjs --record`), checkpoint action, service restart only when queues empty.
+   - Montage facts: three videos (How did I create these shots? 38 s 4096 p
+[... 13144 more characters in the original]
