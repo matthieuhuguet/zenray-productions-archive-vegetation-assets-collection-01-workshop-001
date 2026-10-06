@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+	
+	<script> if (localStorage.user_colour_selection === "dark") { document.getElementsByTagName('html')[0].classList.add('fd_dark'); }</script>	
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>OctaneRender 2026.5.0.0 for Houdini Production (2026.5.0.0) - OTOY Forums</title>
+
+
+	<link rel="canonical" href="https://render.otoy.com/forum/viewtopic.php?t=85846">
+
+	<link rel="icon" href="https://render.otoy.com/forum/styles/Milk_v2_Compact/theme/images/favicon.ico" />
+
+<!--
+	phpBB style name: Milk v2
+	Based on style:   Merlin Framework (http://www.planetstyles.net)
+-->
+
+<script>
+	WebFontConfig = {
+		google: {
+			families: ['Open+Sans:600:cyrillic-ext,latin,greek-ext,greek,vietnamese,latin-ext,cyrillic']
+		}
+	};
+
+	(function(d) {
+		var wf = d.createElement('script'), s = d.scripts[0];
+		wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js';
+		wf.async = true;
+		s.parentNode.insertBefore(wf, s);
+	})(document);
+</script>
+
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <style type="text/css">body {font-family: "Roboto", Arial, Helvetica, sans-serif; font-size: 14px;}</style>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="./styles/Milk_v2_Compact/theme/stylesheet.css?assets_version=20" rel="stylesheet">
+<link href="./styles/Milk_v2_Compact/theme/en/stylesheet.css?assets_version=20?assets_version=20" rel="stylesheet">
+
+<link href="./styles/Milk_v2_Compact/theme/../../Milk_v2/theme/blank.css?assets_version=20" rel="stylesheet" class="colour_switch_link"  />
+
+
+<!-- OTOY CookieConsent CSS -->
+<link href="./styles/Milk_v2_Compact/theme/cookieconsent.min.css?assets_version=20" rel="stylesheet">
+
+            <style type="text/css">
+			/* Color */
+a:hover, .navbar_footer a, .copyright_bar a, .social_links_footer a:hover span, .icon.fa-file.icon-red, a:hover .icon.fa-file.icon-red, .navigation .active-subsection a, .navigation .active-subsection a:hover, .navigation a:hover, .tabs .tab > a:hover, .tabs .activetab > a, .tabs .activetab > a:hover, a.postlink, a.postlink:visited, .navbar_in_header .badge, .button:focus .icon, .button:hover .icon, .dark_base .social_links_footer a span, .dark_base h2, .dark_base h2 a, .dark_base a:link, .dark_base a:visited, .button-secondary:focus, .button-secondary:hover, .notification_unread, .topic_type, .fd_dark a {color: #DB0202;}
+			/* Background Solid  */
+			.pagination li a:hover, .pagination li.active span, .pagination li a:focus, .jumpbox-cat-link, .dropdown-contents > li > a:hover, a.button1:hover, input.button1:hover, a.button2:hover, input.button2:hover, input.button3:hover, a.no_avatar:hover, .jumpbox-cat-link:hover, input.button1:focus, input.button2:focus, input.button3:focus, .specialbutton, input.specialbutton, .panel .specialbutton, a.specialbutton, .scrollToTop, a.specialbutton, .dark_base .social_links_footer a:hover span, .grid_unread, .tile_row_2:before   {background: #DB0202;}
+			/* Borders Dark */
+			.pagination li a:hover, .pagination li.active span, .pagination li a:focus, blockquote, .codebox code, .jumpbox-cat-link, a.postlink, input.button1:focus, input.button2:focus, input.button3:focus, input.specialbutton, .inputbox:hover, .inputbox:focus, .specialbutton, a.specialbutton, .button:hover, .button:focus, .dark_base .social_links_footer a span, a.specialbutton, .dark_base .social_links_footer a:hover span {border-color: #DB0202;}
+			/* Background Gradient  */
+			.headerbar, body.content_block_header_block li.header, body.content_block_header_stripe li.header:before, .scrollToTop, .no_avatar, .social_links_footer, .badge, thead tr, .sidebar_block_stripe:before, .fancy_panel:before {background-color: #DB0202;}
+			/* opacity */
+			.headerbar_overlay_active {background-color: #DB0202; opacity: 0.7;}
+			/* Dark overlay */
+			.grid_colour_overlay:hover {background-color: rgba(0,0,0,0.7);}
+			/* Colour Hover Light */
+			.navbar_footer a:hover, .copyright_bar a:hover, a.postlink:hover, .dark_base h2 a:hover  {opacity: 0.7;}
+			/* Background Hover Light */
+			a.scrollToTop:hover, input.specialbutton:hover, a.specialbutton:hover {opacity: 0.7;}
+			/* Border light */
+			.specialbutton:hover {opacity: 0.7;}
+
+		</style>
+	
+
+
+<style type="text/css">
+			.forums .row-item:before, .topics .row-item:before, .pmlist .row-item:before, .cplist .row-item:before {
+			border-radius: 50%;
+		}
+	
+
+		.forum_header {
+					background-image: url('https://render.otoy.com/forum/styles/Milk_v2_Compact/theme/images/banner.jpg');
+		
+					background-repeat: no-repeat;
+		
+					background-position: center top;
+		
+		 background-size: cover;"
+	}
+
+			
+</style>
+
+
+
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/Milk_v2_Compact/theme/tweaks.css?assets_version=20" rel="stylesheet">
+<![endif]-->
+
+<!-- Ensure the app can be added to the home screen on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!-- Ensure the app can be added to the home screen on Chrome -->
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- Sets the status bar style when the app is launched from the home screen on iOS -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- The name of your app when saved to the iOS home screen -->
+<meta name="apple-mobile-web-app-title" content="OTOY Forums">
+
+<!-- The name of your app when saved to other browsers and platforms -->
+<meta name="application-name" content="OTOY Forums">
+
+<!-- Link to app's configuration manifest -->
+<link rel="manifest" href="/forum/app.php/manifest" crossorigin="use-credentials">
+
+
+
+<link href="./ext/bb3mobi/lastpostavatar/styles/all/theme/lastpostavatar.css?assets_version=20" rel="stylesheet" media="screen">
+<link href="./ext/senky/massnotification/styles/all/theme/massnotification.css?assets_version=20" rel="stylesheet" media="screen">
+
+<link href="./styles/Milk_v2_Compact/theme/extensions.css?assets_version=20" rel="stylesheet">
+
+			<script>
+				var inFrame = false;
+				try {
+					inFrame = window.self !== window.top;
+				} catch (e) {
+					inFrame = true;
+				}
+
+				if (inFrame) {
+					var head  = document.getElementsByTagName('head')[0];
+					var link  = document.createElement('link');
+					//link.id   = cssId;
+					link.rel  = 'stylesheet';
+					link.type = 'text/css';
+					link.href = './styles/Milk_v2_Compact/theme/frame.css?assets_version=20';
+					link.media = 'all';
+					head.appendChild(link);
+					console.log("Loaded iframe CSS (fallback-JS)");
+				} else {
+					console.log("DID NOT load iframe CSS");
+				}
+			</script>
+		
+<style>
+	[data-s9e-mediaembed] { max-width: 100% !important; }
+</style>
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr  sidebar-right-only body-layout-Fluid content_block_header_block high_contrast_links navbar_o_header force_rounded_avatars css_icons_enabled">
+
+    <div id="wrap" class="wrap">
+        <a id="top" class="top-anchor" accesskey="t"></a>
+
+        <div id="page-header">
+
+
+                <div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="otoy-links" class="otoy-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					                    										
+<li class=" quick-links-resources header-links">	<a target="_blank" href="/forum/">Forum</a>
+</li>
+<li class=" quick-links-resources header-links">	<a target="_blank" href="https://home.otoy.com/render/octane-render/purchase">Shop</a>
+</li>	
+<li class="quick-links-resources header-links"><a target="_blank" href="/account/downloads.php">Downloads</a>
+</li>
+<li class="quick-links-resources header-links"><a target="_blank" href="https://docs.otoy.com/">Documentation</a>
+</li>
+    
+    <li class="quick-links-resources header-links">    <a target="_blank" href="/octanebench/">OctaneBench&reg;</a>
+    </li>
+    <li class="quick-links-resources header-links">    <a target="_blank" href="/vr_gallery.php">M is for Metaverse Gallery</a>
+    </li>
+    <li class="quick-links-resources header-links">    <a target="_blank" href="/requests/">Feature Requests</a>
+    </li>
+
+<li class="quick-links-resources header-links"><a target="_blank" href="https://help.otoy.com/">Support</a>
+									</ul>
+			</div>
+		</li>
+        
+                            <li id="otoy-logo-in-header-li" style="margin-top: -22px;">
+        <a id="otoy-logo-in-header" target="_blank" href="https://home.otoy.com"><img src="./styles/Milk_v2_Compact/theme/images/navbar_logo.svg" alt=""></a>
+    </li>
+
+<li class=" quick-links-resources header-links">	<a target="_blank" href="/forum/">Forum</a>
+</li>
+<li class=" quick-links-resources header-links">	<a target="_blank" href="https://home.otoy.com/render/octane-render/purchase">Shop</a>
+</li>	
+<li class="quick-links-resources header-links"><a target="_blank" href="/account/downloads.php">Downloads</a>
+</li>
+<li class="quick-links-resources header-links"><a target="_blank" href="https://docs.otoy.com/">Documentation</a>
+</li>
+    <li id="quick-links-resources" class="quick-links-resources dropdown-container responsive-menu" data-skip-responsive="true">
+        <a href="#" class="dropdown-trigger">
+            <span>Resources</span>
+        </a>
+        <div class="dropdown">
+            <div class="pointer"><div class="pointer-inner"></div></div>
+            <ul class="dropdown-contents" role="menu">
+                <li class="header-links">
+                    <a target="_blank" href="http://home.otoy.com/render/octane-render/faqs">FAQ</a>
+                </li>
+
+                <li class="header-links">
+                    <a target="_blank" href="/octanebench/">OctaneBench&reg;</a>
+                </li>
+
+                <li class="header-links">
+                    <a target="_blank" href="/vr_gallery.php">M is for Metaverse Gallery</a>
+                </li>
+
+                <li class="header-links">
+                    <a target="_blank" href="/requests/">Feature Requests</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+
+<li class="quick-links-resources header-links"><a target="_blank" href="https://help.otoy.com/">Support</a>
+
+				
+				<li id="username_logged_in_otoy" class="sign-in-global dropdown-container responsive-menu rightside" data-skip-responsive="true">
+			
+			<a href="#" class="dropdown-trigger">
+				<span id="sign-in-global_user_name">
+											<i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN
+									</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+											<li class="header-links">
+							<a target="_blank" href="/account/"><i class="fa fa-sign-in" aria-hidden="true"></i> Customer Account</a>
+						</li>
+
+						<li class="header-links">
+							<a href="./ucp.php?mode=login&amp;redirect=viewtopic.php%3Fp%3D444444"><i class="fa fa-sign-in" aria-hidden="true"></i> Forum</a>
+						</li>
+									</ul>
+			</div>
+		</li>
+
+											 <li class="rightside" data-skip-responsive="true">
+			<a href="#" role="menuitem" rel="" id="dark_toggle_link">
+				<i class="icon fa-fw" aria-hidden="true"></i>
+			</a>
+		</li>
+			</ul>
+
+	</div>
+</div>
+
+            	
+            <div class="headerbar" role="banner"
+            	style="background:url('https://render.otoy.com/forum/styles/Milk_v2_Compact/theme/images/banner.jpg') no-repeat center top; background-size: cover;">
+                
+			<div class="headerbar_overlay_container">        
+            	<div class="particles_container" id="particles-js">
+					<!-- Headerbar Elements Start -->
+                    
+                
+
+                        <div id="site-description" class="site-description">
+                            <a href="./index.php" title="Board index">
+                                
+                                                                    <img class="otoy-logo-small" src="./styles/Milk_v2_Compact/theme/images/logo-small.png" alt="">
+                                                                
+                            </a>
+                        </div>
+
+
+                    
+                    <!-- Headerbar Elements End -->             
+                </div>              
+            </div>
+                    
+            </div><!-- /.headerbar -->  
+                  
+        </div><!-- /#page-header -->
+        
+        <div id="inner-wrap" class="otoy-logo-small">
+
+        
+
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="./index.php" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">Board index</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="22"><a itemprop="item" href="./viewforum.php?f=22"><span itemprop="name">Octane Licensed Customer Forums</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="26"><a itemprop="item" href="./viewforum.php?f=26"><span itemprop="name">Plugin Discussion/Support</span></a><meta itemprop="position" content="3" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="101"><a itemprop="item" href="./viewforum.php?f=101"><span itemprop="name">Houdini</span></a><meta itemprop="position" content="4" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="102"><a itemprop="item" href="./viewforum.php?f=102"><span itemprop="name">Releases</span></a><meta itemprop="position" content="5" /></span>
+							
+					</li>
+
+		
+					<li class="rightside responsive-search">
+				<a href="./search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+
+        
+        <a id="start_here" class="anchor"></a>
+        <div id="page-body" class="page-body" role="main">
+            
+            
+                     		<div id="maincontainer">
+                    <div id="contentwrapper">
+                        <div id="contentcolumn">
+                            <div class="innertube">
+            
+
+<div class="postprofile_container postprofile_Right">
+
+<h2 class="topic-title"><a href="./viewtopic.php?t=85846">OctaneRender 2026.5.0.0 for Houdini Production (2026.5.0.0)</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Sub forum for plugin releases<br /></div>
+<p>
+	<strong>Moderator:</strong> <a href="./memberlist.php?mode=viewprofile&amp;u=280" style="color: #6d6dff;" class="username-coloured">juanjgon</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="./posting.php?mode=reply&amp;t=85846" class="button specialbutton" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="./viewtopic.php?t=85846&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="./search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="./search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="85846" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			8 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+<div class="viewtopic_wrapper">
+
+			<div id="p444444" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444444">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=933649" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=933649" style="color: #FF6600;" class="username-coloured">bruce.chai</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_octaneteam.png" alt="OctaneRender Team" title="OctaneRender Team" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=933649&amp;sr=posts">110</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Thu Oct 19, 2023 8:26 pm</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444444">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444444" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444444#p444444" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-21T03:37:55+00:00">Mon Sep 21, 2026 3:37 am</time></a>
+			</p>
+			
+			
+									<div class="content">OctaneRender 2026.5.0.0 for Houdini Production (2026.5.0.0)<br>
+<br>
+This is a <span style="color:#FF0000">production</span> release of the <em class="text-italics">OctaneRender™ 2026.5.0.0 for Houdini™</em> plugin compiled with the <strong class="text-strong">Octane 2026.5</strong> core. This <strong class="text-strong">2026.5.0.0</strong> release is available for the latest Houdini production builds on Windows x64, Linux.<br>
+<br>
+<span style="color:#000080">Houdini production builds supported by this release: <strong class="text-strong">20.5.684, 21.0.700, 21.0.729, 22.0.368 and 22.0.429</strong>.</span><br>
+<br>
+If you are not sure if your Houdini version is compatible with the plugin - just run it and you will see an error message in case of incompatibility.<br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">Linux Note</strong></span><br>
+On Linux only default Houdini builds are supported. <br>
+This means that for <span style="color:#000080">Houdini 20.5, 21.0 and 22.0 <strong class="text-strong">gcc11.2</strong> builds</span> are supported.<br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">New features</strong></span><br>
+To learn more about the new features and improvements of OctaneRender 2026.5, please check out the <a href="https://render.otoy.com/forum/viewtopic.php?t=85834" class="postlink">2026.5 release post</a><br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">Known bugs</strong></span><br>
+On Linux, MPlay IPR may not be working. If you are having problems with it, please switch to QT5 IPR and disable "Render to MPlay" in ROP nodes.<br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">Downloads</strong></span><br>
+<br>
+<strong class="text-strong">Release 2026.5.0.0 Studio+ license</strong><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/5b/79/06/f7/Octane_2026.5.0.0_Houdini_20.5.684_Studio%2B_Win64.zip" class="postlink">Windows Houdini 20.5.684</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/2e/b4/74/eb/Octane_2026.5.0.0_Houdini_21.0.729_Studio%2B_Win64.zip" class="postlink">Windows Houdini 21.0.729</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/d4/d9/98/9a/Octane_2026.5.0.0_Houdini_21.0.792_Studio%2B_Win64.zip" class="postlink">Windows Houdini 21.0.792</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/e2/92/81/eb/Octane_2026.5.0.0_Houdini_22.0.368_Studio%2B_Win64.zip" class="postlink">Windows Houdini 22.0.368</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/66/ef/61/09/Octane_2026.5.0.0_Houdini_22.0.429_Studio%2B_Win64.zip" class="postlink">Windows Houdini 22.0.429</a><br>
+<br>
+<a href="https://render.otoy.com/customerdownloads/plugins/81/88/f6/3b/Octane_2026.5.0.0_Houdini_20.5.684_Studio%2B_Linux.zip" class="postlink">Linux Houdini 20.5.684 (gcc11.2)</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/58/9b/de/6b/Octane_2026.5.0.0_Houdini_21.0.729_Studio%2B_Linux.zip" class="postlink">Linux Houdini 21.0.729 (gcc11.2)</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/ea/8f/fc/77/Octane_2026.5.0.0_Houdini_21.0.792_Studio%2B_Linux.zip" class="postlink">Linux Houdini 21.0.792 (gcc11.2)</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/6f/14/5d/d8/Octane_2026.5.0.0_Houdini_22.0.368_Studio%2B_Linux.zip" class="postlink">Linux Houdini 22.0.368 (gcc11.2)</a><br>
+<a href="https://render.otoy.com/customerdownloads/plugins/56/99/81/2c/Octane_2026.5.0.0_Houdini_22.0.429_Studio%2B_Linux.zip" class="postlink">Linux Houdini 22.0.429 (gcc11.2)</a><br>
+<br>
+<strong class="text-strong">Release 2026.5.0.0 macOS Prime license</strong><br>
+<a href="https://render.otoy.com/downloads/cd/d4/e2/1b/Octane_2026.5.0.0_Houdini_20.5.684_Prime_macos.zip" class="postlink">MacOS Houdini 20.5.684</a><br>
+<a href="https://render.otoy.com/downloads/54/03/9e/90/Octane_2026.5.0.0_Houdini_21.0.729_Prime_macos.zip" class="postlink">MacOS Houdini 21.0.729</a><br>
+<a href="https://render.otoy.com/downloads/b2/dc/2a/34/Octane_2026.5.0.0_Houdini_21.0.792_Prime_macos.zip" class="postlink">MacOS Houdini 21.0.729</a><br>
+<a href="https://render.otoy.com/downloads/38/d9/d0/a3/Octane_2026.5.0.0_Houdini_22.0.368_Prime_macos.zip" class="postlink">MacOS Houdini 22.0.368</a><br>
+<a href="https://render.otoy.com/downloads/8b/ca/41/03/Octane_2026.5.0.0_Houdini_22.0.429_Prime_macos.zip" class="postlink">MacOS Houdini 22.0.429</a><br>
+<br>
+<strong class="text-strong">Release 2026.5.0.0 Demo version</strong><br>
+<a href="https://render.otoy.com/plugindownloads/b9/f8/b3/13/Octane_2026.5.0.0_Houdini_20.5.684_Demo_Win64.zip" class="postlink">Windows Houdini 20.5.684</a><br>
+<a href="https://render.otoy.com/plugindownloads/30/83/10/da/Octane_2026.5.0.0_Houdini_21.0.792_Demo_Win64.zip" class="postlink">Windows Houdini 21.0.792</a><br>
+<a href="https://render.otoy.com/plugindownloads/63/b3/97/bb/Octane_2026.5.0.0_Houdini_22.0.429_Demo_Win64.zip" class="postlink">Windows Houdini 22.0.368</a><br>
+<br>
+<a href="https://render.otoy.com/plugindownloads/b9/61/e7/5c/Octane_2026.5.0.0_Houdini_20.5.684_Demo_Linux.zip" class="postlink">Linux Houdini 20.5.684 (gcc11.2)</a><br>
+<a href="https://render.otoy.com/plugindownloads/75/30/b9/24/Octane_2026.5.0.0_Houdini_21.0.792_Demo_Linux.zip" class="postlink">Linux Houdini 21.0.792 (gcc11.2)</a><br>
+<a href="https://render.otoy.com/plugindownloads/a6/c5/d5/df/Octane_2026.5.0.0_Houdini_22.0.429_Demo_Linux.zip" class="postlink">Linux Houdini 22.0.429 (gcc11.2)</a><br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">Release Notes</strong></span><br>
+<strong class="text-strong">=============================================</strong><br>
+<strong class="text-strong">RELEASE 2026.5.0.0</strong><br>
+<strong class="text-strong">=============================================</strong><br>
+<strong class="text-strong">PLUGIN FEATURES AND FIXES:</strong><br>
+<br>
+<strong class="text-strong">Solaris plugin is now unified with Houdini main plugin now, so each build works for both the main plugin and Solaris plugin.</strong><br>
+<br>
+<strong class="text-strong"> Main plugin:</strong> 
+<ul>
+<li> Fixed empty parameter groups in some VOP nodes (e.g. volume medium)</li>
+<li> Fixed crash with H22 on Linux</li>
+<li> Octane Render Setup - Fixed OCIO selector parms not unlocking</li>
+<li> Fixed switching materials doesn't update IPR</li>
+<li> Fixed Fixed IPR icons weird spacing on macos</li>
+<li> Reduced IPR icon size a little</li>
+<li> Fixed Direct/Indirect light AOV parms in RT</li>
+<li> Rename some vop nodes to make them easier to find</li>
+<li> Supported point instancefile instance attribute</li>
+<li> OctaneMaterialBuilder now only accept supported octane vop nodes and Houdini native mtlx nodes</li>
+<li> Fixed Universal light's Ray switch not turned off by default</li>
+<li> Fixed Decal feature</li>
+<li> Reduced IPR icon size a little</li>
+<li> Proxy feature (Beta version) which supports loading geo and orbx file in object node</li>
+</ul>
+
+Example scene for Proxy feature: <a href="https://render.otoy.com/downloads/87/29/7f/94/ProxyFeatureExampleScene.zip" class="postlink">https://render.otoy.com/downloads/87/29/7f/94/ProxyFeatureExampleScene.zip</a><br>
+<br>
+<strong class="text-strong"> Solaris plugin:</strong>
+<ul>
+<li> Fixed velocity Motion blur</li>
+</ul>
+
+<a href="https://youtube.com/playlist?list=PLTqdDmFtprFnviBWx3xcsCZJvqDTgUNhx&amp;si=SC15Xrzxgwtw7ZSG" class="postlink">OctaneRender for Houdini tutorial</a><br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">Note</strong></span><br>
+From 2025.1.Beta_1.0, Octane plugin for Houdini uses Houdini package file. Each build ships a script (createPackageFileForOctane.bat for Windows, createPackageFileForOctane.sh for Linux and Mac) to help create the Octane.json file as below under C:\Users\&lt;username&gt;\Documents\houdiniXX.Y\packages on windows, ~/Library/Preferences/houdini/XX.Y/packages on Mac, or ~/houdiniXX.Y/packages on Linux. 
+<div class="codebox"><p>Code: <a href="#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>{
+    "enable": true,
+    "env": [
+        {
+            "OCTANE_AUTOSPAREPARAMS": {
+                "value": 1
+            }
+        },
+        {
+            "OCTVERSION": "&lt;path_to_plugin_directory&gt;"
+        },
+        {
+            "HOUDINI_PATH": {
+                "value": "$OCTVERSION"
+            },
+            "HOUDINI_MENU_PATH": {
+                "value": "$OCTVERSION/config/Menus"
+            },
+            "HOUDINI_SCRIPT_PATH": {
+                "value": "$OCTVERSION/scripts"
+            },
+            "PATH": {
+                "value": "$OCTVERSION/bin"
+            },
+            "PXR_PLUGINPATH_NAME": {
+                "value": "$OCTVERSION/dso/usd_plugins"
+            }
+        }
+    ]
+}
+</code></pre></div>
+
+<span style="font-size:120%;line-height:116%"><strong class="text-strong"><span style="color:#FF0000">Important Note</span></strong></span><br>
+<span style="color:#FF8000">2024.1.0.2 fixed the problem that the layered material nodes cannot be loaded properly, however this fix affects all layered material nodes and OSL material nodes in existing saved .hip files. When loading a .hip file for the first time using this build, it's necessary to adjust the connections of these nodes. Once the file is saved with the updated connections, the issue will be resolved.</span><br>
+<br>
+<br>
+<span style="font-size:120%;line-height:116%"><strong class="text-strong">Common Issues and Solutions</strong></span><br>
+- If the plugin doesn't work at all, set <code class="codebox">HOUDINI_DSO_ERROR = 2</code> in houdini.env and check for messages in the terminal.<br>
+- If you're missing <code class="codebox">libglut.so.3</code>, install the freeglut package.<br>
+- If you are having any issues with the Deadline - please submit a support ticket to the AWS.<br>
+<br>
+Happy rendering,<br>
+Your OTOY Team</div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444493" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444493">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=222811" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=222811" style="color: #a722ff;" class="username-coloured">atcovrett</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_customer.png" alt="Licensed Customer" title="Licensed Customer" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=222811&amp;sr=posts">16</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Sun Jun 07, 2015 6:46 am</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444493">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444493" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444493#p444493" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-26T18:53:46+00:00">Sat Sep 26, 2026 6:53 pm</time></a>
+			</p>
+			
+			
+									<div class="content">I can't get UDIMs to load correctly in the "Tile_grid_image' rework.<br>
+<br>
+I've setup this basic example scene, with simple test geometry that has four UDIM tiles (1001-1004).<br>
+<br>
+The model has been exported to Substance Painter, where a corresponding BaseColor sequence has been generated.<br>
+<br>
+I've tried both File Pattern mode and File List, to no success. Also, clicking 'Clear' when in "File List' mode results in a Houdini crash, consistently.<br>
+<br>
+Signs point to a bug where the sequence is being loaded, but compressed and applied to grid 1001, rather than properly distributed to all four tiles.<br>
+<br>
+Houdini Version: Houdini FX 22.0.429<br>
+<br>
+Octane Version: 2026.5.0.0<div class="inline-attachment">
+			
+				<dl class="thumbnail">
+			<dt><a href="./download/file.php?id=97239&amp;mode=view"><img src="./download/file.php?id=97239&amp;t=1" class="postimage" alt="reference_SubstancePainter.png" title="reference_SubstancePainter.png (1.17 MiB) Viewed 848 times" /></a></dt>
+					</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+				<dl class="thumbnail">
+			<dt><a href="./download/file.php?id=97240&amp;mode=view"><img src="./download/file.php?id=97240&amp;t=1" class="postimage" alt="reference_Houdini.png" title="reference_Houdini.png (2.51 MiB) Viewed 848 times" /></a></dt>
+					</dl>
+		
+		
+		
+			</div></div>
+            
+							<dl class="attachbox">
+					<dt>
+						Attachments
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="./download/file.php?id=97238">Octane_UDIM_Troubleshoot_R1.zip</a></dt>
+						<dd>(5.56 MiB) Downloaded 39 times</dd>
+		</dl>
+		
+			</dd>
+									</dl>
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444496" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444496">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=933649" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=933649" style="color: #FF6600;" class="username-coloured">bruce.chai</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_octaneteam.png" alt="OctaneRender Team" title="OctaneRender Team" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=933649&amp;sr=posts">110</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Thu Oct 19, 2023 8:26 pm</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444496">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444496" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444496#p444496" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-27T08:23:10+00:00">Sun Sep 27, 2026 8:23 am</time></a>
+			</p>
+			
+			
+									<div class="content"><blockquote cite="./viewtopic.php?p=444493#p444493"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444493#p444493" aria-label="View quoted post" data-post-id="444493" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sat Sep 26, 2026 6:53 pm</span></cite>
+I can't get UDIMs to load correctly in the "Tile_grid_image' rework.<br>
+<br>
+I've setup this basic example scene, with simple test geometry that has four UDIM tiles (1001-1004).<br>
+<br>
+The model has been exported to Substance Painter, where a corresponding BaseColor sequence has been generated.<br>
+<br>
+I've tried both File Pattern mode and File List, to no success. Also, clicking 'Clear' when in "File List' mode results in a Houdini crash, consistently.<br>
+<br>
+Signs point to a bug where the sequence is being loaded, but compressed and applied to grid 1001, rather than properly distributed to all four tiles.<br>
+<br>
+Houdini Version: Houdini FX 22.0.429<br>
+<br>
+Octane Version: 2026.5.0.0reference_SubstancePainter.png<br>
+reference_Houdini.png
+</div></blockquote>
+
+Thank you for reporting the problem. <br>
+I've reproduced the crash issue and will be fixed in the next release. <br>
+<br>
+As to the render result, I'm not 100% sure about the expected result. I noticed the Border mode (U) / (V) is using "White color", if you change them to "Wrap around", you will see the rubber toy is fully covered. But this might not be the setting you want. <br>
+If you could send me a scene that worked before "Tile_grid_image" rework (2026.3.0.0) but not anymore with this version, I can take a further debug and see what's going wrong. <br>
+Thanks</div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444498" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444498">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=222811" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=222811" style="color: #a722ff;" class="username-coloured">atcovrett</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_customer.png" alt="Licensed Customer" title="Licensed Customer" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=222811&amp;sr=posts">16</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Sun Jun 07, 2015 6:46 am</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444498">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444498" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444498#p444498" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-27T15:13:58+00:00">Sun Sep 27, 2026 3:13 pm</time></a>
+			</p>
+			
+			
+									<div class="content"><blockquote cite="./viewtopic.php?p=444496#p444496"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444496#p444496" aria-label="View quoted post" data-post-id="444496" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 8:23 am</span></cite>
+<blockquote cite="./viewtopic.php?p=444493#p444493"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444493#p444493" aria-label="View quoted post" data-post-id="444493" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sat Sep 26, 2026 6:53 pm</span></cite>
+I can't get UDIMs to load correctly in the "Tile_grid_image' rework.<br>
+<br>
+I've setup this basic example scene, with simple test geometry that has four UDIM tiles (1001-1004).<br>
+<br>
+The model has been exported to Substance Painter, where a corresponding BaseColor sequence has been generated.<br>
+<br>
+I've tried both File Pattern mode and File List, to no success. Also, clicking 'Clear' when in "File List' mode results in a Houdini crash, consistently.<br>
+<br>
+Signs point to a bug where the sequence is being loaded, but compressed and applied to grid 1001, rather than properly distributed to all four tiles.<br>
+<br>
+Houdini Version: Houdini FX 22.0.429<br>
+<br>
+Octane Version: 2026.5.0.0reference_SubstancePainter.png<br>
+reference_Houdini.png
+</div></blockquote>
+
+Thank you for reporting the problem. <br>
+I've reproduced the crash issue and will be fixed in the next release. <br>
+<br>
+As to the render result, I'm not 100% sure about the expected result. I noticed the Border mode (U) / (V) is using "White color", if you change them to "Wrap around", you will see the rubber toy is fully covered. But this might not be the setting you want. <br>
+If you could send me a scene that worked before "Tile_grid_image" rework (2026.3.0.0) but not anymore with this version, I can take a further debug and see what's going wrong. <br>
+Thanks
+</div></blockquote>
+
+Hey Bruce - <br>
+<br>
+Thanks for your fast response!<br>
+<br>
+The issue isn't getting arbitrary 'full coverage' on the model, but the improper mapping of texture maps 1001, 1002, 1003 and 1004 to their corresponding UV islands on UDIM tiles 1001, 1002, 1003 and 1004.<br>
+<br>
+Only geometry with UVs packed on 1001 should be receiving the red texture (named 'DefaultMaterial_BaseColor.1001') , 1002 should be receiving yellow, and so on. This is currently not the case.<br>
+<br>
+Setting the Border mode to 'Wrap Around' just repeats the same, incorrect application across all UVs. Setting the Border mode to 'White Color' reveals that there are UV islands not receiving any of the texture data mapped to their UDIM tile, thus showing white (if working properly, this shouldn't be the case).<br>
+<br>
+For added clarity, I've recreated this scene in an earlier environment - to demonstrate the correct behavior. See attached video as well as zip folder containing the deprecated scene files. The deprecated scene file demonstrates correct UDIM loading behavior - note that I've added some 'rough' sketch annotations on the model to demonstrate. Words, arrows, and eyes drawn on the model are mapped correctly in the deprecated version, but not using the latest version... it's a jumbled mess.<br>
+<br>
+Deprecated Version:<br>
+- Houdini FX 20.5.550<br>
+- Octane Render 2025.2.0.0<br>
+<br>
+------------------------------------------------------------------------------------<br>
+
+<div class="inline-attachment">
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="./download/file.php?id=97243">ANNOTATION.mp4</a></dt>
+						<dd>(44.53 MiB) Downloaded 46 times</dd>
+		</dl>
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+		
+				<dl class="file">
+			<dt><span class="imageset icon_topic_attach"></span> <a class="postlink" href="./download/file.php?id=97244">Octane_UDIM_Troubleshoot_R2.zip</a></dt>
+						<dd>(46.44 MiB) Downloaded 25 times</dd>
+		</dl>
+		
+			</div></div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444501" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444501">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=933649" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=933649" style="color: #FF6600;" class="username-coloured">bruce.chai</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_octaneteam.png" alt="OctaneRender Team" title="OctaneRender Team" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=933649&amp;sr=posts">110</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Thu Oct 19, 2023 8:26 pm</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444501">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444501" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444501#p444501" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-27T20:25:00+00:00">Sun Sep 27, 2026 8:25 pm</time></a>
+			</p>
+			
+			
+									<div class="content"><blockquote cite="./viewtopic.php?p=444498#p444498"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444498#p444498" aria-label="View quoted post" data-post-id="444498" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 3:13 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444496#p444496"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444496#p444496" aria-label="View quoted post" data-post-id="444496" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 8:23 am</span></cite>
+<blockquote cite="./viewtopic.php?p=444493#p444493"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444493#p444493" aria-label="View quoted post" data-post-id="444493" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sat Sep 26, 2026 6:53 pm</span></cite>
+I can't get UDIMs to load correctly in the "Tile_grid_image' rework.<br>
+<br>
+I've setup this basic example scene, with simple test geometry that has four UDIM tiles (1001-1004).<br>
+<br>
+The model has been exported to Substance Painter, where a corresponding BaseColor sequence has been generated.<br>
+<br>
+I've tried both File Pattern mode and File List, to no success. Also, clicking 'Clear' when in "File List' mode results in a Houdini crash, consistently.<br>
+<br>
+Signs point to a bug where the sequence is being loaded, but compressed and applied to grid 1001, rather than properly distributed to all four tiles.<br>
+<br>
+Houdini Version: Houdini FX 22.0.429<br>
+<br>
+Octane Version: 2026.5.0.0reference_SubstancePainter.png<br>
+reference_Houdini.png
+</div></blockquote>
+
+Thank you for reporting the problem. <br>
+I've reproduced the crash issue and will be fixed in the next release. <br>
+<br>
+As to the render result, I'm not 100% sure about the expected result. I noticed the Border mode (U) / (V) is using "White color", if you change them to "Wrap around", you will see the rubber toy is fully covered. But this might not be the setting you want. <br>
+If you could send me a scene that worked before "Tile_grid_image" rework (2026.3.0.0) but not anymore with this version, I can take a further debug and see what's going wrong. <br>
+Thanks
+</div></blockquote>
+
+Hey Bruce - <br>
+<br>
+Thanks for your fast response!<br>
+<br>
+The issue isn't getting arbitrary 'full coverage' on the model, but the improper mapping of texture maps 1001, 1002, 1003 and 1004 to their corresponding UV islands on UDIM tiles 1001, 1002, 1003 and 1004.<br>
+<br>
+Only geometry with UVs packed on 1001 should be receiving the red texture (named 'DefaultMaterial_BaseColor.1001') , 1002 should be receiving yellow, and so on. This is currently not the case.<br>
+<br>
+Setting the Border mode to 'Wrap Around' just repeats the same, incorrect application across all UVs. Setting the Border mode to 'White Color' reveals that there are UV islands not receiving any of the texture data mapped to their UDIM tile, thus showing white (if working properly, this shouldn't be the case).<br>
+<br>
+For added clarity, I've recreated this scene in an earlier environment - to demonstrate the correct behavior. See attached video as well as zip folder containing the deprecated scene files. The deprecated scene file demonstrates correct UDIM loading behavior - note that I've added some 'rough' sketch annotations on the model to demonstrate. Words, arrows, and eyes drawn on the model are mapped correctly in the deprecated version, but not using the latest version... it's a jumbled mess.<br>
+<br>
+Deprecated Version:<br>
+- Houdini FX 20.5.550<br>
+- Octane Render 2025.2.0.0<br>
+<br>
+------------------------------------------------------------------------------------<br>
+<br>
+ANNOTATION.mp4<br>
+Octane_UDIM_Troubleshoot_R2.zip
+</div></blockquote>
+
+Thanks for the new scene file. <br>
+It turns out you are using the wrong tile node in 2026.5.0.0. In 2026.2.0.0, you are using "UV tiles" node, but in 2025.0.0, you are using "Tile grid image" node which doesn't have Border mode (u)/(v) parameters.<br>
+Houdini plugin renamed and reordered vop nodes in a version to match the node names in Octane, I think it might confused you. <br>
+When I use a "UV tiles" node and the same settings in 2025.0.0, the rubber toy renders as expected.<br>
+Let me know if you can get the correct result with "UV tiles" node, otherwise I can share the 2025.5.0.0 scene file I use. <br>
+<br>
+Cheers</div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444513" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444513">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=222811" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=222811" style="color: #a722ff;" class="username-coloured">atcovrett</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_customer.png" alt="Licensed Customer" title="Licensed Customer" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=222811&amp;sr=posts">16</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Sun Jun 07, 2015 6:46 am</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444513">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444513" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444513#p444513" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-28T18:26:20+00:00">Mon Sep 28, 2026 6:26 pm</time></a>
+			</p>
+			
+			
+									<div class="content"><blockquote cite="./viewtopic.php?p=444501#p444501"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444501#p444501" aria-label="View quoted post" data-post-id="444501" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 8:25 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444498#p444498"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444498#p444498" aria-label="View quoted post" data-post-id="444498" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 3:13 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444496#p444496"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444496#p444496" aria-label="View quoted post" data-post-id="444496" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 8:23 am</span></cite>
+<br>
+<br>
+Thank you for reporting the problem. <br>
+I've reproduced the crash issue and will be fixed in the next release. <br>
+<br>
+As to the render result, I'm not 100% sure about the expected result. I noticed the Border mode (U) / (V) is using "White color", if you change them to "Wrap around", you will see the rubber toy is fully covered. But this might not be the setting you want. <br>
+If you could send me a scene that worked before "Tile_grid_image" rework (2026.3.0.0) but not anymore with this version, I can take a further debug and see what's going wrong. <br>
+Thanks
+</div></blockquote>
+
+Hey Bruce - <br>
+<br>
+Thanks for your fast response!<br>
+<br>
+The issue isn't getting arbitrary 'full coverage' on the model, but the improper mapping of texture maps 1001, 1002, 1003 and 1004 to their corresponding UV islands on UDIM tiles 1001, 1002, 1003 and 1004.<br>
+<br>
+Only geometry with UVs packed on 1001 should be receiving the red texture (named 'DefaultMaterial_BaseColor.1001') , 1002 should be receiving yellow, and so on. This is currently not the case.<br>
+<br>
+Setting the Border mode to 'Wrap Around' just repeats the same, incorrect application across all UVs. Setting the Border mode to 'White Color' reveals that there are UV islands not receiving any of the texture data mapped to their UDIM tile, thus showing white (if working properly, this shouldn't be the case).<br>
+<br>
+For added clarity, I've recreated this scene in an earlier environment - to demonstrate the correct behavior. See attached video as well as zip folder containing the deprecated scene files. The deprecated scene file demonstrates correct UDIM loading behavior - note that I've added some 'rough' sketch annotations on the model to demonstrate. Words, arrows, and eyes drawn on the model are mapped correctly in the deprecated version, but not using the latest version... it's a jumbled mess.<br>
+<br>
+Deprecated Version:<br>
+- Houdini FX 20.5.550<br>
+- Octane Render 2025.2.0.0<br>
+<br>
+------------------------------------------------------------------------------------<br>
+<br>
+ANNOTATION.mp4<br>
+Octane_UDIM_Troubleshoot_R2.zip
+</div></blockquote>
+
+Thanks for the new scene file. <br>
+It turns out you are using the wrong tile node in 2026.5.0.0. In 2026.2.0.0, you are using "UV tiles" node, but in 2025.0.0, you are using "Tile grid image" node which doesn't have Border mode (u)/(v) parameters.<br>
+Houdini plugin renamed and reordered vop nodes in a version to match the node names in Octane, I think it might confused you. <br>
+When I use a "UV tiles" node and the same settings in 2025.0.0, the rubber toy renders as expected.<br>
+Let me know if you can get the correct result with "UV tiles" node, otherwise I can share the 2025.5.0.0 scene file I use. <br>
+<br>
+Cheers
+</div></blockquote>
+
+Thanks for this, Bruce - <br>
+<br>
+Confirming the new UV_Tiles setup works. May I ask, is there an advantage to keeping the old 'Tile Grid Image' node available in the latest build, if it's no longer working?<br>
+<br>
+Thanks again for the support here, and love to see the development momentum on the houdini side of things as of late!</div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444516" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444516">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=933649" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=933649" style="color: #FF6600;" class="username-coloured">bruce.chai</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_octaneteam.png" alt="OctaneRender Team" title="OctaneRender Team" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=933649&amp;sr=posts">110</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Thu Oct 19, 2023 8:26 pm</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444516">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444516" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444516#p444516" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-28T22:12:13+00:00">Mon Sep 28, 2026 10:12 pm</time></a>
+			</p>
+			
+			
+									<div class="content"><blockquote cite="./viewtopic.php?p=444513#p444513"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444513#p444513" aria-label="View quoted post" data-post-id="444513" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Mon Sep 28, 2026 6:26 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444501#p444501"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444501#p444501" aria-label="View quoted post" data-post-id="444501" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 8:25 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444498#p444498"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444498#p444498" aria-label="View quoted post" data-post-id="444498" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 3:13 pm</span></cite>
+<br>
+<br>
+Hey Bruce - <br>
+<br>
+Thanks for your fast response!<br>
+<br>
+The issue isn't getting arbitrary 'full coverage' on the model, but the improper mapping of texture maps 1001, 1002, 1003 and 1004 to their corresponding UV islands on UDIM tiles 1001, 1002, 1003 and 1004.<br>
+<br>
+Only geometry with UVs packed on 1001 should be receiving the red texture (named 'DefaultMaterial_BaseColor.1001') , 1002 should be receiving yellow, and so on. This is currently not the case.<br>
+<br>
+Setting the Border mode to 'Wrap Around' just repeats the same, incorrect application across all UVs. Setting the Border mode to 'White Color' reveals that there are UV islands not receiving any of the texture data mapped to their UDIM tile, thus showing white (if working properly, this shouldn't be the case).<br>
+<br>
+For added clarity, I've recreated this scene in an earlier environment - to demonstrate the correct behavior. See attached video as well as zip folder containing the deprecated scene files. The deprecated scene file demonstrates correct UDIM loading behavior - note that I've added some 'rough' sketch annotations on the model to demonstrate. Words, arrows, and eyes drawn on the model are mapped correctly in the deprecated version, but not using the latest version... it's a jumbled mess.<br>
+<br>
+Deprecated Version:<br>
+- Houdini FX 20.5.550<br>
+- Octane Render 2025.2.0.0<br>
+<br>
+------------------------------------------------------------------------------------<br>
+<br>
+ANNOTATION.mp4<br>
+Octane_UDIM_Troubleshoot_R2.zip
+</div></blockquote>
+
+Thanks for the new scene file. <br>
+It turns out you are using the wrong tile node in 2026.5.0.0. In 2026.2.0.0, you are using "UV tiles" node, but in 2025.0.0, you are using "Tile grid image" node which doesn't have Border mode (u)/(v) parameters.<br>
+Houdini plugin renamed and reordered vop nodes in a version to match the node names in Octane, I think it might confused you. <br>
+When I use a "UV tiles" node and the same settings in 2025.0.0, the rubber toy renders as expected.<br>
+Let me know if you can get the correct result with "UV tiles" node, otherwise I can share the 2025.5.0.0 scene file I use. <br>
+<br>
+Cheers
+</div></blockquote>
+
+Thanks for this, Bruce - <br>
+<br>
+Confirming the new UV_Tiles setup works. May I ask, is there an advantage to keeping the old 'Tile Grid Image' node available in the latest build, if it's no longer working?<br>
+<br>
+Thanks again for the support here, and love to see the development momentum on the houdini side of things as of late!
+</div></blockquote>
+
+Thanks for confirming the UV_Tiles node works for you. <br>
+<br>
+'Tile Grid Image' wasn't an old node, 'UV tiles' and 'Tile Grid Image' nodes are always there for different purposes.<br>
+<a href="https://docs.otoy.com/standaloneSE/UVTiles.html" class="postlink">https://docs.otoy.com/standaloneSE/UVTiles.html</a><br>
+<a href="https://docs.otoy.com/standaloneSE/TileGridImage.html" class="postlink">https://docs.otoy.com/standaloneSE/TileGridImage.html</a></div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+			<div id="p444517" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile444517">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+										
+											<a href="./memberlist.php?mode=viewprofile&amp;u=222811" class="avatar">							<img class="avatar" src="./styles/Milk_v2_Compact/theme/images/no_avatar.gif" width="100" height="100" alt="User avatar (Default)">
+						</a>										
+									</div>
+								<a href="./memberlist.php?mode=viewprofile&amp;u=222811" style="color: #a722ff;" class="username-coloured">atcovrett</a>				                
+							</dt>
+	
+        
+						<dd class="profile-rank"><img src="./images/ranks/rank_customer.png" alt="Licensed Customer" title="Licensed Customer" /></dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="./search.php?author_id=222811&amp;sr=posts">16</a></dd>		<dd class="profile-joined clutter"><strong>Joined:</strong> Sun Jun 07, 2015 6:46 am</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content444517">
+
+																			<ul class="post-buttons">
+																																									<li>
+							<a href="./posting.php?mode=quote&amp;p=444517" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+																	<a class="unread" href="./viewtopic.php?p=444517#p444517" title="Post"><i class="icon fa-clock-o"></i> <time datetime="2026-09-28T22:15:24+00:00">Mon Sep 28, 2026 10:15 pm</time></a>
+			</p>
+			
+			
+									<div class="content"><blockquote cite="./viewtopic.php?p=444516#p444516"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444516#p444516" aria-label="View quoted post" data-post-id="444516" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Mon Sep 28, 2026 10:12 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444513#p444513"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=222811">atcovrett</a> wrote: <a href="./viewtopic.php?p=444513#p444513" aria-label="View quoted post" data-post-id="444513" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Mon Sep 28, 2026 6:26 pm</span></cite>
+<blockquote cite="./viewtopic.php?p=444501#p444501"><div><cite><a href="./memberlist.php?mode=viewprofile&amp;u=933649">bruce.chai</a> wrote: <a href="./viewtopic.php?p=444501#p444501" aria-label="View quoted post" data-post-id="444501" onclick="if(document.getElementById(hash.substr(1)))href=hash"><i class="icon fa-arrow-circle-up fa-fw" aria-hidden="true"></i></a><span class="responsive-hide">Sun Sep 27, 2026 8:25 pm</span></cite>
+<br>
+<br>
+Thanks for the new scene file. <br>
+It turns out you are using the wrong tile node in 2026.5.0.0. In 2026.2.0.0, you are using "UV tiles" node, but in 2025.0.0, you are using "Tile grid image" node which doesn't have Border mode (u)/(v) parameters.<br>
+Houdini plugin renamed and reordered vop nodes in a version to match the node names in Octane, I think it might confused you. <br>
+When I use a "UV tiles" node and the same settings in 2025.0.0, the rubber toy renders as expected.<br>
+Let me know if you can get the correct result with "UV tiles" node, otherwise I can share the 2025.5.0.0 scene file I use. <br>
+<br>
+Cheers
+</div></blockquote>
+
+Thanks for this, Bruce - <br>
+<br>
+Confirming the new UV_Tiles setup works. May I ask, is there an advantage to keeping the old 'Tile Grid Image' node available in the latest build, if it's no longer working?<br>
+<br>
+Thanks again for the support here, and love to see the development momentum on the houdini side of things as of late!
+</div></blockquote>
+
+Thanks for confirming the UV_Tiles node works for you. <br>
+<br>
+'Tile Grid Image' wasn't an old node, 'UV tiles' and 'Tile Grid Image' nodes are always there for different purposes.<br>
+<a href="https://docs.otoy.com/standaloneSE/UVTiles.html" class="postlink">https://docs.otoy.com/standaloneSE/UVTiles.html</a><br>
+<a href="https://docs.otoy.com/standaloneSE/TileGridImage.html" class="postlink">https://docs.otoy.com/standaloneSE/TileGridImage.html</a>
+</div></blockquote>
+
+Ah, understood! Thanks again.</div>
+            
+			
+									
+						
+										
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	        
+
+</div>
+
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="./posting.php?mode=reply&amp;t=85846" class="button specialbutton" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="./viewtopic.php?t=85846&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="./viewtopic.php?t=85846">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			8 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+	</div>
+
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="./viewforum.php?f=102" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Releases”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="./viewforum.php?f=8" class="jumpbox-cat-link"> <span> Public Forums</span></a></li>
+																<li><a href="./viewforum.php?f=7" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News &amp; Announcements</span></a></li>
+																<li><a href="./viewforum.php?f=108" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Service Maintenance Notices</span></a></li>
+																<li><a href="./viewforum.php?f=98" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; OctaneVR Questions &amp; Discussion</span></a></li>
+																<li><a href="./viewforum.php?f=25" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Demo Version Questions &amp; Discussion</span></a></li>
+																<li><a href="./viewforum.php?f=16" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Competitions</span></a></li>
+																<li><a href="./viewforum.php?f=130" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Metropia ArtStation Contest</span></a></li>
+																<li><a href="./viewforum.php?f=62" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; The OctaneBench Competition Entries</span></a></li>
+																<li><a href="./viewforum.php?f=97" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; OTOY &amp; Oculus: Render the Metaverse Contest Submissions</span></a></li>
+																<li><a href="./viewforum.php?f=99" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; OTOY &amp; Oculus: Render the Metaverse Contest WIP</span></a></li>
+																<li><a href="./viewforum.php?f=21" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Resources and Sharing</span></a></li>
+																<li><a href="./viewforum.php?f=51" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Tutorials</span></a></li>
+																<li><a href="./viewforum.php?f=73" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Lua Scripting</span></a></li>
+																<li><a href="./viewforum.php?f=118" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Module Development</span></a></li>
+																<li><a href="./viewforum.php?f=119" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Redspec SSS</span></a></li>
+																<li><a href="./viewforum.php?f=139" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; The Render Network</span></a></li>
+																<li><a href="./viewforum.php?f=64" class="jumpbox-cat-link"> <span> OTOY Cloud Services</span></a></li>
+																<li><a href="./viewforum.php?f=65" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News &amp; Announcements</span></a></li>
+																<li><a href="./viewforum.php?f=100" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; OctaneRender Cloud</span></a></li>
+																<li><a href="./viewforum.php?f=155" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; OTOY Studio</span></a></li>
+																<li><a href="./viewforum.php?f=156" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Timeline</span></a></li>
+																<li><a href="./viewforum.php?f=157" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; OTOY Canvas</span></a></li>
+																<li><a href="./viewforum.php?f=70" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; ORBX on Amazon AMIs</span></a></li>
+																<li><a href="./viewforum.php?f=71" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; ORBX.js</span></a></li>
+																<li><a href="./viewforum.php?f=22" class="jumpbox-cat-link"> <span> Octane Licensed Customer Forums</span></a></li>
+																<li><a href="./viewforum.php?f=9" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; General Discussion</span></a></li>
+																<li><a href="./viewforum.php?f=26" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Plugin Discussion/Support</span></a></li>
+																<li><a href="./viewforum.php?f=120" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Adobe After Effects</span></a></li>
+																<li><a href="./viewforum.php?f=121" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=122" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=123" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Help / Tutorials</span></a></li>
+																<li><a href="./viewforum.php?f=124" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User requests</span></a></li>
+																<li><a href="./viewforum.php?f=27" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Autodesk 3Ds Max</span></a></li>
+																<li><a href="./viewforum.php?f=80" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=81" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=82" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=83" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Off Topic</span></a></li>
+																<li><a href="./viewforum.php?f=72" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Autodesk AutoCAD</span></a></li>
+																<li><a href="./viewforum.php?f=63" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Autodesk Inventor</span></a></li>
+																<li><a href="./viewforum.php?f=28" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Autodesk Maya</span></a></li>
+																<li><a href="./viewforum.php?f=109" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=110" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=126" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Help / Tutorials</span></a></li>
+																<li><a href="./viewforum.php?f=111" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=112" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Off Topic</span></a></li>
+																<li><a href="./viewforum.php?f=61" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Autodesk Revit</span></a></li>
+																<li><a href="./viewforum.php?f=29" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Autodesk Softimage XSI</span></a></li>
+																<li><a href="./viewforum.php?f=56" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Graphisoft ArchiCAD</span></a></li>
+																<li><a href="./viewforum.php?f=32" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Blender</span></a></li>
+																<li><a href="./viewforum.php?f=113" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=114" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=115" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=116" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Off Topic</span></a></li>
+																<li><a href="./viewforum.php?f=79" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Carrara</span></a></li>
+																<li><a href="./viewforum.php?f=30" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Maxon Cinema 4D</span></a></li>
+																<li><a href="./viewforum.php?f=85" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=86" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=87" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Help / Tutorials</span></a></li>
+																<li><a href="./viewforum.php?f=88" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User requests</span></a></li>
+																<li><a href="./viewforum.php?f=44" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; DAZ Studio</span></a></li>
+																<li><a href="./viewforum.php?f=145" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=101" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Houdini</span></a></li>
+																<li><a href="./viewforum.php?f=102" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=103" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=104" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=105" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Off Topic</span></a></li>
+																<li><a href="./viewforum.php?f=149" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Hydra Omniverse</span></a></li>
+																<li><a href="./viewforum.php?f=150" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=151" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=152" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=140" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Hydra Solaris (Legacy Plugin)</span></a></li>
+																<li><a href="./viewforum.php?f=141" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=142" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=143" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=36" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Lightwave 3D</span></a></li>
+																<li><a href="./viewforum.php?f=135" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=136" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=137" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=138" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Off Topic</span></a></li>
+																<li><a href="./viewforum.php?f=34" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Foundry Modo</span></a></li>
+																<li><a href="./viewforum.php?f=90" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; NUKE</span></a></li>
+																<li><a href="./viewforum.php?f=91" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=92" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=93" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Help / Tutorials</span></a></li>
+																<li><a href="./viewforum.php?f=94" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=45" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Poser</span></a></li>
+																<li><a href="./viewforum.php?f=41" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Rhinoceros 3D</span></a></li>
+																<li><a href="./viewforum.php?f=31" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; SketchUp</span></a></li>
+																<li><a href="./viewforum.php?f=146" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=147" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=148" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; User Requests</span></a></li>
+																<li><a href="./viewforum.php?f=131" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Unreal® Engine</span></a></li>
+																<li><a href="./viewforum.php?f=132" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Releases</span></a></li>
+																<li><a href="./viewforum.php?f=133" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Bug Reports</span></a></li>
+																<li><a href="./viewforum.php?f=134" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Help / Tutorials</span></a></li>
+																<li><a href="./viewforum.php?f=129" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Unity</span></a></li>
+																<li><a href="./viewforum.php?f=154" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Architron</span></a></li>
+																<li><a href="./viewforum.php?f=144" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Sculptron</span></a></li>
+																<li><a href="./viewforum.php?f=125" class="jumpbox-sub-link"><span class="spacer"></span><span class="spacer"></span> <span>&#8627; &nbsp; Testing Releases (Non-Production)</span></a></li>
+																<li><a href="./viewforum.php?f=4" class="jumpbox-cat-link"> <span> M is for Metaverse</span></a></li>
+																<li><a href="./viewforum.php?f=5" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; M is for Metaverse Gallery</span></a></li>
+																<li><a href="./viewforum.php?f=6" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Works In Progress</span></a></li>
+																<li><a href="./viewforum.php?f=77" class="jumpbox-cat-link"> <span> Octane Student and Subscriber Forum</span></a></li>
+																<li><a href="./viewforum.php?f=76" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; General Discussion</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+
+</div>
+
+					                            		</div>
+                                </div>
+                            </div>
+
+							
+                                                        <div id="rightcolumn">
+                                <div class="innertube"><div id="sidebar_right" class="sidebar_right_collapse">
+
+
+    <div class="search-box sidebar_widget" role="search">
+        <form method="get" id="forum-search" action="./search.php">
+        <fieldset>
+            <input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search sidebar_search" value="" placeholder="Search…" />
+            <button class="button button-search" type="submit" title="Search">
+                <i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+            </button>
+            <a href="./search.php" class="button button-search-end" title="Advanced search">
+                <i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+            </a>
+            <input type="hidden" name="t" value="85846" />
+<input type="hidden" name="sf" value="msgonly" />
+
+        </fieldset>
+        </form>
+    </div>
+
+	<div class="sidebar_widget profile_widget fancy_panel">
+    	<div class="fancy_panel_padding">
+                        <!-- <div class="collapse-trigger open">
+                <span class="icon fa-minus tooltip-left" title="Collapse"></span>
+                <span class="icon fa-plus tooltip-left" title="Expand"></span>
+            </div>-->
+            <div class="sidebar_content">
+            
+
+            
+                            <div class="login_form" style="padding-bottom:10px;">
+                    <a type="button" role="button" href="./ucp.php?mode=login&amp;redirect=viewtopic.php%3Fp%3D444444" class="login_form_sidebar_btn button specialbutton">Login</a>
+                </div>
+
+                <div class="login_form">
+                    <a type="button" role="button" href="./ucp.php?mode=register" class="login_form_sidebar_btn button">Register</a>
+                </div>
+                        </div>
+        </div>
+</div>
+
+<!--
+<div class="sidebar_widget profile_widget fancy_panel">
+	<div class="fancy_panel_padding">
+		<div class="sidebar_content ad_block">
+			<a href="https://rendertoken.com/" target="_blank" style="width:200px; border:1px solid #d6d6d6;">
+				<img src="./styles/Milk_v2_Compact/theme/images/right_sidebar_img.jpeg" alt="RNDR" />
+			</a>
+		</div>
+	</div>
+</div>
+-->
+
+</div>
+</div>
+                            </div>
+                            						</div><!-- /#maincontainer -->
+                    
+
+                                    </div>
+
+            
+            	</div><!-- /#inner-wrap -->
+
+                                	<div class="social_links_footer"><a href="https://twitter.com/otoy" target="_blank"><span class="fa fa-twitter"></span></a>
+<a href="https://www.facebook.com/OTOY" target="_blank"><span class="fa fa-facebook"></span></a></div>
+                
+
+            <div id="page-footer" class="page-footer" role="contentinfo">
+                <div class="navbar_footer" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="./index.php" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC">UTC</span></li>
+							<li class="rightside">
+				<a href="/forum/app.php/user/delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+									<li class="rightside">
+        	<a class="footer-link" href="./ucp.php?mode=privacy" title="Privacy" role="menuitem">
+            	<i class="icon fa-lock" aria-hidden="true"></i><span class="footer-link-text">Privacy</span>
+            </a>
+        </li>
+        <li class="rightside">
+            <a class="footer-link" href="./ucp.php?mode=terms" title="Terms" role="menuitem">
+                <i class="icon fa-check fa-fw" aria-hidden="true"></i><span class="footer-link-text">Terms</span>
+            </a>           
+        </li>
+
+     
+									<li class="rightside" data-last-responsive="true">
+				<a href="./memberlist.php?mode=contactadmin" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+                <div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+                    <div id="darken" class="darken">&nbsp;</div>
+                </div>
+
+                <div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+                    <a href="#" class="alert_close">
+                        <i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+                    </a>
+                    <h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+                </div>
+                <div id="phpbb_confirm" class="phpbb_alert">
+                    <a href="#" class="alert_close">
+                        <i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+                    </a>
+                    <div class="alert_text"></div>
+                </div>
+            </div>
+
+            <div class="copyright_bar" dir="ltr">                
+                © OTOY Inc. – 2017 All Rights Reserved.
+                <br /><br />
+                
+                <a href="https://home.otoy.com/terms-and-conditions/" target="_blank">Terms and Conditions</a> &bull; <a href="https://home.otoy.com/privacy-policy/" target="_blank">Privacy Policy</a>
+				<br /><br />
+                
+				                                								
+				<!-- Status icon -->
+				<a href="http://status.otoy.com" target="_blank" style='color: inherit !important; text-decoration-line: unset !important;'>
+					<div class="color-dot">&nbsp;</div>
+					<span class="color-description">Loading Server Status</span>
+				</a>
+            </div>
+
+            </div> <!-- /#wrap -->
+
+            <div style="display: none;">
+                <a id="bottom" class="anchor" accesskey="z"></a>
+                            </div>
+
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+			
+            <!-- Status Event widget -->
+            <script src="https://vplwwxhc1z3n.statuspage.io/embed/script.js" defer></script>
+            
+			<!-- Status icon script -->
+            <script>
+                $(function () {
+                    $.ajax({
+                        url: "https://vplwwxhc1z3n.statuspage.io/api/v2/status.json",
+                        success: function (data) {
+                            if (data.status) {
+                                // adds the text description to the dropdown
+                                $('.color-description').text(data.status.description);
+
+                                // appends the status indicator as a class name so we can use the right color for the status light thing
+                                $('.color-dot').addClass(data.status.indicator);
+
+                                console.log("statuspage OK");
+                            } else {
+                                console.log("statuspage Fail 1");
+                            }
+                        }
+                    }).fail(function () {
+                        console.log("statuspage Fail 2");
+                    });
+                });
+            </script>
+            
+                        <script>window.jQuery || document.write('\x3Cscript src="./assets/javascript/jquery-3.6.0.min.js?assets_version=20">\x3C/script>');</script>
+            
+            <script type="text/javascript" src="./assets/javascript/core.js?assets_version=20"></script>
+
+			
+                                                                    
+                        
+            <script>                
+                // ************************************************
+                // clear mechanism (for testing)
+                // localStorage.removeItem('user_colour_selection');
+                // ************************************************                
+                console.log("storage value:" + localStorage.user_colour_selection)
+                FDSetClass();
+                FDSetSwitch();
+                
+                localStorage.getItem("user_colour_selection")                
+
+                function FDSetClass() {
+                                            console.log("FD Base: Light");
+                                                    console.log("FD: Override allowed");
+                            if(localStorage.user_colour_selection == 'dark') {
+                                console.log("FD: User selection: Dark");
+                                $("html").addClass('fd_dark');
+                                localStorage.setItem("user_colour_selection", "dark");
+                            } else {
+                                console.log("FD: User selection: Empty");
+                            }                        
+                                                            }
+
+                function FDSetSwitch() {
+                    if ($("html").hasClass('fd_dark')) {
+                        $("a#dark_toggle_link i").addClass("fa-lightbulb-o");
+                    } else {
+                        $("a#dark_toggle_link i").addClass("fa-moon-o");
+                    }
+                }
+
+                function FDSwitchLink() {
+                    if(localStorage.user_colour_selection == 'dark') {
+                        // Dark
+                        $("a#dark_toggle_link i").removeClass("fa-lightbulb-o");
+                        $("a#dark_toggle_link i").addClass("fa-moon-o");
+                        $("html").removeClass('fd_dark');
+                        localStorage.setItem("user_colour_selection", "cbu");
+                        console.log("Dark preference CBU (cleared by user)");
+                    } else {
+                        // Light
+                        $("a#dark_toggle_link i").removeClass("fa-moon-o");
+                        $("a#dark_toggle_link i").addClass("fa-lightbulb-o");
+                        localStorage.setItem("user_colour_selection", "dark");
+                    }
+                }                                    
+
+                                    $("a#dark_toggle_link").click(function() {
+                        FDSwitchLink();
+                        FDSetClass();
+                    });
+                            </script>
+
+
+
+
+            
+            
+           
+
+            
+                            <script type="text/javascript">
+                    (function($){
+                        var $fa_cdn = $('head').find('link[rel="stylesheet"]').first(),
+                            $span = $('<span class="fa" style="display:none"></span>').appendTo('body');
+                        if ($span.css('fontFamily') !== 'FontAwesome' ) {
+                            $fa_cdn.after('<link href="./assets/css/font-awesome.min.css" rel="stylesheet">');
+                            $fa_cdn.remove();
+                        }
+                        $span.remove();
+                    })(jQuery);
+                </script>
+            
+            
+            
+                        <script src="./styles/Milk_v2/template/tooltipster.bundle.min.js?assets_version=20"></script>
+<script src="./styles/Milk_v2/template/jquery.collapse.js?assets_version=20"></script>
+<script src="./styles/Milk_v2/template/jquery.collapse_storage.js?assets_version=20"></script>
+<script src="./styles/Milk_v2/template/forum_fn.js?assets_version=20"></script>
+<script src="./styles/prosilver/template/ajax.js?assets_version=20"></script>
+
+
+                            <style>
+                    img.custom_logo {
+                        /* Define height to prevent layout issues with uncached logos in particle header */
+                                                    height: 150px;
+                                            }                    
+                </style>
+                <script type="text/javascript">
+					/* Identify the height of headerbar */
+					var headerbar_height = $('.headerbar').height();
+					/* Match particle container height to headerbar. Creates window for canvas */
+					$('.particles_container').css({'height': headerbar_height});
+
+					/* Dynamically apply width to site desc container, maximising clickable area behind it. We only need this to happen when particles are enabled. */
+					var logo_width = $('.site-description').width();
+					var logo_width_fix = (logo_width+2); /* Caters for retina devices where the width is defined as a decimal. Obvs we can't set a decimal pixel width */
+					$('.site-description').css({'width': logo_width_fix});
+				</script>
+				<script src="./styles/Milk_v2_Compact/template/particles.js"></script>
+                <script src="./styles/Milk_v2_Compact/template/particles.app.js"></script>
+
+                <script type="text/javascript">
+					/* Reposition the canvas so it aligns with headerbar */
+					/* $('canvas.particles-js-canvas-el').css({'margin-top': -headerbar_height}); */
+				</script>
+            
+			<script type="text/javascript">
+            $(function($) {
+                var num_cols = 3,
+                container = $('.sub-forumlist'),
+                listItem = 'li',
+                listClass = 'sub-list';
+                container.each(function() {
+                    var items_per_col = new Array(),
+                    items = $(this).find(listItem),
+                    min_items_per_col = Math.floor(items.length / num_cols),
+                    difference = items.length - (min_items_per_col * num_cols);
+                    for (var i = 0; i < num_cols; i++) {
+                        if (i < difference) {
+                            items_per_col[i] = min_items_per_col + 1;
+                        } else {
+                            items_per_col[i] = min_items_per_col;
+                        }
+                    }
+                    for (var i = 0; i < num_cols; i++) {
+                        $(this).append($('<ul ></ul>').addClass(listClass));
+                        for (var j = 0; j < items_per_col[i]; j++) {
+                            var pointer = 0;
+                            for (var k = 0; k < i; k++) {
+                                pointer += items_per_col[k];
+                            }
+                            $(this).find('.' + listClass).last().append(items[j + pointer]);
+                        }
+                    }
+                });
+            });
+            </script>
+
+            <script type="text/javascript">
+                // Add user icon in front of forumlist mods
+            	$("span.forumlist_mods a").each(function(i) {
+            		$(this).prepend("<i class='icon fa-shield fa-fw'></i>");
+            	});
+            	// Remove the comma seperator
+            	$("span.forumlist_mods").each(function() {
+            		$(this).html($(this).html().replace(/,/g , ''));
+            	});
+            </script>
+
+            
+            
+      
+			        <a href="#" class="scrollToTop"><span class="fa fa-arrow-up"></span></a>
+      
+</body>
+</html>

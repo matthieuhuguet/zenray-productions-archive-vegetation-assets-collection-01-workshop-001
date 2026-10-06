@@ -1,0 +1,30 @@
+{
+  "enable": "houdini_version == \"22.0.368\"",
+  "env": [
+    {
+      "OCTVERSION": "/Users/zenray/Create/Build/HoudiniRenderers/22.0.368/Octane"
+    },
+    {
+      "OCTANE_AUTOSPAREPARAMS": "1"
+    },
+    {
+      "HOUDINI_MENU_PATH": {
+        "value": "$OCTVERSION/config/Menus",
+        "method": "prepend"
+      }
+    },
+    {
+      "HOUDINI_SCRIPT_PATH": {
+        "value": "$OCTVERSION/scripts",
+        "method": "prepend"
+      }
+    },
+    {
+      "PXR_PLUGINPATH_NAME": {
+        "value": "$OCTVERSION/dso/usd_plugins",
+        "method": "prepend"
+      }
+    }
+  ],
+  "hpath": "$OCTVERSION"
+}

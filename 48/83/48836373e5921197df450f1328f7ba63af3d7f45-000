@@ -1,0 +1,17 @@
+[Octane]      Octane Render for Houdini. Build 2026.5.0.0 (Build date: Sep 21 2026 10:21:52)
+[Octane] Octane API: 2026.5
+[Octane] HDK API: 22.0.368
+[Octane] Houdini host version: 22.0.368
+[Octane] Initializing Octane API
+[Octane] Octane API ready. Initialization time: 0.673 seconds
+[Octane] OCIO configuration ready. Initialization time: 0.007 seconds
+[Octane] Octane network rendering enabled. Initialization time: 0.000 seconds
+[Octane] WARNING: preferences file not found: /Users/zenray/Library/Preferences/houdini/22.0/octane.pref
+[Octane] 16:13:15 INFOR: [nodes] -------------  Registering Octane VOP nodes
+[Octane] 16:13:15 INFOR: [nodes] -------------  Octane VOP nodes registered
+[Octane] 16:13:15 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
+[Octane] 16:13:15 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
+/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/tests/OctaneSmoke.usda
+[Octane] 16:13:17 INFOR: [render] ------------   - Cleaning the scene. Full clean state 1
+[Octane] 16:13:17 INFOR: [render] ------------   - Scene including 0 items cleaned. 0 items deleted. 0 remaing items.
+[Octane] 16:13:17 INFOR: [api] ---------------  Closing the Octane API

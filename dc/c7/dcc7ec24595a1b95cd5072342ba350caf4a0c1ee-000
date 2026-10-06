@@ -1,0 +1,2647 @@
+#usda 1.0
+(
+    doc = """Generated from Composed Stage of root layer 
+"""
+    framesPerSecond = 24
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+)
+
+def HoudiniLayerInfo "HoudiniLayerInfo" (
+    customData = {
+        int HoudiniCreatorNode = 325
+        int[] HoudiniEditorNodes = [325, 15, 13]
+        string HoudiniSaveControl = "Placeholder"
+    }
+)
+{
+}
+
+def Scope "Render"
+{
+    def Scope "Products"
+    {
+        def Scope "Vars"
+        {
+            def RenderVar "AAABeauty" (
+                customData = {
+                    int[] HoudiniPrimEditorNodes = [325]
+                }
+            )
+            {
+                custom string BeautyPassName = "" (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                uniform token dataType = "color4f" (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                custom int driver:parameters:aov:clearValue = 0 (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                custom token driver:parameters:aov:format = "color4f" (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                custom bool driver:parameters:aov:multiSampled = 0 (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                custom string driver:parameters:aov:name = "Beauty" (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                uniform string sourceName = "Beauty" (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+                uniform token sourceType = "raw" (
+                    customData = {
+                        int[] HoudiniPrimEditorNodes = [325]
+                    }
+                )
+            }
+        }
+
+        def RenderProduct "OctaneAOVProduct" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [15]
+            }
+        )
+        {
+            rel orderedVars = </Render/Products/Vars/AAABeauty>
+            token productName = "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.Houdini.$F4.exr" (
+                customData = {
+                    int[] HoudiniPrimEditorNodes = [15]
+                }
+            )
+            uniform token productType = "Octane_raster" (
+                customData = {
+                    int[] HoudiniPrimEditorNodes = [15]
+                }
+            )
+        }
+    }
+
+    def RenderSettings "rendersettings" (
+        customData = {
+            int[] HoudiniPrimEditorNodes = [13]
+        }
+    )
+    {
+        uniform token aspectRatioConformPolicy = "expandAperture" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        rel camera = </cameras/camera1>
+        uniform float4 dataWindowNDC = (0, 0, 1, 1) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        uniform bool disableDepthOfField = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        uniform bool disableMotionBlur = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        uniform token[] includedPurposes = ["default"] (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        uniform token[] materialBindingPurposes = ["full", "allPurpose"] (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:accurateColor = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:activelayerid = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:adaptiveSampling = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:adaptiveSampling2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:adaptiveSampling3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:adaptiveSamplingExposure = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:adaptiveSamplingExposure2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:adaptiveSamplingExposure3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:adaptiveSamplingPixelGroup = "2" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:adaptiveSamplingPixelGroup2 = "2" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:adaptiveSamplingPixelGroup3 = "2" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aiLightUpdate = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aiLightUpdate2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aiLightUpdate3 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aiLightUpdate4 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphachannel = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphachannel2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphachannel3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphachannel4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphachannel5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphashadows = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphashadows2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphashadows3 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:alphashadows4 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aoAlphaShadows = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aoambienttexture = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:aodist = 3 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:aodist2 = 3 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:aovenable = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:async = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:beautyraw = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:bump = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:cast_photons = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:cast_photons2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:castphotons = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:castphotons2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:caustic_blur = 0.01 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:caustic_blur2 = 0.01 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:caustic_blur3 = 0.01 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:coherentRatio = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:coherentRatio2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:coherentRatio3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:colorspace = "2" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:colorspaceauto = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:createdir = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:cryptomattebin = 6 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deep = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnable = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnable2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnable3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnablePasses = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnablePasses2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnablePasses3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepEnablePasses4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:deepFile = "deep filename" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:deepimage = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:depthTolerance = 0.05 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:depthTolerance2 = 0.05 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:depthTolerance3 = 0.05 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:depthTolerance4 = 0.05 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:diffusedepth2 = 2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:direct_light_importance = 0.1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableCameraEnvironment = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableDaylightMedium = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableTextureEnvironment = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableTextureEnvironment2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableTextureEnvironment3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableTextureEnvironmentMedium = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:enableTextureEnvironmentMedium2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:exploration_strength = 0.7 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:exploration_strength2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:exportallcameras = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:exportmode = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:exportorbx = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:exportviewportimages = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:exportviewportscenes = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:exportwithoutrenderscene = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:exrcompression = "4" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:fileformat = "2" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:filtersize = 1.2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:filtersize2 = 1.2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:filtersize3 = 1.2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:filtersize4 = 1.2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:filtersize5 = 1.2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:finalnetworkrendering = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:forcetonemap = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:gatherRadius = 0.01 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:GI_mode = "3" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:giClamp = 1000000 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:giClamp2 = 1000000 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:giClamp3 = 1000000 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask2_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask3_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask4_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightIdMask_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:globalLightIdMaskAction = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:globalLightIdMaskAction2 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:globalLightIdMaskAction3 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:globalLightIdMaskAction4 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask2_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask3_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask4_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_1 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_6 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_7 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_8 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_9 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_10 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_11 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_12 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_13 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_14 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_15 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_16 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_17 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_18 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_19 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_20 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_env = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:globalLightLinkMask_sun = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:glossydepth = 2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:groundBlendAngle = 5 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:groundColor = (0.0319282, 0.130434, 0.557292) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:groundStartAngle = 90 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:highlightBackfaces = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:imageenable = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:importance_sampling = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:importance_sampling2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:importancesampling = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:importancesampling2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:infochannels_type = "7" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:infoopacitythreshold = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:infosamples = 128 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:infosamplingmode = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:irradiance = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:irradiance2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:irradiance3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:irradiance4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:keep_environment = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:keep_environment2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:keep_environment3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:keep_environment4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:latitude3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:layeredEXR = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:layerinvert = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:layermode = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:legacy1fpsorbxtiming = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:lightSampler = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:lightSampler2 = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:lightSampler3 = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:lightSampler4 = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:LODSelectionBias = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:LODSelectionBias2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:LODSelectionBias3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:LODSelectionBias4 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:LODSelectionBias5 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:longitude3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDepthSamples = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDepthSamples2 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDepthSamples3 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDepthSamples4 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDiffuseDepth = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDiffuseDepth2 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxDiffuseDepth3 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxGlossyDepth = 24 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxGlossyDepth2 = 24 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxGlossyDepth3 = 24 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxOverlappingVolumes2 = 4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxOverlappingVolumes3 = 4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxOverlappingVolumes4 = 4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxOverlappingVolumes5 = 4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxPhotonDepth = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxrejects = 500 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxsamples = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxsamples2 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxsamples3 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxsamples4 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxsamples5 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxScatterDepth = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxScatterDepth2 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxScatterDepth3 = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:maxSpeed = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:Maxsubdlevel = 10 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:Maxsubdlevel2 = 10 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:MaxsubdLevel3 = 10 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:MaxsubdLevel4 = 10 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:MaxsubdLevel5 = 10 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxTileSamples = 32 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxTileSamples2 = 32 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:maxTileSamples3 = 32 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:mediumRadius3 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:minAdaptiveSamples = 512 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:minAdaptiveSamples2 = 512 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:minAdaptiveSamples3 = 512 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:minimizeNetTraffic = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:minimizeNetTraffic2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:minimizeNetTraffic3 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:minimizeNetTraffic4 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:model = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:motionblursamples = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:nestedDielectrics = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:nestedDielectrics2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:nestedDielectrics3 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:nestedDielectrics4 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:neuralradiancecache = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:neuralradiancecache2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:neuralradiancecache3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:noiseThreshold = 0.02 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:noiseThreshold2 = 0.02 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:noiseThreshold3 = 0.02 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:northoffset = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:northoffset2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:octaneauthorization = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:octanedevicesettings = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:octanelog = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:octanenetworkrendering = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:octanewindow = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:opacity = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:orbxbasefilename = "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:orbxcreatedir = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:outofcore = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:output (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        string octane:global:output.timeSamples = {
+            1: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0001",
+            2: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0002",
+            3: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0003",
+            4: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0004",
+            5: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0005",
+            6: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0006",
+            7: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0007",
+            8: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0008",
+            9: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0009",
+            10: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0010",
+            11: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0011",
+            12: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0012",
+            13: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0013",
+            14: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0014",
+            15: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0015",
+            16: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0016",
+            17: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0017",
+            18: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0018",
+            19: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0019",
+            20: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0020",
+            21: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0021",
+            22: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0022",
+            23: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0023",
+            24: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0024",
+            25: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0025",
+            26: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0026",
+            27: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0027",
+            28: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0028",
+            29: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0029",
+            30: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0030",
+            31: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0031",
+            32: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0032",
+            33: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0033",
+            34: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0034",
+            35: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0035",
+            36: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0036",
+            37: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0037",
+            38: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0038",
+            39: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0039",
+            40: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0040",
+            41: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0041",
+            42: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0042",
+            43: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0043",
+            44: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0044",
+            45: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0045",
+            46: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0046",
+            47: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0047",
+            48: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0048",
+            49: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0049",
+            50: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0050",
+            51: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0051",
+            52: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0052",
+            53: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0053",
+            54: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0054",
+            55: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0055",
+            56: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0056",
+            57: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0057",
+            58: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0058",
+            59: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0059",
+            60: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0060",
+            61: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0061",
+            62: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0062",
+            63: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0063",
+            64: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0064",
+            65: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0065",
+            66: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0066",
+            67: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0067",
+            68: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0068",
+            69: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0069",
+            70: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0070",
+            71: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0071",
+            72: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0072",
+            73: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0073",
+            74: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0074",
+            75: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0075",
+            76: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0076",
+            77: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0077",
+            78: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0078",
+            79: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0079",
+            80: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0080",
+            81: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0081",
+            82: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0082",
+            83: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0083",
+            84: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0084",
+            85: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0085",
+            86: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0086",
+            87: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0087",
+            88: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0088",
+            89: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0089",
+            90: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0090",
+            91: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0091",
+            92: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0092",
+            93: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0093",
+            94: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0094",
+            95: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0095",
+            96: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0096",
+            97: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0097",
+            98: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0098",
+            99: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0099",
+            100: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0100",
+            101: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0101",
+            102: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0102",
+            103: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0103",
+            104: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0104",
+            105: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0105",
+            106: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0106",
+            107: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0107",
+            108: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0108",
+            109: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0109",
+            110: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0110",
+            111: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0111",
+            112: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0112",
+            113: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0113",
+            114: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0114",
+            115: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0115",
+            116: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0116",
+            117: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0117",
+            118: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0118",
+            119: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0119",
+            120: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0120",
+            121: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0121",
+            122: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0122",
+            123: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0123",
+            124: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0124",
+            125: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0125",
+            126: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0126",
+            127: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0127",
+            128: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0128",
+            129: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0129",
+            130: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0130",
+            131: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0131",
+            132: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0132",
+            133: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0133",
+            134: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0134",
+            135: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0135",
+            136: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0136",
+            137: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0137",
+            138: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0138",
+            139: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0139",
+            140: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0140",
+            141: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0141",
+            142: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0142",
+            143: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0143",
+            144: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0144",
+            145: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0145",
+            146: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0146",
+            147: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0147",
+            148: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0148",
+            149: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0149",
+            150: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0150",
+            151: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0151",
+            152: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0152",
+            153: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0153",
+            154: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0154",
+            155: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0155",
+            156: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0156",
+            157: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0157",
+            158: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0158",
+            159: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0159",
+            160: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0160",
+            161: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0161",
+            162: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0162",
+            163: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0163",
+            164: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0164",
+            165: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0165",
+            166: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0166",
+            167: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0167",
+            168: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0168",
+            169: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0169",
+            170: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0170",
+            171: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0171",
+            172: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0172",
+            173: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0173",
+            174: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0174",
+            175: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0175",
+            176: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0176",
+            177: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0177",
+            178: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0178",
+            179: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0179",
+            180: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0180",
+            181: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0181",
+            182: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0182",
+            183: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0183",
+            184: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0184",
+            185: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0185",
+            186: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0186",
+            187: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0187",
+            188: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0188",
+            189: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0189",
+            190: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0190",
+            191: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0191",
+            192: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0192",
+            193: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0193",
+            194: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0194",
+            195: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0195",
+            196: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0196",
+            197: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0197",
+            198: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0198",
+            199: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0199",
+            200: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0200",
+            201: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0201",
+            202: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0202",
+            203: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0203",
+            204: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0204",
+            205: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0205",
+            206: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0206",
+            207: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0207",
+            208: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0208",
+            209: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0209",
+            210: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0210",
+            211: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0211",
+            212: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0212",
+            213: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0213",
+            214: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0214",
+            215: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0215",
+            216: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0216",
+            217: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0217",
+            218: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0218",
+            219: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0219",
+            220: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0220",
+            221: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0221",
+            222: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0222",
+            223: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0223",
+            224: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0224",
+            225: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0225",
+            226: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0226",
+            227: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0227",
+            228: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0228",
+            229: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0229",
+            230: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0230",
+            231: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0231",
+            232: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0232",
+            233: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0233",
+            234: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0234",
+            235: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0235",
+            236: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0236",
+            237: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0237",
+            238: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0238",
+            239: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0239",
+            240: "/Users/zenray/.claude/tmp/tmp-vegetation-assets-collection-01/renderers/render/untitled.Octane1.0240",
+        }
+        custom int octane:global:parallelism = 4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:parallelSamples = 16 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:parallelSamples2 = 16 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:parallelSamples3 = 16 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:parallelSamples4 = 16 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:ParmEnvironment = "NT_ENV_DAYLIGHT" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:ParmKernel = "NT_KERN_DIRECTLIGHTING" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:pathTermPower = 0.3 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:pathTermPower2 = 0.3 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:pathTermPower3 = 0.3 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:pathTermPower4 = 0.3 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:photonCountMultiplier = 4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:photonGatherSamples = 2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:planetaryAltitude = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:planetaryDiffuse = (0.0319282, 0.130434, 0.557292) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:planetaryEmission = (0, 0, 0) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:power = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:power4 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:power6 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:power7 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:premultipliedalpha = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:rayepsilon = 0.0001 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:rayepsilon2 = 0.0001 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:rayepsilon3 = 0.0001 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:rayepsilon4 = 0.0001 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:rayepsilon5 = 0.0001 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:renderlayer = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:samplingMode = "0" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:savenoisy = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:setsunposition = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:setsunposition2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:shortlayernames = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:sky_color = (0.05, 0.3, 1) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:speculardepth2 = 5 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:staticNoise = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:staticNoise2 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:staticNoise3 = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:subsampling = 2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:sun_size = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:sun_size2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:sunIntensity = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:sunIntensity2 = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:sunset_color = (0.6, 0.12, 0.02) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:textureEnvironmentColor = (1, 1, 1) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:textureEnvironmentColor2 = (1, 1, 1) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:toonShadowAmbient = (0.5, 0.5, 0.5) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:toonShadowAmbient4 = (0.5, 0.5, 0.5) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:toonShadowAmbient5 = (0.5, 0.5, 0.5) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:global:toonShadowAmbient6 = (0.5, 0.5, 0.5) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:turbidity = 2.4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:turbidity2 = 2.4 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:UV_max = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:uvSet = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:visiblebackplate = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:visibleEnvironmentBackplate = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:visibleEnvironmentReflections = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:visibleEnvironmentRefractions = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:visiblereflections = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:global:visiblerefractions = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:whiteLightSpectrum = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:whiteLightSpectrum2 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:whiteLightSpectrum3 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:whiteLightSpectrum4 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom string octane:global:whiteLightSpectrum5 = "1" (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom int octane:global:workChunkSize = 8 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:global:Z_depth_max = 5 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float3 octane:postprocessing:baseFogColor = (1, 1, 1) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:chromaticAberationIntensity = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:postprocessing:fog = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:fogBaseLevel = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:fogEnvironmentContribution = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:fogExtinctionDistance = 1000 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:fogHalfDensityHeight = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:lensFlareExtent = 2 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:lensFlareIntensity = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:postprocessing:lightBeams = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:mediumDensity = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom float octane:postprocessing:mediumRadius = 100 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        custom bool octane:postprocessing:on_off = 0 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        uniform float pixelAspectRatio = 1 (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+        rel products = </Render/Products/OctaneAOVProduct>
+        uniform int2 resolution = (2048, 1080) (
+            customData = {
+                int[] HoudiniPrimEditorNodes = [13]
+            }
+        )
+    }
+}
+
